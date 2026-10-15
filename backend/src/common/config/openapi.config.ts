@@ -16,9 +16,9 @@ import { apiReference } from "@scalar/nestjs-api-reference";
  */
 export function createOpenApiDocument(app: INestApplication): OpenAPIObject {
   const config = new DocumentBuilder()
-    .setTitle("Hyundai E-Commerce API")
+    .setTitle("OpenGenset API")
     .setDescription(
-      "Hyundai E-Commerce Platform API for Commercial Vehicles, B2B Dealer Quoting, Warehouse Management, and Multi-channel Payment Processing.",
+      "OpenGenset Platform API - Industrial Genset B2B Commerce, RFQ Cockpit, Warehouse Batch Management, and Smart IoT Telemetry Monitoring.",
     )
     .setVersion("1.0.0")
     .setOpenAPIVersion("3.1.0")

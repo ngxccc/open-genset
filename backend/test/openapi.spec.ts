@@ -32,11 +32,9 @@ describe("OpenAPI Specification & Scalar Documentation", () => {
   describe("OpenAPI 3.1.0 Document Structure", () => {
     it("should conform to OpenAPI 3.1.0 standard with platform metadata", () => {
       expect(document.openapi).toBe("3.1.0");
-      expect(document.info.title).toBe("Hyundai E-Commerce API");
+      expect(document.info.title).toBe("OpenGenset API");
       expect(document.info.version).toBe("1.0.0");
-      expect(document.info.description).toContain(
-        "Hyundai E-Commerce Platform API",
-      );
+      expect(document.info.description).toContain("OpenGenset Platform API");
     });
 
     it("should configure bearer and JWT-auth security schemes in components", () => {
