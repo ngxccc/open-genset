@@ -6,23 +6,22 @@ export const META_THEME_COLORS = {
 } as const;
 
 export const siteConfig = {
-  name: "Hyundai Nhật Năng | Máy Phát Điện Chính Hãng",
-  shortName: "Hyundai Nhật Năng",
+  name: "OpenGenset | Nền Tảng Thương Mại Máy Phát Điện & IoT Telemetry",
+  shortName: "OpenGenset",
   description:
-    "Đại lý phân phối độc quyền máy phát điện Hyundai chính hãng, bộ lưu điện UPS và giải pháp nguồn điện công nghiệp/dân dụng hàng đầu tại Việt Nam.",
+    "Hệ thống thương mại điện tử B2B và nền tảng giám sát thông minh thiết bị máy phát điện công nghiệp ứng dụng IoT.",
   url: env.NEXT_PUBLIC_APP_URL,
   ogImage: `${env.NEXT_PUBLIC_APP_URL}/opengraph-image.jpg`,
   keywords: [
-    "Máy phát điện Hyundai",
+    "OpenGenset",
     "Máy phát điện công nghiệp",
     "Máy phát điện 3 pha",
-    "Máy phát điện gia đình",
+    "Báo giá B2B máy phát điện",
+    "IoT Telemetry",
     "Giải pháp nguồn điện",
-    "Bảo trì máy phát điện",
   ],
   links: {
-    twitter: "https://twitter.com/hyundainhatnang",
-    github: "https://github.com/ngocdev/hyundai-ecommerce",
+    github: "https://github.com/ngocdev/open-genset",
   },
 } as const;
 

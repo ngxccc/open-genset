@@ -1,6 +1,7 @@
 {
   "adminDashboard": {
-    "title": "Hyundai Nhật Năng",
+    "title": "OpenGenset",
+    "subtitle": "B2B Admin Portal",
     "logoutSuccess": "Đăng xuất thành công",
     "logoutError": "Đăng xuất thất bại",
     "nav": {
