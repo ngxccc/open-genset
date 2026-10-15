@@ -3,10 +3,11 @@
  * Prevents hardcoding business identity and contact details inside translation strings.
  */
 export const COMPANY_CONFIG = {
-  BRAND_NAME: "Hyundai Nhật Năng",
-  LEGAL_NAME: "Hyundai Nhật Năng Co., Ltd.",
-  DEFAULT_ADMIN_EMAIL: "admin@hyundai-nhatnang.vn",
-  SUPPORT_EMAIL: "it-support@hyundai-nhatnang.vn",
+  BRAND_NAME: "OpenGenset",
+  PORTAL_NAME: "B2B Admin Portal",
+  LEGAL_NAME: "OpenGenset Industrial Solutions Co., Ltd.",
+  DEFAULT_ADMIN_EMAIL: "admin@opengenset.io",
+  SUPPORT_EMAIL: "support@opengenset.io",
   HOTLINES: {
     HCM: "0901.49.7771",
     HN: "0979.778.779",

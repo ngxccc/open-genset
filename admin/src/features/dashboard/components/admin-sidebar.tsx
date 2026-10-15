@@ -34,6 +34,7 @@ import {
 import { adminLogoutAction } from "@/features/auth/actions/admin-logout.action";
 import type { AdminUser } from "@/lib/session";
 import { Badge } from "@/components/ui/badge";
+import { COMPANY_CONFIG } from "@/constants/company.constant";
 const AdminCommandDialog = dynamic(
   () => import("./admin-command-dialog").then((mod) => mod.AdminCommandDialog),
   { ssr: false },
@@ -76,20 +77,28 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
             <div className="relative flex size-8 shrink-0 items-center justify-center">
               <Image
                 src="/brand/logo-icon.svg"
-                alt="Hyundai Logo"
+                alt={COMPANY_CONFIG.BRAND_NAME}
                 width={26}
                 height={26}
-                className="object-contain"
+                className="object-contain dark:hidden"
+                priority
+              />
+              <Image
+                src="/brand/logo-icon-dark.svg"
+                alt={COMPANY_CONFIG.BRAND_NAME}
+                width={26}
+                height={26}
+                className="hidden object-contain dark:block"
                 priority
               />
             </div>
             {!isCollapsed && (
               <div className="flex flex-col overflow-hidden text-left">
                 <span className="text-foreground truncate text-sm font-bold tracking-tight">
-                  HYUNDAI NHẬT NĂNG
+                  {t("title").toUpperCase()}
                 </span>
                 <span className="text-muted-foreground truncate text-[10px] font-medium tracking-wider uppercase">
-                  B2B Admin Portal
+                  {t("subtitle")}
                 </span>
               </div>
             )}

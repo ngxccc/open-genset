@@ -6,10 +6,12 @@ export const META_THEME_COLORS = {
 } as const;
 
 export const siteConfig = {
-  name: "Hyundai Nhật Năng Admin Portal",
-  shortName: "Hyundai Nhật Năng",
+  name: "OpenGenset Admin Portal",
+  shortName: "OpenGenset",
+  portalTitle: "OpenGenset",
+  portalSubtitle: "B2B Admin Portal",
   description:
-    "Hệ thống quản trị thương mại điện tử và phân phối máy phát điện Hyundai chính hãng.",
+    "Hệ thống quản trị thương mại điện tử B2B và nền tảng giám sát thông minh thiết bị máy phát điện công nghiệp OpenGenset.",
   url: env.NEXT_PUBLIC_APP_URL,
   ogImage: `${env.NEXT_PUBLIC_APP_URL}/opengraph-image.jpg`,
   keywords: [
@@ -21,7 +23,7 @@ export const siteConfig = {
     "Bảo trì máy phát điện",
   ],
   links: {
-    github: "https://github.com/ngocdev/hyundai-ecommerce",
+    github: "https://github.com/ngocdev/open-genset",
   },
 } as const;
 

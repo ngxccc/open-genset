@@ -1,6 +1,7 @@
 {
   "adminDashboard": {
-    "title": "Hyundai Nhat Nang",
+    "title": "OpenGenset",
+    "subtitle": "B2B Admin Portal",
     "logoutSuccess": "Logged out successfully",
     "logoutError": "Logout failed",
     "nav": {
