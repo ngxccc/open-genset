@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 180" width="680" height="180">
+  <defs>
+    <!-- Background Gradient: Deep Midnight Obsidian -->
+    <linearGradient id="logoNavyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#060A12"/>
+    </linearGradient>
+
+    <!-- Signature Corporate Navy -->
+    <linearGradient id="logoPrimaryNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#002C6C"/>
+    </linearGradient>
+
+    <!-- Deep Navy Slate (Canopy & Chassis) -->
+    <linearGradient id="logoNavySlate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <!-- Steel Roof Plate -->
+    <linearGradient id="logoSteelRoof" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Matte Canvas -->
+  <rect width="680" height="180" rx="16" fill="url(#logoNavyBg)"/>
+  <rect width="680" height="180" rx="16" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- EMBLEM ICON (Left Aligned, Clean Symmetrical Industrial Genset) -->
+  <g transform="translate(105, 92) scale(0.42)">
+    <!-- Base Skid / Chassis -->
+    <path d="M -140 100 L 140 100 L 130 120 L -130 120 Z" fill="#0A0E17" stroke="#1E293B" stroke-width="2"/>
+    <rect x="-80" y="105" width="36" height="9" rx="2" fill="#060A12" stroke="#1E293B"/>
+    <rect x="44" y="105" width="36" height="9" rx="2" fill="#060A12" stroke="#1E293B"/>
+
+    <!-- Main Acoustic Soundproof Canopy Body -->
+    <rect x="-130" y="-35" width="260" height="135" rx="6" fill="url(#logoNavySlate)" stroke="#334155" stroke-width="2.5"/>
+
+    <!-- Left Ventilation Louvers -->
+    <g fill="#0A0E17" stroke="#1E293B" stroke-width="1.2">
+      <rect x="-116" y="-12" width="64" height="10" rx="2"/>
+      <rect x="-116" y="6" width="64" height="10" rx="2"/>
+      <rect x="-116" y="24" width="64" height="10" rx="2"/>
+      <rect x="-116" y="42" width="64" height="10" rx="2"/>
+      <rect x="-116" y="60" width="64" height="10" rx="2"/>
+    </g>
+
+    <!-- Canopy Division Seam -->
+    <line x1="-36" y1="-35" x2="-36" y2="100" stroke="#334155" stroke-width="2"/>
+
+    <!-- Right Smart Controller Cockpit Window -->
+    <rect x="-18" y="-15" width="134" height="95" rx="6" fill="#060A12" stroke="#1E293B" stroke-width="2"/>
+    <rect x="-8" y="5" width="114" height="48" rx="4" fill="#0B1324" stroke="#1E293B" stroke-width="1.2"/>
+
+    <!-- Real-time IoT Telemetry Sine Wave in Primary Blue -->
+    <path d="M -2 29 L 16 29 L 26 14 L 38 42 L 48 20 L 58 34 L 68 29 L 100 29"
+          fill="none" stroke="url(#logoPrimaryNavy)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Top Canopy Roof (Clean flush beveled roof plate) -->
+    <path d="M -135 -35 L 135 -35 L 122 -52 L -122 -52 Z" fill="url(#logoSteelRoof)" stroke="#475569" stroke-width="2"/>
+    <!-- Recessed Roof Vents -->
+    <line x1="-80" y1="-43" x2="-20" y2="-43" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="20" y1="-43" x2="80" y2="-43" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Symmetrical Centered IoT Telemetry Signal Waves -->
+    <path d="M -25 -68 A 25 25 0 0 1 25 -68" fill="none" stroke="url(#logoPrimaryNavy)" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M -45 -82 A 45 45 0 0 1 45 -82" fill="none" stroke="url(#logoPrimaryNavy)" stroke-width="2.8" stroke-linecap="round" stroke-opacity="0.7"/>
+    <path d="M -65 -96 A 65 65 0 0 1 65 -96" fill="none" stroke="url(#logoPrimaryNavy)" stroke-width="2.8" stroke-linecap="round" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- Hairline Divider -->
+  <line x1="195" y1="46" x2="195" y2="134" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- TYPOGRAPHY WORDMARK -->
+  <g transform="translate(228, 88)">
+    <!-- Brand Title -->
+    <text font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" letter-spacing="0.08em" y="0">
+      <tspan fill="#FFFFFF">OPEN</tspan><tspan fill="#2563EB" font-weight="500">GENSET</tspan>
+    </text>
+
+    <!-- Subtitle / Architecture Descriptor -->
+    <text font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748B" letter-spacing="0.28em" y="28">
+      INDUSTRIAL B2B &amp; IOT TELEMETRY
+    </text>
+  </g>
+</svg>

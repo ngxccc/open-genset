@@ -1,90 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 115" width="100%" height="100%" fill="none">
-  <!-- ================= SYMBOL MARK (Left: 100% Solid Flat Geometry Dark) ================= -->
-  <g transform="translate(6, 8)">
-    <!-- Ambient Ring Frame (Solid Flat Color) -->
-    <circle cx="50" cy="50" r="48" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="6 3" />
-    <circle cx="50" cy="50" r="45" stroke="#00A3E0" stroke-width="1.5" stroke-opacity="0.7" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 180" width="680" height="180" fill="none">
+  <defs>
+    <!-- Titanium Pure White -->
+    <linearGradient id="darkFacetWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E4E4E7"/>
+    </linearGradient>
 
-    <!-- Left Pillar of 'H' (Solid Pure White) -->
-    <path d="M 28 22 
-             C 28 22, 38 22, 40 32
-             L 32 78 
-             C 30 84, 22 84, 22 84 
-             L 28 22 Z" 
-          fill="#FFFFFF" />
+    <!-- Brushed Slate -->
+    <linearGradient id="darkFacetSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4D4D8"/>
+      <stop offset="100%" stop-color="#A1A1AA"/>
+    </linearGradient>
 
-    <!-- Right Pillar of 'H' (Solid Pure White) -->
-    <path d="M 68 18 
-             C 74 18, 78 22, 76 28
-             L 66 72 
-             C 64 82, 54 82, 54 82 
-             L 68 18 Z" 
-          fill="#FFFFFF" />
+    <!-- Deep Graphite -->
+    <linearGradient id="darkFacetGraphite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27272A"/>
+      <stop offset="100%" stop-color="#18181B"/>
+    </linearGradient>
+  </defs>
 
-    <!-- Dynamic Energy Bolt (Solid Electric Cyan #00A3E0) -->
-    <path d="M 28 54 
-             L 52 38 
-             L 46 50 
-             L 72 46 
-             L 48 68 
-             L 54 56 
-             Z" 
-          fill="#00A3E0" />
+  <!-- EMBLEM ICON (Left Aligned, Pure Monochrome Titanium & Slate) -->
+  <g transform="translate(105, 92) scale(0.42)">
+    <!-- Base Skid / Chassis -->
+    <path d="M -140 100 L 140 100 L 130 120 L -130 120 Z" fill="url(#darkFacetGraphite)" stroke="#3F3F46" stroke-width="2"/>
+    <rect x="-80" y="105" width="36" height="9" rx="2" fill="#09090B" stroke="#27272A"/>
+    <rect x="44" y="105" width="36" height="9" rx="2" fill="#09090B" stroke="#27272A"/>
 
-    <!-- Energy Spark Accent (Solid Cyan Light) -->
-    <circle cx="72" cy="46" r="3" fill="#38BDF8" />
-    <circle cx="28" cy="54" r="2.5" fill="#0077C8" />
-  </g>
+    <!-- Main Acoustic Soundproof Canopy Body -->
+    <rect x="-130" y="-35" width="260" height="135" rx="6" fill="url(#darkFacetGraphite)" stroke="#3F3F46" stroke-width="2.5"/>
 
-  <!-- ================= WORDMARK (Right: 100% Solid Flat Dark Typography) ================= -->
-  <g transform="translate(122, 22)">
-    <!-- HYUNDAI (Solid Pure White #FFFFFF) -->
-    <text x="0" y="36" 
-          font-family="system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif" 
-          font-size="32" 
-          font-weight="900" 
-          letter-spacing="4" 
-          fill="#FFFFFF">
-      HYUNDAI
-    </text>
-
-    <!-- NHẬT NĂNG (Solid Electric Cyan #00A3E0) -->
-    <text x="195" y="36" 
-          font-family="system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif" 
-          font-size="32" 
-          font-weight="900" 
-          letter-spacing="1.5" 
-          fill="#00A3E0">
-      NHẬT NĂNG
-    </text>
-
-    <!-- Subtitle / Brand Descriptor (Solid Slate) -->
-    <g transform="translate(2, 58)">
-      <!-- Badge pill -->
-      <rect x="0" y="0" width="76" height="17" rx="3.5" fill="#00A3E0" />
-      <text x="38" y="12" 
-            text-anchor="middle"
-            font-family="system-ui, -apple-system, sans-serif" 
-            font-size="8.5" 
-            font-weight="800" 
-            letter-spacing="1.5" 
-            fill="#0F172A">
-        OFFICIAL
-      </text>
-
-      <!-- Tagline -->
-      <text x="86" y="12.5" 
-            font-family="system-ui, -apple-system, sans-serif" 
-            font-size="10.5" 
-            font-weight="700" 
-            letter-spacing="2" 
-            fill="#94A3B8">
-        GENERATOR &amp; UPS POWER SOLUTIONS
-      </text>
+    <!-- Left Ventilation Louvers -->
+    <g fill="#09090B" stroke="#27272A" stroke-width="1.2">
+      <rect x="-116" y="-12" width="64" height="10" rx="2"/>
+      <rect x="-116" y="6" width="64" height="10" rx="2"/>
+      <rect x="-116" y="24" width="64" height="10" rx="2"/>
+      <rect x="-116" y="42" width="64" height="10" rx="2"/>
+      <rect x="-116" y="60" width="64" height="10" rx="2"/>
     </g>
 
-    <!-- Technical Divider Line (Aligned with end of text) -->
-    <line x1="0" y1="46" x2="410" y2="46" stroke="#334155" stroke-width="1.5" />
-    <line x1="0" y1="46" x2="160" y2="46" stroke="#00A3E0" stroke-width="2" />
+    <!-- Canopy Division Seam -->
+    <line x1="-36" y1="-35" x2="-36" y2="100" stroke="#3F3F46" stroke-width="2"/>
+
+    <!-- Right Smart Controller Cockpit Window -->
+    <rect x="-18" y="-15" width="134" height="95" rx="6" fill="#09090B" stroke="#3F3F46" stroke-width="2"/>
+    <rect x="-8" y="5" width="114" height="48" rx="4" fill="#18181B" stroke="#27272A" stroke-width="1.2"/>
+
+    <!-- Real-time IoT Telemetry Sine Wave (Pure Titanium White) -->
+    <path d="M -2 29 L 16 29 L 26 14 L 38 42 L 48 20 L 58 34 L 68 29 L 100 29"
+          fill="none" stroke="url(#darkFacetWhite)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Top Canopy Roof (Clean flush beveled roof plate) -->
+    <path d="M -135 -35 L 135 -35 L 122 -52 L -122 -52 Z" fill="#27272A" stroke="#52525B" stroke-width="2"/>
+    <!-- Recessed Roof Vents -->
+    <line x1="-80" y1="-43" x2="-20" y2="-43" stroke="#18181B" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="20" y1="-43" x2="80" y2="-43" stroke="#18181B" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Symmetrical Centered IoT Telemetry Signal Waves (Titanium & Slate) -->
+    <path d="M -25 -68 A 25 25 0 0 1 25 -68" fill="none" stroke="url(#darkFacetWhite)" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M -45 -82 A 45 45 0 0 1 45 -82" fill="none" stroke="url(#darkFacetSilver)" stroke-width="2.8" stroke-linecap="round" stroke-opacity="0.8"/>
+    <path d="M -65 -96 A 65 65 0 0 1 65 -96" fill="none" stroke="url(#darkFacetSilver)" stroke-width="2.8" stroke-linecap="round" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- Hairline Divider -->
+  <line x1="195" y1="46" x2="195" y2="134" stroke="#27272A" stroke-width="1.5"/>
+
+  <!-- TYPOGRAPHY WORDMARK (Pure Monochrome) -->
+  <g transform="translate(228, 88)">
+    <!-- Brand Title -->
+    <text font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" letter-spacing="0.08em" y="0">
+      <tspan fill="#FFFFFF">OPEN</tspan><tspan fill="#A1A1AA" font-weight="400">GENSET</tspan>
+    </text>
+
+    <!-- Subtitle / Architecture Descriptor -->
+    <text font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#71717A" letter-spacing="0.28em" y="28">
+      INDUSTRIAL B2B &amp; IOT TELEMETRY
+    </text>
   </g>
 </svg>
