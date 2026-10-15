@@ -1,6 +1,6 @@
-# Hyundai Industrial Machinery Commerce
+# OpenGenset - Industrial Genset Commerce & IoT Telemetry Platform
 
-A B2B quotation, commercial negotiation, and distribution platform for heavy industrial and commercial machinery.
+A B2B quotation, commercial negotiation, distribution, and intelligent IoT telemetry platform for heavy industrial power equipment and generators.
 
 ## Quotation & Commercial Negotiation
 

@@ -1,7 +1,7 @@
 {
   "name": "backend",
-  "version": "0.0.0",
-  "description": "Hyundai E-commerce Backend API",
+  "version": "1.0.0",
+  "description": "OpenGenset - Industrial B2B Commerce & IoT Telemetry Backend API",
   "private": true,
   "type": "module",
   "scripts": {
