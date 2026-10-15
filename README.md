@@ -1,8 +1,6 @@
 <div align="center">
 
-# Hyundai E-Commerce Platform
-
-### Enterprise B2B & B2C Industrial Power Equipment & Quotation Negotiation System
+<img src=".github/assets/logo.svg" alt="OpenGenset - Industrial Genset B2B Commerce & IoT Telemetry Platform" width="460" />
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![NestJS](https://img.shields.io/badge/NestJS-12.0-E0234E?logo=nestjs&logoColor=white)](https://nestjs.com)
@@ -22,7 +20,7 @@
 
 ## Overview
 
-**Hyundai E-Commerce** is a modern, enterprise-grade industrial machinery e-commerce and B2B Request for Quotation (RFQ) platform. Built specifically for high-value power equipment (three-phase diesel generators, agricultural machinery, industrial water pumps, and emergency backup power solutions), the system features dynamic multi-tier quotation workflows, warehouse batch stock tracking, PayOS payment integration, and high-concurrency order settlement.
+**OpenGenset** is a modern, enterprise-grade industrial machinery e-commerce, B2B Request for Quotation (RFQ), and IoT intelligent telemetry monitoring platform. Built specifically for high-value power equipment (three-phase diesel generators, agricultural machinery, industrial water pumps, and emergency backup power solutions), the system features dynamic multi-tier quotation workflows, warehouse batch stock tracking, PayOS payment integration, high-concurrency order settlement, and smart telemetry monitoring for industrial power equipment.
 
 ---
 
