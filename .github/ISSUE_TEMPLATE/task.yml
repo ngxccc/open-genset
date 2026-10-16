@@ -1,69 +1,36 @@
-name: "Technical Task / Maintenance"
-description: "Propose code refactoring, test suite enhancement, performance tuning, or maintenance chore"
-title: "<type>(<area>): <summary>"
-labels: ["type:refactor"]
+name: "Task / Tracer-Bullet Ticket"
+description: "Vertical slice or sub-task for feature/spec implementation"
+title: "task(<scope>): <summary>"
+labels: ["type:task"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for vertical slice tickets decomposed from a plan, spec, or parent issue.
   - type: textarea
-    id: goal
+    id: context
     attributes:
-      label: "Task Goal & Motivation"
-      description: "Why is this refactoring needed? What technical debt does it address?"
-      placeholder: "Eliminate test shortcuts in production code, adopt relational batching..."
-    validations:
-      required: true
-  - type: dropdown
-    id: type
-    attributes:
-      label: "Task Type"
-      options:
-        - "type:refactor (Internal code restructuring)"
-        - "type:test (Adding/updating test coverage)"
-        - "type:perf (Performance optimization)"
-        - "type:chore (Build, dependencies, or tooling)"
-    validations:
-      required: true
-  - type: dropdown
-    id: area
-    attributes:
-      label: "Affected Subsystem Area"
-      options:
-        - "area:auth"
-        - "area:products"
-        - "area:orders"
-        - "area:quotes"
-        - "area:payments"
-        - "area:warehouse"
-        - "area:leads"
-        - "area:cart"
-        - "area:api"
-        - "area:db"
-        - "area:infra"
+      label: Context
+      description: "Specify parent issue and blockers"
+      value: |
+        - Parent: None
+        - Blocked by: None
     validations:
       required: true
   - type: textarea
     id: scope
     attributes:
-      label: "Affected Components & Files"
-      placeholder: "Target files: src/modules/..., test/integration/..."
+      label: Scope
+      description: "Describe the end-to-end behavior to build (avoid layer-by-layer file inventories)"
+      placeholder: "Concise description of the end-to-end behavior delivered..."
     validations:
       required: true
   - type: textarea
-    id: acceptance_criteria
+    id: acceptance
     attributes:
-      label: "Acceptance Criteria"
-      placeholder: |
-        - [ ] All tests pass cleanly (`bun test`)
-        - [ ] Typecheck passes with 0 errors (`tsc --noEmit`)
-        - [ ] Linter passes with 0 warnings (`bun run lint`)
+      label: Acceptance
+      description: "Checklist of observable acceptance criteria"
+      value: |
+        - [ ]
     validations:
       required: true
-  - type: textarea
-    id: dependencies
-    attributes:
-      label: "Dependencies & Execution Order"
-      description: "Specify if this task is blocked by or blocks other issues"
-      placeholder: |
-        - **Blocked by**: #12
-        - **Blocks**: #15
-    validations:
-      required: false

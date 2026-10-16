@@ -1,42 +1,36 @@
-name: "Sub-Issue / Tracer-Bullet Task"
-description: "Create a child ticket decomposing a parent Epic/Feature"
-title: "<type>(<area>): <summary>"
-labels: []
+name: "Sub-Issue / Child Task"
+description: "Child vertical slice ticket linked to a parent Epic or Feature"
+title: "task(<scope>): <summary>"
+labels: ["type:task"]
 body:
-  - type: textarea
-    id: parent
+  - type: markdown
     attributes:
-      label: "Parent Epic / Feature Reference"
-      description: "Reference the parent issue number (e.g. Ref: #79)"
-      placeholder: "Ref: #79"
+      value: |
+        Use this template for child vertical slices explicitly attached to a parent Epic or Feature issue.
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: "Parent issue number (mandatory) and blockers (if any)"
+      value: |
+        - Parent: #<parent_issue_number>
+        - Blocked by: None
     validations:
       required: true
   - type: textarea
     id: scope
     attributes:
-      label: "What to Build / Slice Scope"
-      description: "Concrete step-by-step implementation changes"
-      placeholder: |
-        1. Implement X in `src/...`
-        2. Add unit tests in `src/...`
-        3. Verify integration tests
+      label: Scope
+      description: "Describe the end-to-end behavior to build for this slice (avoid layer-by-layer file inventories)"
+      placeholder: "Concise description of the end-to-end behavior delivered..."
     validations:
       required: true
   - type: textarea
-    id: acceptance_criteria
+    id: acceptance
     attributes:
-      label: "Invariants & Acceptance Criteria"
-      placeholder: |
-        - [ ] Satisfies INV-1: ...
-        - [ ] All unit and integration test suites pass (`bun test`).
+      label: Acceptance
+      description: "Checklist of observable acceptance criteria"
+      value: |
+        - [ ]
     validations:
       required: true
-  - type: textarea
-    id: dependencies
-    attributes:
-      label: "Dependencies & Execution Order"
-      placeholder: |
-        - **Blocked by**: #12 (Foundation)
-        - **Blocks**: #15 (Next Slice)
-    validations:
-      required: false

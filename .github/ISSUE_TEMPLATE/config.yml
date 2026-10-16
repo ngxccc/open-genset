@@ -1,5 +1,1 @@
-blank_issues_enabled: false
-contact_links:
-  - name: "Engineering Standards & Playbook"
-    url: "https://github.com/ngxccc/open-genset/blob/main/backend/docs/standards/"
-    about: "Read repository coding standards, API rules, database conventions, and concurrency locking rules."
+blank_issues_enabled: true
