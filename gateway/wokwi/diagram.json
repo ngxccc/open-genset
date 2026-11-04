@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "author": "open-genset (IoT Gateway Telemetry Simulation)",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp32",
+      "top": 0,
+      "left": 0,
+      "attrs": { "flashSize": "16", "psramSize": "8", "psramType": "octal" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": -6.46,
+      "left": -172.57,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-arduino-nano",
+      "id": "genset_sim",
+      "top": 331.2,
+      "left": -10.1,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_coolant_temp",
+      "top": 459.5,
+      "left": -86.6,
+      "attrs": { "title": "Coolant Temp (0 - 120 C)" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_oil_pressure",
+      "top": 459.5,
+      "left": 95.8,
+      "attrs": { "title": "Oil Pressure (0 - 10 bar / 1000 kPa)" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 108,
+      "left": -171,
+      "attrs": { "volume": "0.5" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_nav",
+      "top": 169.4,
+      "left": 163.2,
+      "attrs": { "color": "blue", "label": "MUTE / PAGE" }
+    }
+  ],
+  "connections": [
+    ["esp32:GND.1", "oled:GND", "black", ["h-43.48", "v-259.38", "h-96"]],
+    ["esp32:3V3", "oled:VCC", "red", ["v0"]],
+    ["esp32:8", "oled:SDA", "green", ["h-24.28", "v-144.18", "h-86.47"]],
+    ["esp32:9", "oled:SCL", "blue", ["h-33.88", "v-182.58", "h-86.7"]],
+    [
+      "esp32:17",
+      "genset_sim:0",
+      "orange",
+      ["v-0.18", "h-14.68", "v192", "h144"]
+    ],
+    [
+      "esp32:16",
+      "genset_sim:1",
+      "purple",
+      ["v-0.18", "h-62.68", "v211.2", "h201.6"]
+    ],
+    [
+      "esp32:GND.2",
+      "genset_sim:GND.1",
+      "black",
+      ["h14.17", "v239.82", "h76.8", "v134.4", "h-48"]
+    ],
+    [
+      "genset_sim:5V",
+      "pot_coolant_temp:VCC",
+      "red",
+      ["v20", "h-115.2", "v133.6", "h-37.6"]
+    ],
+    [
+      "genset_sim:GND.2",
+      "pot_coolant_temp:GND",
+      "black",
+      ["v-9.6", "h-211.2", "v220.8", "h38.4"]
+    ],
+    [
+      "genset_sim:A0",
+      "pot_coolant_temp:SIG",
+      "yellow",
+      ["v40", "h-28.8", "v123.2", "h-57.2"]
+    ],
+    [
+      "genset_sim:5V",
+      "pot_oil_pressure:VCC",
+      "red",
+      ["v20", "h67.2", "v133.6", "h-37.6"]
+    ],
+    [
+      "genset_sim:GND.2",
+      "pot_oil_pressure:GND",
+      "black",
+      ["v-9.6", "h76.8", "v230.4", "h-67.2"]
+    ],
+    [
+      "genset_sim:A1",
+      "pot_oil_pressure:SIG",
+      "cyan",
+      ["v40", "h38.4", "v113.6", "h58"]
+    ],
+    ["esp32:4", "buzzer:2", "red", ["h-20", "v-10"]],
+    ["buzzer:1", "esp32:GND.1", "black", ["h-1.4", "v38.4", "h96", "v0.18"]],
+    ["btn_nav:1.l", "esp32:0", "blue", ["h-20", "v-10"]],
+    [
+      "btn_nav:2.l",
+      "esp32:GND.1",
+      "black",
+      ["h-28.8", "v77", "h-153.6", "v-47.82"]
+    ]
+  ],
+  "dependencies": {}
+}
