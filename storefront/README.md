@@ -24,8 +24,8 @@
 - **Contract-Driven API Client**: Fully typed communication with the backend using `openapi-fetch` and compile-time schema definitions synchronized directly from `backend/openapi.json`.
 - **Industrial Product Discovery**: High-performance catalog browsing with multi-faceted filtering (power capacity, fuel type, phase, brand, category) and comprehensive technical spec tables.
 - **B2B Industrial Quotation Flow**: Dedicated quotation request flow for heavy-duty generators and commercial equipment marked as quote-only, capturing corporate requirements and buyer specs.
-- **End-to-End Checkout & PayOS Integration**: Persistent shopping cart with guest and authenticated sessions, PayOS VietQR payment integration, and real-time order status tracking.
-- **Customer Portal & Order Tracking**: Customer dashboard for reviewing quotation history, downloading invoices, and tracking shipment delivery status.
+- **B2B RFQ-to-Quote Lifecycle**: Persistent quotation requests with corporate requirements and buyer specs, culminating in formal commercial proposals. There is no retail cart, online checkout, or order tracking by design (ADR-0008).
+- **Quote-Only Product Handling**: High-value machinery with withheld public pricing routes buyers directly into the RFQ negotiation flow.
 - **SEO & Structured Data (JSON-LD)**: Dynamic metadata generation (`generateMetadata`) combined with Schema.org JSON-LD microdata for rich search engine indexing.
 - **Type-Safe Dynamic i18n**: Fully localized in Vietnamese (`vi`) and English (`en`) via `next-intl` with automated dictionary compilation.
 

@@ -20,7 +20,7 @@
 
 ## Overview
 
-**OpenGenset** is a modern, enterprise-grade industrial machinery e-commerce, B2B Request for Quotation (RFQ), and IoT intelligent telemetry monitoring platform. Built specifically for high-value power equipment (three-phase diesel generators, agricultural machinery, industrial water pumps, and emergency backup power solutions), the system features dynamic multi-tier quotation workflows, warehouse batch stock tracking, PayOS payment integration, high-concurrency order settlement, and smart telemetry monitoring for industrial power equipment.
+**OpenGenset** is a modern, enterprise-grade industrial machinery e-commerce, B2B Request for Quotation (RFQ), and IoT intelligent telemetry monitoring platform. Built specifically for high-value power equipment (three-phase diesel generators, agricultural machinery, industrial water pumps, and emergency backup power solutions), the system features dynamic multi-tier quotation workflows, warehouse batch stock tracking, offline corporate payment settlement, and smart telemetry monitoring for industrial power equipment.
 
 ---
 
@@ -29,7 +29,7 @@
 | Service                 | Technology              | Local Port | Production URL                                                                    | Description                                              |
 | :---------------------- | :---------------------- | :--------: | :-------------------------------------------------------------------------------- | :------------------------------------------------------- |
 | **REST API Server**     | NestJS 12 + Drizzle ORM |  `:3000`   | [hyundai-ecommerce.onrender.com](https://hyundai-ecommerce.onrender.com/api/docs) | Core backend, database queries, and OpenAPI contract     |
-| **Customer Storefront** | Next.js 16 (App Router) |  `:3001`   | [hyundainhatnang.ngxc.io.vn](https://hyundainhatnang.ngxc.io.vn)                  | Customer catalog, quote submission, and shopping cart    |
+| **Customer Storefront** | Next.js 16 (App Router) |  `:3001`   | [hyundainhatnang.ngxc.io.vn](https://hyundainhatnang.ngxc.io.vn)                  | Customer catalog, product specs, and B2B RFQ submission  |
 | **Admin Portal**        | Next.js 16 (App Router) |  `:3002`   | [admin.hyundainhatnang.ngxc.io.vn](https://admin.hyundainhatnang.ngxc.io.vn)      | Backoffice dashboard, quote approvals, orders, inventory |
 
 ---
@@ -53,11 +53,11 @@ The repository adopts a **Decoupled Standalone Multi-Application Architecture (P
 │   └── .github/        # Independent CI/CD (Vercel deploy)
 │
 ├── storefront/         # Next.js 16 Customer Storefront & B2B RFQ Portal
-│   ├── app/[locale]/   # App Router (Shop, Products, B2B Quote Submission, Cart)
+│   ├── app/[locale]/   # App Router (Shop, Products, Categories, B2B Quote Submission)
 │   ├── src/lib/        # Typed API client with compile-time DTO schemas
 │   ├── docs/standards/ # Frontend Engineering Standards
 │   └── .github/        # Independent CI/CD (Vercel deploy)
-├── docker-compose.yml  # Local PostgreSQL 18 & Redis 8 infrastructure
+├── backend/docker-compose.yml  # Local PostgreSQL 18 & Redis 8 infrastructure
 ├── package.json        # Root coordination & verification scripts
 └── .github/workflows/  # Thin Monorepo CI/CD orchestrators with path filtering
 ```

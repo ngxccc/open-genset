@@ -48,7 +48,7 @@ Each package maintains its own localized operational standards. You MUST read an
 
 - **Architecture:** Decoupled Standalone Multi-Application Architecture (Polyrepo-Ready)
 - **Runtime:** Bun v1.4+
-- **Backend Service:** NestJS 11 + Drizzle ORM + PostgreSQL 18 + Redis 8 (`backend/`)
+- **Backend Service:** NestJS 12 + Drizzle ORM + PostgreSQL 18 + Redis 8 (`backend/`)
 - **Admin Portal:** Next.js 16 (App Router, Server Actions, `openapi-fetch`) on Port 3002 (`admin/`)
 - **Customer Storefront:** Next.js 16 (App Router, Server Actions, `openapi-fetch`) on Port 3001 (`storefront/`)
 - **Development Commands:**
@@ -65,10 +65,10 @@ Each package maintains its own localized operational standards. You MUST read an
 
 ## Project Structure
 
-- `backend/` — Standalone NestJS 11 REST API Server (`src/modules/`, `src/database/`, `test/`)
+- `backend/` — Standalone NestJS 12 REST API Server (`src/modules/`, `src/database/`, `test/`)
 - `admin/` — Standalone Next.js 16 Backoffice Admin Dashboard (`app/`, `src/features/`, `messages/`)
 - `storefront/` — Standalone Next.js 16 Customer Storefront & B2B RFQ Portal (`app/`, `src/features/`, `messages/`)
-- `docker-compose.yml` — Local PostgreSQL 18 & Redis 8 infrastructure
+- `backend/docker-compose.yml` — Local PostgreSQL 18 & Redis 8 infrastructure (run via `bun run docker:up` from the repo root)
 - `.github/workflows/` — Monorepo CI/CD orchestrators with path filtering
 
 ---

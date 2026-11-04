@@ -20,10 +20,10 @@
 
 ## Architectural Highlights
 
-- **B2B Industrial Quotation Engine**: Full lifecycle quote negotiation (`REQUESTED` → `REVIEWING` → `APPROVED` → `REJECTED` → `EXPIRED`) with dealer pricing tiers, expiration scheduling, and automated commercial PDF/Excel document rendering.
+- **B2B Industrial Quotation Engine**: Full lifecycle quote negotiation (`DRAFT` → `SUBMITTED` → `NEGOTIATING` → `APPROVED` / `REJECTED` / `EXPIRED`) with dealer pricing tiers, expiration scheduling, and automated commercial PDF/Excel document rendering.
 - **Concurrency-Safe Stock Allocation**: Eliminates inventory overselling under high traffic using Redis **Redlock** distributed locking combined with PostgreSQL row-level locks (`SELECT ... FOR UPDATE`).
 - **Transactional Outbox Event Relay**: Decouples database transactions from async notifications (BullMQ workers + Resend emails) with resilient at-least-once delivery semantics.
-- **PayOS Payment Gateway & Webhook Idempotency**: Automated VietQR payment link generation, HMAC-SHA256 signature verification, anti-replay guards, and Redis-backed `Idempotency-Key` tracking.
+- **Legacy PayOS Gateway (B2C only)**: VietQR link generation and HMAC-SHA256 webhook verification are retained for legacy retail flows but are isolated from the B2B quotation lifecycle. Corporate quotations settle via offline bank transfer (ADR-0008).
 - **Role-Based Access Control (RBAC) & Dealer Tiers**: Granular permissions across `ADMIN`, `STAFF`, `DEALER`, and `CUSTOMER` with dynamic tier-based volume discount calculation.
 - **Contract-Driven API (OpenAPI 3.1 & Scalar)**: Single Source of Truth (`backend/openapi.json` and `/api/docs`) enforcing standardized generic and paginated response envelopes.
 - **Enterprise Observability & RFC 9457**: Integrated Sentry APM with automated PII masking, 4xx/5xx noise separation, and standardized RFC 9457 problem detail error responses.
@@ -68,15 +68,17 @@ Interactive OpenAPI 3.1 documentation is dynamically served by **Scalar UI**:
 
 ### Core Endpoints
 
-| Domain         | Method & Route                                                         | Auth                     | Description                                                         |
-| :------------- | :--------------------------------------------------------------------- | :----------------------- | :------------------------------------------------------------------ |
-| **Auth**       | `POST /api/v1/auth/login`<br>`POST /api/v1/auth/refresh`               | Public / Refresh Token   | Authenticate user, issue access token & rotate refresh tokens.      |
-| **Catalog**    | `GET /api/v1/products`<br>`GET /api/v1/products/:slug`                 | Public                   | Paginated product search with category, brand, and spec filters.    |
-| **B2B Quotes** | `POST /api/v1/quotes`<br>`PATCH /api/v1/quotes/:id/status`             | Bearer JWT / Admin       | Submit quote request, negotiate pricing, and approve/reject quotes. |
-| **Cart**       | `GET /api/v1/cart`<br>`POST /api/v1/cart/items`                        | Bearer JWT / Guest Token | Manage persistent and guest cart items with stock verification.     |
-| **Orders**     | `POST /api/v1/orders`<br>`GET /api/v1/orders/:id`                      | Bearer JWT               | Create order from cart or approved quote, track delivery status.    |
-| **Payments**   | `POST /api/v1/payments/create-link`<br>`POST /api/v1/payments/webhook` | Bearer JWT / Signature   | Generate PayOS checkout QR; handle HMAC-SHA256 payment webhooks.    |
-| **Warehouse**  | `GET /api/v1/warehouses/stock`<br>`POST /api/v1/warehouses/adjust`     | Bearer JWT (`admin`)     | Multi-warehouse stock level tracking and batch reconciliation.      |
+> **Legacy B2C surface:** `cart` and `payments` remain exposed for backward compatibility but are isolated from the B2B quotation lifecycle (ADR-0008). Retail guest checkout and auto-expiration endpoints are deprecated. New feature work targets the `quotes` module.
+
+| Domain                | Method & Route                                                         | Auth                     | Description                                                         |
+| :-------------------- | :--------------------------------------------------------------------- | :----------------------- | :------------------------------------------------------------------ |
+| **Auth**              | `POST /api/v1/auth/login`<br>`POST /api/v1/auth/refresh`               | Public / Refresh Token   | Authenticate user, issue access token & rotate refresh tokens.      |
+| **Catalog**           | `GET /api/v1/products`<br>`GET /api/v1/products/:slug`                 | Public                   | Paginated product search with category, brand, and spec filters.    |
+| **B2B Quotes**        | `POST /api/v1/quotes`<br>`PATCH /api/v1/quotes/:id/status`             | Bearer JWT / Admin       | Submit quote request, negotiate pricing, and approve/reject quotes. |
+| **Cart** (legacy)     | `GET /api/v1/cart`<br>`POST /api/v1/cart/items`                        | Bearer JWT / Guest Token | Manage persistent and guest cart items with stock verification.     |
+| **Orders**            | `POST /api/v1/orders`<br>`GET /api/v1/orders/:id`                      | Bearer JWT               | Create order from cart or approved quote, track delivery status.    |
+| **Payments** (legacy) | `POST /api/v1/payments/create-link`<br>`POST /api/v1/payments/webhook` | Bearer JWT / Signature   | Generate PayOS checkout QR; handle HMAC-SHA256 payment webhooks.    |
+| **Warehouse**         | `GET /api/v1/warehouses/stock`<br>`POST /api/v1/warehouses/adjust`     | Bearer JWT (`admin`)     | Multi-warehouse stock level tracking and batch reconciliation.      |
 
 ---
 
