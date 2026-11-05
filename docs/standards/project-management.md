@@ -84,7 +84,8 @@ gh issue view 173 --json parent,subIssues,blockedBy,blocking
 
 ## 5. Project Views
 
-Project #3 keeps a maximum of three views; every view must have a filter and a distinct purpose.
+The `open-genset` project (https://github.com/users/ngxccc/projects/3) keeps a maximum of three views;
+every view must have a filter and a distinct purpose.
 
 | View                  | Layout                     | Filter                               | Purpose                           |
 | :-------------------- | :------------------------- | :----------------------------------- | :-------------------------------- |
