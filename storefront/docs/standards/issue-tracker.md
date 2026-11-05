@@ -52,14 +52,17 @@ Issue lifecycle is automated natively via Pull Requests (`Fixes #<id>`) and GitH
 - `area:admin` — Backoffice admin portal, catalog forms, Cloudinary media upload.
 - `area:storefront` — Next.js 16 customer storefront UI, RSCs, `"use cache"`, Server Actions.
 - `area:db` — PostgreSQL schemas, Drizzle ORM migrations, indexes, DTOs, pure services.
-- `area:infra` — Turborepo, Doppler, Redis, Docker, CI/CD workflows, cron handlers.
+- `area:infra` — Doppler, Redis, Docker, CI/CD workflows, cron handlers.
 - `area:harness` — Agent harness, context, skills, prompts, standards.
 
 ### D. Priority Labels
 
-- `priority:p0` — Critical blocker (emergency / system down).
-- `priority:p1` — High priority (blocks release milestone).
-- `priority:p2` — Normal priority (default).
+Priority policy — definitions, WIP limits, and assignment rules — lives in
+[`docs/standards/project-management.md`](../../../docs/standards/project-management.md) §3.
+
+In short: labels `priority:p0` / `priority:p1` / `priority:p2` are the only source of truth.
+Do not recreate the Projects `Priority` field; project fields are invisible to `gh issue list`,
+issue search, and notifications.
 
 ---
 
@@ -112,6 +115,8 @@ When splitting an Epic or Parent feature issue into sub-tasks, link them nativel
 All issue structures and required fields are defined in `.github/ISSUE_TEMPLATE/`:
 
 - **Feature / Epic**: `.github/ISSUE_TEMPLATE/feature_request.yml`
-- **Sub-Issue / Tracer-Bullet**: `.github/ISSUE_TEMPLATE/sub_issue.yml`
-- **Refactor / Tech Debt**: `.github/ISSUE_TEMPLATE/task.yml`
+- **Task / Sub-Issue / Tech Debt**: `.github/ISSUE_TEMPLATE/task.yml`
 - **Bug Report**: `.github/ISSUE_TEMPLATE/bug_report.yml`
+
+Templates never ask for `Parent:` or `Blocked by:` numbers. Set relationships natively after creation
+(issue sidebar → _Relationships_, or `gh issue edit <n> --parent <p>` / `--add-blocked-by <b>`).

@@ -15,6 +15,14 @@
 
 ---
 
+## Repository-Wide Standards
+
+These apply to the whole repository, regardless of which package you touch:
+
+- **Project Management** → `docs/standards/project-management.md` (status workflow, priority policy, project views, native relationships)
+
+---
+
 ## Engineering Standards (Localized per Package)
 
 Each package maintains its own localized operational standards. You MUST read and comply with the corresponding standard under `<package>/docs/standards/` when working within that package:

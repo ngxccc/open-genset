@@ -1,20 +1,22 @@
-name: "Task / Tracer-Bullet Ticket"
-description: "Vertical slice or sub-task for feature/spec implementation"
+name: "Task / Sub-Issue / Tech Debt"
+description: "Vertical slice, child task, or tech-debt ticket"
 title: "task(<scope>): <summary>"
 labels: ["type:task"]
 body:
   - type: markdown
     attributes:
       value: |
-        Use this template for vertical slice tickets decomposed from a plan, spec, or parent issue.
+        Use this template for vertical slice tickets, child tasks of an Epic or Feature, and tech-debt work.
+
+        **Do not paste parent or blocker numbers into the body.** Set them natively after creating the issue:
+        open the issue sidebar → *Relationships* → *Parent issue* / *Blocked by*.
+        Body text duplicates the native graph and drifts out of sync.
   - type: textarea
     id: context
     attributes:
       label: Context
-      description: "Specify parent issue and blockers"
-      value: |
-        - Parent: None
-        - Blocked by: None
+      description: "Why this exists and what it unblocks (free text, no issue-number placeholders)"
+      placeholder: "Link to the plan, spec, or ADR that motivated this ticket..."
     validations:
       required: true
   - type: textarea
