@@ -19,7 +19,7 @@ import {
   Moon,
   Laptop,
 } from "lucide-react";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "@opengenset/shared/routing";
 import {
   CommandDialog,
   CommandInput,

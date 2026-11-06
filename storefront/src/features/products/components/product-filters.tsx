@@ -7,14 +7,14 @@ import {
   useCallback,
   useMemo,
 } from "react";
-import { useRouter, usePathname } from "@/i18n/routing";
+import { useRouter, usePathname } from "@opengenset/shared/routing";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import type { StorefrontBrand, StorefrontCatalogMetadata } from "@/services";
 import { useTranslations, useLocale } from "next-intl";
-import { useDebounce } from "@/hooks/use-debounce";
+import { useDebounce } from "@opengenset/shared/use-debounce";
 
 interface ProductFiltersProps {
   brands: StorefrontBrand[];

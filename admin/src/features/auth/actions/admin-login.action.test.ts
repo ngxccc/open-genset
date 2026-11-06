@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, mock, test } from "bun:test";
 import { adminLoginAction } from "./admin-login.action";
 import { authApi } from "@/features/auth/api/auth.api";
-import { _resetRateLimitStore } from "@/lib/rate-limiter";
+import { _resetRateLimitStore } from "@opengenset/shared/rate-limit";
 import { TIME_IN_SECONDS } from "@/constants/time.constant";
 
 // Mock next/headers module for Next.js Server Action execution

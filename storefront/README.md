@@ -64,8 +64,8 @@ storefront/
 ### Setup & Run
 
 ```bash
-# 1. Install dependencies
-bun install
+# 1. Install dependencies once, from the repo root (the workspace owns the lockfile)
+cd .. && bun install && cd storefront
 
 # 2. Synchronize OpenAPI DTO types from Backend
 bun run types:pull

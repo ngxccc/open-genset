@@ -103,9 +103,8 @@ export function setupOpenApiAndScalar(app: INestApplication): OpenAPIObject {
   app.use(
     "/api/docs",
     apiReference({
-      spec: {
-        content: document,
-      },
+      // `spec.content` is deprecated in @scalar/types >= 0.26; sources are top-level now.
+      content: document,
       theme: "saturn",
     }),
   );

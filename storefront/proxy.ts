@@ -1,5 +1,5 @@
-import { routing } from "@/i18n/routing";
-import { checkRateLimitWithQueue } from "@/lib/rate-limiter";
+import { routing } from "@opengenset/shared/routing";
+import { checkRateLimitWithQueue } from "@opengenset/shared/rate-limit";
 import { HTTP_STATUS, REDIS_KEYS } from "@/constants";
 import createMiddleware from "next-intl/middleware";
 import { NextResponse, type NextRequest } from "next/server";

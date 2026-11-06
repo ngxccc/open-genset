@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "bun:test";
-import { checkRateLimitWithQueue, _resetRateLimitStore } from "./rate-limiter";
+import { checkRateLimitWithQueue, _resetRateLimitStore } from "./rate-limit";
 
 describe("rate-limiter", () => {
   beforeEach(() => {

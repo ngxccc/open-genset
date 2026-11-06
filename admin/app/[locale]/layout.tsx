@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { META_THEME_COLORS } from "@/config/site";
-import { routing } from "@/i18n/routing";
+import { routing } from "@opengenset/shared/routing";
 import { NextIntlClientProvider, type Locale } from "next-intl";
 import { notFound } from "next/navigation";
 import { getMessages, getTranslations } from "next-intl/server";

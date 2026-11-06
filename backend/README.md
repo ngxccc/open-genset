@@ -93,8 +93,8 @@ Interactive OpenAPI 3.1 documentation is dynamically served by **Scalar UI**:
 ### Setup & Run
 
 ```bash
-# 1. Install dependencies
-bun install
+# 1. Install dependencies once, from the repo root (the workspace owns the lockfile)
+cd .. && bun install && cd backend
 
 # 2. Start PostgreSQL and Redis containers
 docker compose up -d

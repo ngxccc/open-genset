@@ -8,6 +8,30 @@ permissions:
   checks: write
 
 jobs:
+  shared-package:
+    name: "Shared & Tooling Quality Gate"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7
+
+      - name: Setup Environment
+        uses: ./.github/setup-environment
+
+      - name: Type-Check
+        working-directory: packages/shared
+        run: bun run check-types
+
+      - name: Type-Check Repo Scripts
+        run: bun run check-types:scripts
+
+      - name: Run Test Suite
+        working-directory: packages/shared
+        run: bun run test
+
+      - name: Run Repo Script Tests
+        run: bun run test:scripts
+
   quality-gate:
     name: "${{ matrix.app.name }} Quality Gate"
     runs-on: ubuntu-latest

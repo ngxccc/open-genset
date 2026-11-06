@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { BrandHeader } from "@/features/brands/components";
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { Plus } from "lucide-react";
 import { AdminBreadcrumbs } from "@/components/common/admin-breadcrumbs";
 import { QuoteList } from "@/features/quotes/components";

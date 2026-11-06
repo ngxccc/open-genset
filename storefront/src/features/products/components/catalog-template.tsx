@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import type { Locale } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import { Link, redirect } from "@/i18n/routing";
+import { Link, redirect } from "@opengenset/shared/routing";
 import {
   productService,
   categoryService,

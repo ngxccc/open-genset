@@ -1,5 +1,5 @@
 import { CopyrightYear } from "./copyright-year";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { getTranslations } from "next-intl/server";
 import { getCompanySettings } from "@/features/settings/api/company-settings.api";
 

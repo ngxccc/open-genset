@@ -9,7 +9,7 @@ import {
   getProvinceNames,
   getSubUnitsByProvinceName,
   removeVietnameseTones,
-} from "@/data/vietnam-provinces";
+} from "@opengenset/shared/vietnam-provinces";
 
 const VIETNAM_LOCATION_ALIASES: Record<string, string> = {
   hcm: "ho chi minh",

@@ -1,6 +1,6 @@
 import { isInternalStaff } from "@/lib/rbac";
-import { routing } from "@/i18n/routing";
-import { checkRateLimitWithQueue } from "@/lib/rate-limiter";
+import { routing } from "@opengenset/shared/routing";
+import { checkRateLimitWithQueue } from "@opengenset/shared/rate-limit";
 import { HTTP_STATUS, REDIS_KEYS } from "@/constants";
 import { parseSessionFromCookieStore } from "@/lib/session";
 import { isJwtExpired } from "@/lib/jwt";

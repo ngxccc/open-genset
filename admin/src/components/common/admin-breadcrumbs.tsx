@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import {
   Breadcrumb,
   BreadcrumbItem,

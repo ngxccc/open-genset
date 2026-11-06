@@ -19,10 +19,6 @@ runs:
     - name: Install Doppler CLI
       uses: dopplerhq/cli-action@cdd4670c26c06688d7afe8ff3b76b1cac918f4da # v4
 
-    - name: Install Monorepo Dependencies
-      run: |
-        bun install --frozen-lockfile
-        (cd backend && bun install --frozen-lockfile)
-        (cd storefront && bun install --frozen-lockfile)
-        (cd admin && bun install --frozen-lockfile)
+    - name: Install Workspace Dependencies
+      run: bun install --frozen-lockfile
       shell: bash

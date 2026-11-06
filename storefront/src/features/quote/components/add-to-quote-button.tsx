@@ -3,7 +3,7 @@
 import { useQuoteStore } from "../hooks/use-quote";
 import { Button } from "@/components/ui/button";
 import { FileText, Send } from "lucide-react";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "@opengenset/shared/routing";
 import { useTranslations } from "next-intl";
 
 interface AddToQuoteButtonProps {

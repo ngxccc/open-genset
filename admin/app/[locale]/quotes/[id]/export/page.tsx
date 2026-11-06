@@ -4,7 +4,7 @@ import { quotesApi } from "@/features/quotes/api/quotes.api";
 import { companySettingsApi } from "@/features/settings/api/company-settings.api";
 import { requireAuth } from "@/lib/action-auth";
 import { notFound } from "next/navigation";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { Button } from "@/components/ui/button";
 import { Building2, Settings } from "lucide-react";
 import { type Locale } from "next-intl";

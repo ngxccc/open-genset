@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Filter, Download } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

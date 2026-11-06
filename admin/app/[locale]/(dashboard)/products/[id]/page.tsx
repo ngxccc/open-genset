@@ -1,4 +1,4 @@
-import { redirect } from "@/i18n/routing";
+import { redirect } from "@opengenset/shared/routing";
 import type { Locale } from "next-intl";
 
 export default async function ProductDetailPage({

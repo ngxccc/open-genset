@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { i18nZodMsg } from "@/lib/i18n-zod";
+import { i18nZodMsg } from "@opengenset/shared/i18n-zod";
 
 export const isValidIdentifier = (id: unknown): id is string => {
   return typeof id === "string" && /^[a-zA-Z0-9_-]+$/.test(id.trim());

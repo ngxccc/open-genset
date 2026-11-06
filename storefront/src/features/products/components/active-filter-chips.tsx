@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, usePathname } from "@/i18n/routing";
+import { useRouter, usePathname } from "@opengenset/shared/routing";
 import { useSearchParams } from "next/navigation";
 import { X, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";

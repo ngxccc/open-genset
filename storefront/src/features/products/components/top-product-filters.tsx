@@ -7,7 +7,7 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import { useRouter, usePathname } from "@/i18n/routing";
+import { useRouter, usePathname } from "@opengenset/shared/routing";
 import { useSearchParams } from "next/navigation";
 import {
   Search,
@@ -32,7 +32,7 @@ import {
 import { ProductSort } from "./product-sort";
 import { ProductFilterSheet } from "./product-filter-sheet";
 import type { StorefrontBrand, StorefrontCatalogMetadata } from "@/services";
-import { useDebounce } from "@/hooks/use-debounce";
+import { useDebounce } from "@opengenset/shared/use-debounce";
 import { useTranslations } from "next-intl";
 import { cn } from "cn";
 

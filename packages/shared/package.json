@@ -1,0 +1,29 @@
+{
+  "name": "@opengenset/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./constants": "./src/constants.ts",
+    "./i18n-zod": "./src/i18n-zod.ts",
+    "./rate-limit": "./src/rate-limit.ts",
+    "./routing": "./src/routing.ts",
+    "./use-debounce": "./src/use-debounce.ts",
+    "./vietnam-provinces": "./src/vietnam-provinces.ts"
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "test": "bun test src/"
+  },
+  "peerDependencies": {
+    "next-intl": "^4.14.5",
+    "react": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.2",
+    "@types/react": "^19.3.0",
+    "next-intl": "^4.14.5",
+    "react": "^19.3.0",
+    "typescript": "^6"
+  }
+}

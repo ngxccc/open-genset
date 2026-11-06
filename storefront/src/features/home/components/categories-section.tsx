@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { categoryService } from "@/services";
 
 export async function CategoriesSection() {

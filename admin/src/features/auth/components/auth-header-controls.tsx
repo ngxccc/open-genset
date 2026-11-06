@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "@opengenset/shared/routing";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,

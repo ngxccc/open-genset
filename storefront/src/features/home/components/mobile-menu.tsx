@@ -12,7 +12,7 @@ import {
   SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Link, usePathname } from "@/i18n/routing";
+import { Link, usePathname } from "@opengenset/shared/routing";
 
 export function MobileMenu() {
   const t = useTranslations("HomePage");
