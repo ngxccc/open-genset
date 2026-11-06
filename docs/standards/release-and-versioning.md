@@ -126,7 +126,7 @@ The file is listed in `.prettierignore`. It is generated from the release body, 
 
 - Never bump one manifest by hand. `setVersion` in `scripts/version.ts` is the only writer, and `bun run version:bump` only writes manifests — it does not touch the changelog, commit, or tag.
 - Never tag a commit whose manifests disagree. CI's `Version Consistency` job runs `bun scripts/version.ts check` on every PR and fails first.
-- Never hand-write release notes or a changelog section. Change the categories in `.github/release.yml` — they map to labels that exist (`type:feat`, `type:fix`, `type:perf`, `type:refactor`, `type:docs`, `type:ci`, `security`, `test`, and the older plain `feature`/`bug`/`refactor`), and `dependencies` / `github_actions` are excluded.
+- Never hand-write release notes or a changelog section. Change the categories in `.github/release.yml` instead. Categories match `type:*` labels, which `.github/workflows/pr-type-label.yml` derives from the pull request title (`feat:`, `fix(scope):`, `chore!:`, …) and keeps to exactly one per pull request — so the notes say _what_ changed, not _where_. `area:*` labels come from `.github/labeler.yml` and describe files; the notes do not use them. `dependencies` and `github_actions` are excluded, so dependency bumps stay out. A title with no conventional prefix keeps whatever labels it already has and lands in **Other Changes**.
 - The semantic level is a judgement call, not a promise: `major` for a contract break admin and storefront must ship with, `minor` for new capability, `patch` for fixes. Nothing enforces it, because nothing consumes it.
 - A tag without a release page is invisible to everyone except `git`; a release without a tag is not a release. Do both, or neither.
 
