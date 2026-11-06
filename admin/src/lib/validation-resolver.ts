@@ -6,7 +6,10 @@ import {
 } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type z } from "zod";
-import { translateZodMessage, type I18nTranslator } from "./i18n-zod";
+import {
+  translateZodMessage,
+  type I18nTranslator,
+} from "@opengenset/shared/i18n-zod";
 
 function translateFieldErrors(
   errors: FieldErrors<FieldValues>,

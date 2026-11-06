@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { LogOut, Settings, Search, ChevronsUpDown } from "lucide-react";
-import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { Link, usePathname, useRouter } from "@opengenset/shared/routing";
 import { useAdminNavGroups } from "../hooks/use-admin-nav";
 import { toast } from "@/components/ui/sonner";
 import {

@@ -20,6 +20,10 @@ export interface InvalidParam {
   reason: string;
 }
 
+// `HttpStatus` members are numbers; annotating as `number` lets runtime status codes
+// (which are not always enum members) be compared without enum-typing friction.
+const SERVER_ERROR_MIN_STATUS: number = HttpStatus.INTERNAL_SERVER_ERROR;
+
 export interface Rfc9457ErrorResponse {
   type: string;
   title: string;
@@ -54,7 +58,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const request = ctx.getRequest<Request>();
     const lang = I18nContext.current(host)?.lang;
 
-    let status = HttpStatus.INTERNAL_SERVER_ERROR;
+    let status: number = HttpStatus.INTERNAL_SERVER_ERROR;
     let title = "Internal Server Error";
     let detail: string;
     let invalidParams: InvalidParam[] = [];
@@ -168,7 +172,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     let eventId: string | undefined;
 
     // Zero-noise telemetry: Capture 5xx server errors and unhandled exceptions in Sentry while filtering standard 4xx client errors.
-    if (status >= HttpStatus.INTERNAL_SERVER_ERROR) {
+    if (status >= SERVER_ERROR_MIN_STATUS) {
       const user = (
         request as unknown as {
           user?: { id?: string; email?: string; role?: string };

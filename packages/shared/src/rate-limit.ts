@@ -1,5 +1,6 @@
 /**
- * Lightweight sliding-window rate-limiter for admin edge/actions layer.
+ * Lightweight sliding-window rate-limiter for the Next.js proxy and route handlers.
+ * Shared by admin and storefront; keep it framework-agnostic.
  */
 
 function parseWindowMs(windowStr: string): number {

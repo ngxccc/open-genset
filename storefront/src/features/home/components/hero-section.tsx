@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 
 export async function HeroSection() {
   const t = await getTranslations("HomePage");

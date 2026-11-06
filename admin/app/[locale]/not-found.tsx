@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { useTranslations } from "next-intl";
 import { Terminal, Home, Headset } from "lucide-react";
 import { Button } from "@/components/ui/button";

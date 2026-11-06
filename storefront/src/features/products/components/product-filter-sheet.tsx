@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, usePathname } from "@/i18n/routing";
+import { useRouter, usePathname } from "@opengenset/shared/routing";
 import { useTranslations } from "next-intl";
 import {
   Sheet,

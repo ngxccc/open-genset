@@ -20,6 +20,7 @@
 These apply to the whole repository, regardless of which package you touch:
 
 - **Project Management** → `docs/standards/project-management.md` (status workflow, priority policy, project views, native relationships)
+- **Release & Versioning** → `docs/standards/release-and-versioning.md` (one product version, `version:bump`, `version:check`, tags)
 
 ---
 
@@ -54,12 +55,13 @@ Each package maintains its own localized operational standards. You MUST read an
 
 ## Tech Stack & Commands
 
-- **Architecture:** Decoupled Standalone Multi-Application Architecture (Polyrepo-Ready)
+- **Architecture:** Bun workspaces monorepo — three deployable apps plus shared internal packages, one lockfile, one product version
 - **Runtime:** Bun v1.4+
 - **Backend Service:** NestJS 12 + Drizzle ORM + PostgreSQL 18 + Redis 8 (`backend/`)
 - **Admin Portal:** Next.js 16 (App Router, Server Actions, `openapi-fetch`) on Port 3002 (`admin/`)
 - **Customer Storefront:** Next.js 16 (App Router, Server Actions, `openapi-fetch`) on Port 3001 (`storefront/`)
 - **Development Commands:**
+  - Install: `bun install` from the repo root — one `bun.lock`, never install inside an app directory
   - Backend: `bun run dev:backend`
   - Storefront: `bun run dev:storefront`
   - Admin: `bun run dev:admin`
@@ -68,16 +70,36 @@ Each package maintains its own localized operational standards. You MUST read an
   - Linting: `bun run lint`
   - Testing: `bun run test` (or `bun run test:backend`)
 - **API Contract Sync:** `bun run types:sync` (root) or `bun run types:pull` (in `admin/` & `storefront/`)
+- **Release:** `bun run release <x.y.z|major|minor|patch>` — bump, changelog, PR, tag and published release in one command (`--dry-run` to preview). Under it: `bun run version:check` (CI gate) and `bun run version:bump <x.y.z>`.
 
 ---
 
 ## Project Structure
 
-- `backend/` — Standalone NestJS 12 REST API Server (`src/modules/`, `src/database/`, `test/`)
-- `admin/` — Standalone Next.js 16 Backoffice Admin Dashboard (`app/`, `src/features/`, `messages/`)
-- `storefront/` — Standalone Next.js 16 Customer Storefront & B2B RFQ Portal (`app/`, `src/features/`, `messages/`)
+- `backend/` — NestJS 12 REST API Server (`src/modules/`, `src/database/`, `test/`)
+- `admin/` — Next.js 16 Backoffice Admin Dashboard (`app/`, `src/features/`, `messages/`)
+- `storefront/` — Next.js 16 Customer Storefront & B2B RFQ Portal (`app/`, `src/features/`, `messages/`)
+- `packages/shared/` — `@opengenset/shared`, code both Next.js apps need verbatim
+- `scripts/` — repo tooling: `version.ts` (manifest versions), `release.ts` (cut a release)
+- `CHANGELOG.md` — generated at release time; never edit by hand
+- `bun.lock` — the only lockfile; workspace install happens at the root
 - `backend/docker-compose.yml` — Local PostgreSQL 18 & Redis 8 infrastructure (run via `bun run docker:up` from the repo root)
 - `.github/workflows/` — Monorepo CI/CD orchestrators with path filtering
+
+---
+
+## Workspace Rules
+
+App directories stay at the repo root (`backend/`, `admin/`, `storefront/`) so hosting providers keep their configured root directories. Shared code goes to `packages/*`.
+
+**What belongs in `packages/shared`:** identical in two or more apps, or divergent only by accident, with an interface neither app needs to change independently. Today that is `constants`, `routing`, `i18n-zod`, `rate-limit`, `use-debounce`, `vietnam-provinces`.
+
+**What must stay per-app:** session handling, API clients, env parsing, i18n messages, and `components/ui` — admin and storefront model different actors and their divergence is the design. See `packages/shared/README.md` before adding an export.
+
+- Internal dependencies use `workspace:*`, never a version range.
+- Consuming apps need `transpilePackages: ["@opengenset/shared"]` in `next.config.ts`; the package ships TypeScript source, so there is no build or publish step.
+- The backend does not import `@opengenset/shared` — it only shares the lockfile.
+- Moving a module into a package means moving its test with it.
 
 ---
 

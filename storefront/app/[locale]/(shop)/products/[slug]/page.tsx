@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { ProductDetailsSkeleton } from "@/features/products/components/skeletons/product-details-skeleton";
 import { getTranslations } from "next-intl/server";
 import type { StorefrontProduct } from "@/services/types";
-import { routing } from "@/i18n/routing";
+import { routing } from "@opengenset/shared/routing";
 import { priceFormatter } from "@/lib/utils";
 import { productService } from "@/services";
 import type { Metadata } from "next";

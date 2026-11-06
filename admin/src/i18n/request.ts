@@ -1,5 +1,5 @@
 import { getRequestConfig } from "next-intl/server";
-import { routing } from "./routing";
+import { routing } from "@opengenset/shared/routing";
 import type { Locale } from "next-intl";
 
 const isValidLocale = (locale: unknown): locale is Locale => {

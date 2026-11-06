@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Edit } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {

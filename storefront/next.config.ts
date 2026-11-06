@@ -7,6 +7,7 @@ const withNextIntl = createNextIntlPlugin({
 });
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["@opengenset/shared"],
   turbopack: {
     root: path.resolve(import.meta.dirname, ".."),
   },

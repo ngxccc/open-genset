@@ -1,6 +1,6 @@
 "use client";
 
-import { Link, useRouter } from "@/i18n/routing";
+import { Link, useRouter } from "@opengenset/shared/routing";
 import { FilePlus, Send } from "lucide-react";
 import { useQuoteStore } from "@/features/quote";
 import { ProductImage } from "@/components";

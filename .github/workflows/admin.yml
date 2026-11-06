@@ -9,9 +9,11 @@ on:
       - "admin/messages/**"
       - "admin/public/**"
       - "admin/package.json"
-      - "admin/bun.lock"
       - "admin/next.config.*"
       - "admin/tsconfig.json"
+      - "packages/shared/**"
+      - "bun.lock"
+      - "package.json"
   workflow_dispatch:
     inputs:
       reason:

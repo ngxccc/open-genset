@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { Button } from "@/components/ui/button";
 import {
   AlertTriangle,

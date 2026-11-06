@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ShieldAlert } from "lucide-react";
 import { env } from "@/env";
 import type { Locale } from "next-intl";
-import { routing } from "@/i18n/routing";
+import { routing } from "@opengenset/shared/routing";
 import type { Metadata } from "next";
 export const generateStaticParams = () => {
   return routing.locales.map((locale) => ({ locale }));

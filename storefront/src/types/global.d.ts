@@ -1,4 +1,4 @@
-import type { routing } from "@/i18n/routing";
+import type { routing } from "@opengenset/shared/routing";
 import type common from "../../messages/vi/common.json";
 import type home from "../../messages/vi/home.json";
 import type auth from "../../messages/vi/auth.json";

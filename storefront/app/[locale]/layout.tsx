@@ -3,7 +3,7 @@ import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
-import { routing } from "@/i18n/routing";
+import { routing } from "@opengenset/shared/routing";
 import { notFound } from "next/navigation";
 import { getMessages, getTranslations } from "next-intl/server";
 import { NextIntlClientProvider, type Locale } from "next-intl";

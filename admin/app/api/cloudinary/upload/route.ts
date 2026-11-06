@@ -1,6 +1,6 @@
 import { isInternalStaff } from "@/lib/rbac";
 import type { NextRequest } from "next/server";
-import { checkRateLimitWithQueue } from "@/lib/rate-limiter";
+import { checkRateLimitWithQueue } from "@opengenset/shared/rate-limit";
 import { jsonSuccess, jsonError } from "@/lib/api-response";
 import { v2 as cloudinary, type UploadApiResponse } from "cloudinary";
 import { getTranslations } from "next-intl/server";

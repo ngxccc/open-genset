@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import { useRouter, usePathname } from "@/i18n/routing";
+import { useRouter, usePathname } from "@opengenset/shared/routing";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";

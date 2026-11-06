@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "@opengenset/shared/routing";
 import { toast } from "@/components/ui/sonner";
 import { CustomerInfoForm } from "./customer-info-form";
 import { QuoteLineItemsTable } from "./quote-line-items-table";

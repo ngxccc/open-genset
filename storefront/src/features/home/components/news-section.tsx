@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { ImageWithSkeleton, ProductImagePlaceholder } from "@/components";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CalendarDays } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import {
   Card,
   CardContent,

@@ -1,7 +1,7 @@
 "use server";
 
 import { cookies, headers } from "next/headers";
-import { checkRateLimitWithQueue } from "@/lib/rate-limiter";
+import { checkRateLimitWithQueue } from "@opengenset/shared/rate-limit";
 import { ApiClientError } from "@/lib/api-client";
 import { authApi } from "@/features/auth/api/auth.api";
 import { getTranslations } from "next-intl/server";

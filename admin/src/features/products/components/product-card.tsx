@@ -26,7 +26,7 @@ import {
 import Image from "next/image";
 import { CldImage } from "next-cloudinary";
 import { canUseCldImage } from "@/lib";
-import { Link, useRouter } from "@/i18n/routing";
+import { Link, useRouter } from "@opengenset/shared/routing";
 import { toast } from "@/components/ui/sonner";
 import type { ProductGridItem } from "../product-form-types";
 import { deleteProductAction } from "../actions/product.actions";

@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Printer, ArrowLeft } from "lucide-react";
-import { Link, useRouter } from "@/i18n/routing";
+import { Link, useRouter } from "@opengenset/shared/routing";
 import {
   Table,
   TableBody,

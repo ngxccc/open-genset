@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { useDebounce } from "@/hooks/use-debounce";
+import { useDebounce } from "@opengenset/shared/use-debounce";
 import { useTranslations } from "next-intl";
-import { useRouter, usePathname, Link } from "@/i18n/routing";
+import { useRouter, usePathname, Link } from "@opengenset/shared/routing";
 import { useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";

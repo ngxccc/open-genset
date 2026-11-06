@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { HeaderQuote } from "@/features/quote";
 import { MobileMenu } from "./mobile-menu";
 

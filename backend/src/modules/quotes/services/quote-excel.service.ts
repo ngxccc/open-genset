@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { Workbook, type Borders } from "exceljs";
+import { Workbook, type Borders, type PaperSize } from "exceljs";
 import { numberToVietnameseWords } from "@/common/utils/number-to-words.util";
 import { CompanySettingsService } from "@/modules/company-settings/company-settings.service";
 import type { QuoteResponseDto } from "../dto/quote-response.dto";
@@ -42,7 +42,10 @@ export class QuoteExcelService {
     const worksheet = workbook.addWorksheet(sheetName, {
       views: [{ showGridLines: true }],
       pageSetup: {
-        paperSize: 9, // A4
+        // exceljs ships `PaperSize` as an ambient const enum (types only, no runtime export),
+        // so the numeric code is used directly rather than imported as a value.
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-assignment
+        paperSize: 9 as PaperSize,
         orientation: "portrait",
         fitToPage: true,
         fitToWidth: 1,

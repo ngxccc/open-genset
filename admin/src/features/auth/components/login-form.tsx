@@ -35,7 +35,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { adminLoginAction } from "../actions/admin-login.action";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "@opengenset/shared/routing";
 import { COMPANY_CONFIG } from "@/constants";
 
 const REMEMBER_KEY = "hyundai_admin_email";

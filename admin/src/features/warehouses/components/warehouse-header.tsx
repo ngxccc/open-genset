@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 
 export interface WarehouseHeaderProps {
   title: string;

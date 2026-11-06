@@ -4,7 +4,7 @@ import { useTransition, useMemo, useCallback } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { toast } from "@/components/ui/sonner";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "@opengenset/shared/routing";
 import {
   createWarehouseAction,
   updateWarehouseAction,
@@ -26,7 +26,7 @@ import {
   getProvinceNames,
   getSubUnitsByProvinceName,
   removeVietnameseTones,
-} from "@/data/vietnam-provinces";
+} from "@opengenset/shared/vietnam-provinces";
 import type { AdminWarehouse } from "@/types/api";
 import { type CreateWarehouseInput, createWarehouseSchema } from "@/validators";
 import { Save, Loader2, X, Warehouse } from "lucide-react";

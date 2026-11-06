@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { getTranslations } from "next-intl/server";
 import {
   Terminal,

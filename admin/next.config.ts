@@ -9,6 +9,7 @@ const withNextIntl = createNextIntlPlugin({
 const nextConfig: NextConfig = {
   reactCompiler: true,
   cacheComponents: true,
+  transpilePackages: ["@opengenset/shared"],
   turbopack: {
     root: path.resolve(import.meta.dirname, ".."),
   },

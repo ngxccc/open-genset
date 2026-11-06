@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { ProductImage } from "@/components";
 import { useQuote } from "../hooks/use-quote";
 import { useIsClient } from "@/hooks/useIsClient";
-import { Link } from "@/i18n/routing";
+import { Link } from "@opengenset/shared/routing";
 import { FileText, PackagePlus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";

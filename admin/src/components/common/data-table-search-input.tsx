@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { useDebounce } from "@/hooks/use-debounce";
-import { useRouter, usePathname } from "@/i18n/routing";
+import { useDebounce } from "@opengenset/shared/use-debounce";
+import { useRouter, usePathname } from "@opengenset/shared/routing";
 import { useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";

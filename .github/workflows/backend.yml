@@ -8,9 +8,10 @@ on:
       - "!backend/src/database/seeds/**"
       - "backend/drizzle/**"
       - "backend/package.json"
-      - "backend/bun.lock"
       - "backend/tsconfig.json"
       - "backend/nest-cli.json"
+      - "bun.lock"
+      - "package.json"
   workflow_dispatch:
     inputs:
       reason:
@@ -31,6 +32,9 @@ jobs:
     name: Build, Verify & Release to Render
     runs-on: ubuntu-latest
     environment: Production
+    defaults:
+      run:
+        working-directory: backend
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -39,23 +43,18 @@ jobs:
         uses: ./.github/setup-environment
 
       - name: Type-Check
-        working-directory: backend
         run: bun run check-types
 
       - name: Lint Code
-        working-directory: backend
         run: bun run lint
 
       - name: Run Test Suite
-        working-directory: backend
         run: bun run test
 
       - name: Production Build
-        working-directory: backend
         run: bun run build
 
       - name: Run Database Migrations
-        working-directory: backend
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
         run: |

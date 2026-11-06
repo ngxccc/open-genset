@@ -6,13 +6,15 @@
   "packageManager": "bun@1.4",
   "scripts": {
     "check": "bun run check-types && bun run lint",
-    "check-types": "bun run check-types:backend && bun run check-types:storefront && bun run check-types:admin",
+    "check-types": "bun run check-types:scripts && bun run check-types:shared && bun run check-types:backend && bun run check-types:storefront && bun run check-types:admin",
+    "check-types:admin": "cd admin && bun run check-types",
+    "check-types:backend": "cd backend && bun run check-types",
+    "check-types:scripts": "tsc --noEmit -p scripts/tsconfig.json",
+    "check-types:shared": "cd packages/shared && bun run check-types",
+    "check-types:storefront": "cd storefront && bun run check-types",
     "clean": "bun run clean:cache && bun run clean:build",
     "clean:build": "rm -rf backend/dist admin/.next storefront/.next",
     "clean:cache": "rm -f .eslintcache backend/.eslintcache admin/.eslintcache storefront/.eslintcache",
-    "check-types:admin": "cd admin && bun run check-types",
-    "check-types:backend": "cd backend && bun run check-types",
-    "check-types:storefront": "cd storefront && bun run check-types",
     "dev:admin": "cd admin && bun run dev",
     "dev:backend": "cd backend && bun run dev",
     "dev:storefront": "cd storefront && bun run dev",
@@ -20,23 +22,36 @@
     "docker:up": "docker compose -f backend/docker-compose.yml up -d",
     "format:pkg": "syncpack format",
     "format:pkg:check": "syncpack format --check",
-    "install:all": "bun install && (cd backend && bun install) && (cd storefront && bun install) && (cd admin && bun install)",
+    "install:all": "bun install",
     "lint": "bun run lint:backend && bun run lint:storefront && bun run lint:admin",
     "lint:admin": "cd admin && bun run lint",
     "lint:backend": "cd backend && bun run lint",
     "lint:storefront": "cd storefront && bun run lint",
     "prepare": "husky",
-    "test": "bun run test:backend && bun run test:storefront && bun run test:admin",
+    "release": "bun scripts/release.ts",
+    "test": "bun run test:scripts && bun run test:shared && bun run test:backend && bun run test:storefront && bun run test:admin",
     "test:admin": "cd admin && bun run test",
     "test:backend": "cd backend && bun run test",
+    "test:scripts": "bun test scripts/",
+    "test:shared": "cd packages/shared && bun run test",
     "test:storefront": "cd storefront && bun run test",
-    "types:sync": "cd backend && bun run openapi:generate"
+    "types:sync": "cd backend && bun run openapi:generate",
+    "version:bump": "bun scripts/version.ts bump",
+    "version:check": "bun scripts/version.ts check"
   },
   "devDependencies": {
+    "@types/bun": "^1.4.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
     "prettier": "^3.9.8",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "syncpack": "^15.3.3"
-  }
+    "syncpack": "^15.3.3",
+    "typescript": "^6"
+  },
+  "workspaces": [
+    "backend",
+    "admin",
+    "storefront",
+    "packages/*"
+  ]
 }
