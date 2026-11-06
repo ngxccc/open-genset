@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it } from "bun:test";
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { prependChangelog, resolveTarget } from "./release";
+import { prependChangelog, resolveTarget, suggestBump } from "./release";
 
 describe("resolveTarget", () => {
   it("takes an explicit version as-is", () => {
@@ -13,6 +13,56 @@ describe("resolveTarget", () => {
     expect(resolveTarget("patch", "1.4.2")).toBe("1.4.3");
     expect(resolveTarget("minor", "1.4.2")).toBe("1.5.0");
     expect(resolveTarget("major", "1.4.2")).toBe("2.0.0");
+  });
+});
+
+describe("suggestBump", () => {
+  const pr = (number: number, title: string, labels: string[] = []) => ({
+    number,
+    title,
+    mergedAt: "2026-01-01T00:00:00Z",
+    labels: labels.map((name) => ({ name })),
+  });
+
+  it("has nothing to suggest when nothing merged", () => {
+    expect(suggestBump([])).toBeNull();
+  });
+
+  it("suggests a patch for fixes and chores", () => {
+    expect(
+      suggestBump([pr(1, "fix(cart): total"), pr(2, "chore: typos")]),
+    ).toEqual({
+      level: "patch",
+      reason: "no feature, no breaking change",
+    });
+  });
+
+  it("suggests a minor as soon as one feature is present", () => {
+    const suggestion = suggestBump([
+      pr(1, "fix(cart): total"),
+      pr(2, "feat(api): quotes"),
+    ]);
+    expect(suggestion?.level).toBe("minor");
+    expect(suggestion?.reason).toContain("#2");
+  });
+
+  it("lets a feature label stand in for a non-conventional title", () => {
+    expect(suggestBump([pr(7, "Quotes cockpit", ["type:feat"])])?.level).toBe(
+      "minor",
+    );
+  });
+
+  it("suggests a major for a breaking change, whatever else merged", () => {
+    expect(
+      suggestBump([pr(1, "feat: a"), pr(2, "refactor(db)!: drop columns")])
+        ?.level,
+    ).toBe("major");
+  });
+
+  it("reads the breaking marker after a scope", () => {
+    expect(suggestBump([pr(3, "chore(config)!: rename env")])?.level).toBe(
+      "major",
+    );
   });
 });
 

@@ -32,8 +32,12 @@ The tag is the version of record: `v1.2.3`. `package.json` mirrors it so tooling
 
 ```bash
 git switch main && git pull
-bun run release 1.2.3          # or: bun run release minor
+bun run release                # infers patch | minor | major from merged PRs
+bun run release 1.2.3          # explicit version
+bun run release minor          # force a level
 ```
+
+With no argument the level is inferred from the pull requests merged since the previous tag: one labelled `breaking-change` or titled `…!:` means **major**, any `type:feat` label or `feat:` title means **minor**, everything else means **patch**, and an empty range refuses to release. Titles and labels are read instead of commit subjects, so the answer does not change whether a pull request was squash-merged or rebase-merged. The suggestion prints the pull requests it counted and waits for a `y`; with no terminal (an agent, CI) it stops instead of guessing and prints the exact command to rerun. The release pull request itself is skipped — its merge commit is already inside the tag.
 
 `scripts/release.ts` then runs five steps:
 

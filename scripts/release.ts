@@ -12,9 +12,10 @@
  * release page, which is why the two can never disagree.
  *
  * Usage:
+ *   bun run release                  # infer the level from merged pull requests
  *   bun run release 1.2.3            # explicit version
  *   bun run release minor            # patch | minor | major, from the latest tag
- *   bun run release minor --dry-run  # validate and print the plan, change nothing
+ *   bun run release --dry-run        # validate and print the plan, change nothing
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import {
@@ -85,8 +86,104 @@ export function resolveTarget(
   }
 
   fail(
-    `not a version or bump type: ${input}\nusage: bun run release <x.y.z|major|minor|patch>`,
+    `not a version or bump type: ${input}\nusage: bun run release [<x.y.z|major|minor|patch>]`,
   );
+}
+
+type MergedPullRequest = {
+  number: number;
+  title: string;
+  mergedAt: string;
+  mergeCommit?: { oid: string } | null;
+  labels: { name: string }[];
+};
+
+export type Suggestion = { level: "major" | "minor" | "patch"; reason: string };
+
+function isBreaking(pr: MergedPullRequest): boolean {
+  return (
+    /^\w+(?:\([^)]*\))?!:/.test(pr.title) ||
+    pr.labels.some((label) => label.name === "breaking-change")
+  );
+}
+
+function isFeature(pr: MergedPullRequest): boolean {
+  return (
+    /^feat(?:\([^)]*\))?!?:/i.test(pr.title) ||
+    pr.labels.some((label) => label.name === "type:feat")
+  );
+}
+
+/**
+ * The level a set of merged pull requests justifies, derived from their titles
+ * and the `type:*` labels the notes group by.
+ *
+ * Titles are read rather than commits: rebase merges land the branch's own
+ * commits, whose subjects are not the pull request's, while a squash merge has
+ * one commit that is. Both carry the same title and labels, so this is the only
+ * source that survives either merge strategy.
+ */
+export function suggestBump(prs: MergedPullRequest[]): Suggestion | null {
+  if (prs.length === 0) return null;
+
+  const breaking = prs.find(isBreaking);
+  if (breaking) {
+    return {
+      level: "major",
+      reason: `#${breaking.number} is a breaking change`,
+    };
+  }
+
+  const feature = prs.find(isFeature);
+  if (feature) {
+    return { level: "minor", reason: `#${feature.number} adds a feature` };
+  }
+
+  return { level: "patch", reason: "no feature, no breaking change" };
+}
+
+/** Pull requests merged into `main` after the previous tag was cut. */
+function mergedSince(tag: string | null): MergedPullRequest[] {
+  const since = tag
+    ? new Date(
+        run(["git", "log", "-1", "--format=%cI", tag], { capture: true }),
+      ).getTime()
+    : 0;
+  const raw = run(
+    [
+      "gh",
+      "pr",
+      "list",
+      "--state",
+      "merged",
+      "--base",
+      "main",
+      "--limit",
+      "500",
+      "--json",
+      "number,title,mergedAt,mergeCommit,labels",
+    ],
+    { capture: true },
+  );
+  const prs = JSON.parse(raw) as MergedPullRequest[];
+
+  return prs.filter((pr) => {
+    if (new Date(pr.mergedAt).getTime() <= since) return false;
+
+    // The release pull request itself can merge a second after the tag commit,
+    // so the timestamp is not enough. For squash merges — which is what the
+    // release PR uses — ask git whether the merge is already inside the tag.
+    if (pr.mergeCommit?.oid && tag) {
+      const contained = Bun.spawnSync({
+        cmd: ["git", "merge-base", "--is-ancestor", pr.mergeCommit.oid, tag],
+        stdout: "ignore",
+        stderr: "ignore",
+      });
+      if (contained.exitCode === 0) return false;
+    }
+
+    return true;
+  });
 }
 
 function assertReady(target: string): void {
@@ -271,11 +368,43 @@ if (import.meta.main) {
   const dryRun = args.includes("--dry-run");
   const input = args.find((arg) => !arg.startsWith("--"));
 
-  if (!input) {
-    fail("usage: bun run release <x.y.z|major|minor|patch> [--dry-run]");
+  let target: string;
+
+  if (input) {
+    target = resolveTarget(input);
+  } else {
+    const previous = latestTag();
+    const merged = mergedSince(previous);
+    const suggestion = suggestBump(merged);
+    if (!suggestion) {
+      fail(
+        `nothing merged since ${previous ?? "the first release"} — nothing to release`,
+      );
+    }
+
+    target = resolveTarget(suggestion.level);
+    const count = `${merged.length} pull request${merged.length === 1 ? "" : "s"}`;
+    step(
+      `No version given — ${count} merged since ${previous ?? "the beginning"}`,
+    );
+    for (const pr of merged.slice(0, 10)) {
+      console.log(`  #${pr.number}  ${pr.title}`);
+    }
+    if (merged.length > 10) console.log(`  … and ${merged.length - 10} more`);
+    console.log(`  → v${target} (${suggestion.level}: ${suggestion.reason})`);
+
+    if (!dryRun) {
+      if (!process.stdin.isTTY) {
+        fail(`no terminal to confirm on — rerun as: bun run release ${target}`);
+      }
+      const answer = prompt(`\nRelease v${target}? [y/N]`);
+      if (!/^y(es)?$/i.test((answer ?? "").trim())) {
+        console.log("\nAborted — nothing changed.");
+        process.exit(0);
+      }
+    }
   }
 
-  const target = resolveTarget(input);
   const branch = `chore/release-v${target}`;
   const head = run(["git", "rev-parse", "HEAD"], { capture: true });
 
