@@ -1,4 +1,8 @@
-# .github/labeler.yml - Automatic PR labeling based on modified file paths (v5 schema)
+# .github/labeler.yml - `area:*` labels from modified file paths (v5 schema).
+#
+# Only "where" lives here. "What" — `type:*` — comes from the pull request's
+# conventional-commit prefix, set by pr-type-label.yml. Both workflows write a
+# different label set, so they never fight over the same label.
 "area:storefront":
   - changed-files:
       - any-glob-to-any-file:
@@ -28,16 +32,3 @@
           - "CLAUDE.md"
           - "CONTEXT.md"
           - "docs/**/*"
-
-"type:test":
-  - changed-files:
-      - any-glob-to-any-file:
-          - "**/*.test.ts"
-          - "**/*.test.tsx"
-          - "**/*.spec.ts"
-
-"type:docs":
-  - changed-files:
-      - any-glob-to-any-file:
-          - "docs/**/*"
-          - "**/*.md"
