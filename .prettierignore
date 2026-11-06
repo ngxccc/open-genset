@@ -1,2 +1,5 @@
 node_modules
 .git
+# Generated at release time by `bun run release`, from the same body GitHub
+# publishes. Formatting it here would make the two files disagree.
+CHANGELOG.md
