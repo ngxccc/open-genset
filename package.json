@@ -20,6 +20,8 @@
     "dev:storefront": "cd storefront && bun run dev",
     "docker:down": "docker compose -f backend/docker-compose.yml down",
     "docker:up": "docker compose -f backend/docker-compose.yml up -d",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
     "format:pkg": "syncpack format",
     "format:pkg:check": "syncpack format --check",
     "install:all": "bun install",
@@ -43,8 +45,7 @@
     "@types/bun": "^1.4.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
-    "prettier": "^3.9.8",
-    "prettier-plugin-tailwindcss": "^0.8.1",
+    "oxfmt": "0.77.0",
     "syncpack": "^15.3.3",
     "typescript": "^6"
   },

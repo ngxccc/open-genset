@@ -2,7 +2,7 @@ import eslintJs from "@eslint/js";
 import { configs as tseslint } from "typescript-eslint";
 import { importX } from "eslint-plugin-import-x";
 import globals from "globals";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import eslintConfigPrettier from "eslint-config-prettier";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig(
@@ -93,5 +93,5 @@ export default defineConfig(
     },
   },
 
-  eslintPluginPrettierRecommended,
+  eslintConfigPrettier,
 );

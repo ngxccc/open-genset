@@ -25,7 +25,10 @@ export interface CatalogQueryOptions extends Omit<
   phase?: ProductQueryParams["phase"] | (string & {}) | null | undefined;
   fuelType?: ProductQueryParams["fuelType"] | (string & {}) | null | undefined;
   canopyType?:
-    ProductQueryParams["canopyType"] | (string & {}) | null | undefined;
+    | ProductQueryParams["canopyType"]
+    | (string & {})
+    | null
+    | undefined;
   sort?: ProductQueryParams["sort"] | (string & {}) | null | undefined;
   brandIds?: string[] | undefined;
   categoryIds?: string[] | undefined;

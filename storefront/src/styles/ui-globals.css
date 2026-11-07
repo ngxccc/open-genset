@@ -132,7 +132,7 @@
 
 /* Paragraph marks (Invisibles) */
 .prose.show-invisibles p::after {
-  content: '¶';
+  content: "¶";
   color: hsl(var(--muted-foreground) / 0.5);
   padding-left: 0.25rem;
   font-weight: normal;

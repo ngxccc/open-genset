@@ -13,5 +13,5 @@ coveragePathIgnorePatterns = [
   "src/env.ts",
   "src/main.ts",
   "test/helpers/**",
-  "test/mocks/**"
+  "test/mocks/**",
 ]

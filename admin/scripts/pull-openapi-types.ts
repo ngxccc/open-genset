@@ -1,12 +1,29 @@
 import path from "node:path";
-import prettier from "prettier";
 import openapiTS, { astToString } from "openapi-typescript";
+import { format } from "oxfmt";
 
 /**
  * CLI script to pull openapi.json from remote/local backend and generate both:
  * 1. src/types/api-schema.d.ts (via openapi-typescript)
  * 2. src/types/api-enums.ts (runtime constants)
  */
+
+const formatConfig = (await Bun.file(
+  new URL("../../.oxfmtrc.json", import.meta.url),
+).json()) as Parameters<typeof format>[2];
+
+/** Formats generated output with the same options the pre-commit hook uses. */
+async function formatSource(fileName: string, source: string): Promise<string> {
+  const { code, errors } = await format(fileName, source, formatConfig);
+  if (errors.length > 0) {
+    throw new Error(
+      `oxfmt could not format ${fileName}: ${errors
+        .map((error) => error.message)
+        .join("; ")}`,
+    );
+  }
+  return code;
+}
 
 async function pull() {
   const backendUrl = process.env.BACKEND_API_URL ?? "http://localhost:3000";
@@ -28,25 +45,15 @@ async function pull() {
   );
   const rawTypes = astToString(ast);
 
-  const prettierConfig = (await prettier.resolveConfig(process.cwd())) ?? {};
-  const formattedTypes = await prettier.format(rawTypes, {
-    ...prettierConfig,
-    parser: "typescript",
-  });
-
   const schemaPath = path.resolve(process.cwd(), "src/types/api-schema.d.ts");
-  await Bun.write(schemaPath, formattedTypes);
+  await Bun.write(schemaPath, await formatSource("api-schema.d.ts", rawTypes));
   console.log(`Generated types at ${schemaPath}`);
 
   // 2. Extract runtime enums
   const rawEnums = extractRuntimeEnums(doc);
-  const formattedEnums = await prettier.format(rawEnums, {
-    ...prettierConfig,
-    parser: "typescript",
-  });
 
   const enumsPath = path.resolve(process.cwd(), "src/types/api-enums.ts");
-  await Bun.write(enumsPath, formattedEnums);
+  await Bun.write(enumsPath, await formatSource("api-enums.ts", rawEnums));
   console.log(`Generated runtime enums at ${enumsPath}`);
 }
 
