@@ -148,7 +148,8 @@ bun run start            # Run compiled production build
 
 # Quality & Verification
 bun run check-types      # Typecheck codebase without emitting (tsc --noEmit)
-bun run lint             # Run ESLint with auto-fix and caching
+bun run lint             # oxlint --type-aware, then ESLint with auto-fix and caching
+bun run lint:fast        # oxlint --type-aware --fix only (no ESLint)
 bun run format           # Format codebase via oxfmt
 bun run format:check     # Verify formatting without writing
 

@@ -67,7 +67,7 @@ Each package maintains its own localized operational standards. You MUST read an
   - Admin: `bun run dev:admin`
 - **Quality & Verification:**
   - Type Check: `bun run check-types`
-  - Linting: `bun run lint`
+  - Linting: `bun run lint` (oxlint `--type-aware` first, then ESLint) or `bun run lint:fast` for oxlint only
   - Formatting: `bun run format` / `bun run format:check` (oxfmt)
   - Testing: `bun run test` (or `bun run test:backend`)
 - **API Contract Sync:** `bun run types:sync` (root) or `bun run types:pull` (in `admin/` & `storefront/`)

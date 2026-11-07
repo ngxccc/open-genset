@@ -39,13 +39,18 @@
     "test:storefront": "cd storefront && bun run test",
     "types:sync": "cd backend && bun run openapi:generate",
     "version:bump": "bun scripts/version.ts bump",
-    "version:check": "bun scripts/version.ts check"
+    "version:check": "bun scripts/version.ts check",
+    "lint:fast": "oxlint --type-aware --fix"
   },
   "devDependencies": {
     "@types/bun": "^1.4.2",
+    "eslint-plugin-oxlint": "1.92.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
     "oxfmt": "0.77.0",
+    "oxlint": "1.92.0",
+    "oxlint-config-presets": "0.1.21",
+    "oxlint-tsgolint": "7.0.2006",
     "syncpack": "^15.3.3",
     "typescript": "^6"
   },

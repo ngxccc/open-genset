@@ -22,7 +22,7 @@
     "format": "oxfmt src test scripts eslint.config.ts drizzle.config.ts",
     "format:check": "oxfmt --check src test scripts eslint.config.ts drizzle.config.ts",
     "i18n:generate": "nestjs-i18n -p ./src/i18n/ -o ./src/generated/i18n.generated.ts",
-    "lint": "eslint . --fix --cache --cache-location .eslintcache",
+    "lint": "oxlint --type-aware --deny-warnings && eslint . --fix --cache --cache-location .eslintcache",
     "openapi:generate": "doppler run -c test -- bun scripts/generate-openapi-types.ts",
     "prepare": "husky",
     "scrape:products": "bun scripts/scrape-products.ts",
@@ -34,7 +34,8 @@
     "test:ci": "mkdir -p coverage && bun test src/ --coverage --reporter=junit --reporter-outfile=coverage/junit.xml",
     "test:cov": "bun test src/ --coverage",
     "test:e2e": "doppler run --preserve-env=\"true\" -c test -- bun test test/",
-    "test:watch": "bun test src/ --watch"
+    "test:watch": "bun test src/ --watch",
+    "lint:fast": "oxlint --type-aware --fix"
   },
   "dependencies": {
     "@nest-lab/throttler-storage-redis": "^1.2.0",

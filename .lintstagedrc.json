@@ -1,8 +1,4 @@
 {
-  "*.{ts,tsx,js,jsx}": [
-    "oxfmt"
-  ],
-  "*.{json,yml,yaml,md}": [
-    "oxfmt"
-  ]
+  "*.{ts,tsx,js,jsx}": ["oxfmt", "oxlint --type-aware --fix"],
+  "*.{json,yml,yaml,md}": ["oxfmt"]
 }
