@@ -28,6 +28,7 @@
     "lint": "bun run lint:backend && bun run lint:storefront && bun run lint:admin",
     "lint:admin": "cd admin && bun run lint",
     "lint:backend": "cd backend && bun run lint",
+    "lint:fast": "oxlint --type-aware --fix",
     "lint:storefront": "cd storefront && bun run lint",
     "prepare": "husky",
     "release": "bun scripts/release.ts",
@@ -39,8 +40,7 @@
     "test:storefront": "cd storefront && bun run test",
     "types:sync": "cd backend && bun run openapi:generate",
     "version:bump": "bun scripts/version.ts bump",
-    "version:check": "bun scripts/version.ts check",
-    "lint:fast": "oxlint --type-aware --fix"
+    "version:check": "bun scripts/version.ts check"
   },
   "devDependencies": {
     "@types/bun": "^1.4.2",
@@ -53,6 +53,9 @@
     "oxlint-tsgolint": "7.0.2006",
     "syncpack": "^15.3.3",
     "typescript": "^6"
+  },
+  "overrides": {
+    "minimatch@^10": "^11.0.5"
   },
   "workspaces": [
     "backend",
