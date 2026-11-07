@@ -68,6 +68,7 @@ Each package maintains its own localized operational standards. You MUST read an
 - **Quality & Verification:**
   - Type Check: `bun run check-types`
   - Linting: `bun run lint`
+  - Formatting: `bun run format` / `bun run format:check` (oxfmt)
   - Testing: `bun run test` (or `bun run test:backend`)
 - **API Contract Sync:** `bun run types:sync` (root) or `bun run types:pull` (in `admin/` & `storefront/`)
 - **Release:** `bun run release` — infers the level from the pull requests merged since the previous tag (pass `<x.y.z|major|minor|patch>` to override), then bumps all manifests, writes the changelog, opens and merges the PR, tags and publishes (`--dry-run` to preview). Under it: `bun run version:check` (CI gate) and `bun run version:bump <x.y.z>`.

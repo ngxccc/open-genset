@@ -1542,7 +1542,8 @@ export interface components {
         name: string;
         shortDescription: string | null;
         description?:
-          components["schemas"]["ProductResponseDto__schema0"] | null;
+          | components["schemas"]["ProductResponseDto__schema0"]
+          | null;
         seoTitle?: string | null;
         seoDescription?: string | null;
       }[];
@@ -1573,7 +1574,8 @@ export interface components {
       engineBrand: string | null;
       alternatorBrand: string | null;
       upsTopology:
-        ("offline" | "line_interactive" | "online_double_conversion") | null;
+        | ("offline" | "line_interactive" | "online_double_conversion")
+        | null;
       upsBatteryType: ("internal" | "external") | null;
       specSheet: {
         groupKey: string;
@@ -1709,7 +1711,8 @@ export interface components {
       engineBrand?: string | null;
       alternatorBrand?: string | null;
       upsTopology?:
-        ("offline" | "line_interactive" | "online_double_conversion") | null;
+        | ("offline" | "line_interactive" | "online_double_conversion")
+        | null;
       upsBatteryType?: ("internal" | "external") | null;
       /** @default [] */
       specSheet: {
@@ -1789,7 +1792,8 @@ export interface components {
       engineBrand?: string | null;
       alternatorBrand?: string | null;
       upsTopology?:
-        ("offline" | "line_interactive" | "online_double_conversion") | null;
+        | ("offline" | "line_interactive" | "online_double_conversion")
+        | null;
       upsBatteryType?: ("internal" | "external") | null;
       specSheet?: {
         groupKey: string;
@@ -2291,7 +2295,11 @@ export interface components {
       paymentMethod: "CASH" | "TRADE_CREDIT" | "PAYOS" | "BANK_TRANSFER";
       /** @enum {string} */
       paymentStatus:
-        "PENDING" | "DEPOSIT_PAID" | "FULLY_PAID" | "REFUNDED" | "FAILED";
+        | "PENDING"
+        | "DEPOSIT_PAID"
+        | "FULLY_PAID"
+        | "REFUNDED"
+        | "FAILED";
       /** @enum {string} */
       approvalStatus: "PENDING" | "APPROVED" | "REJECTED";
       approvedBy?: string | null;
@@ -2405,7 +2413,10 @@ export interface components {
        * @enum {string}
        */
       transactionType:
-        "FULL_PAYMENT" | "DEPOSIT" | "REMAINING" | "DEBT_REPAYMENT";
+        | "FULL_PAYMENT"
+        | "DEPOSIT"
+        | "REMAINING"
+        | "DEBT_REPAYMENT";
       returnUrl?: string;
       cancelUrl?: string;
     };
@@ -2448,7 +2459,11 @@ export interface components {
       paymentMethod: "CASH" | "TRADE_CREDIT" | "PAYOS" | "BANK_TRANSFER";
       /** @enum {string} */
       paymentStatus:
-        "PENDING" | "DEPOSIT_PAID" | "FULLY_PAID" | "REFUNDED" | "FAILED";
+        | "PENDING"
+        | "DEPOSIT_PAID"
+        | "FULLY_PAID"
+        | "REFUNDED"
+        | "FAILED";
       transactions: {
         /** Format: uuid */
         id: string;
@@ -2459,7 +2474,10 @@ export interface components {
         paymentMethod: "CASH" | "TRADE_CREDIT" | "PAYOS" | "BANK_TRANSFER";
         /** @enum {string} */
         transactionType:
-          "FULL_PAYMENT" | "DEPOSIT" | "REMAINING" | "DEBT_REPAYMENT";
+          | "FULL_PAYMENT"
+          | "DEPOSIT"
+          | "REMAINING"
+          | "DEBT_REPAYMENT";
         /** @enum {string} */
         status: "PENDING" | "COMPLETED" | "FAILED" | "CANCELLED";
         orderCode?: number | null;
@@ -5065,7 +5083,8 @@ export interface operations {
         engineBrand?: unknown;
         alternatorBrand?: unknown;
         status?:
-          ("active" | "outOfStock" | "all" | "ACTIVE" | "INACTIVE") | null;
+          | ("active" | "outOfStock" | "all" | "ACTIVE" | "INACTIVE")
+          | null;
         isQuoteOnly?: unknown;
         sort?: "newest" | "priceAsc" | "priceDesc";
       };
@@ -7744,9 +7763,17 @@ export interface operations {
         page?: number;
         limit?: number;
         status?:
-          "PENDING" | "PROCESSING" | "SHIPPED" | "DELIVERED" | "CANCELLED";
+          | "PENDING"
+          | "PROCESSING"
+          | "SHIPPED"
+          | "DELIVERED"
+          | "CANCELLED";
         paymentStatus?:
-          "PENDING" | "DEPOSIT_PAID" | "FULLY_PAID" | "REFUNDED" | "FAILED";
+          | "PENDING"
+          | "DEPOSIT_PAID"
+          | "FULLY_PAID"
+          | "REFUNDED"
+          | "FAILED";
         paymentMethod?: "CASH" | "TRADE_CREDIT" | "PAYOS" | "BANK_TRANSFER";
         userId?: string;
         customerPhone?: string;

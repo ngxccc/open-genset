@@ -122,7 +122,7 @@ Then revert the bump commit so the manifests stop claiming `1.2.3`. Never delete
 
 It was seeded from `v1.0.0` so history is not empty. Do not invent its content: every section is generator output, whichever route cut the release. `scripts/release.test.ts` guards the two failures that would corrupt it — computing the wrong next version, and putting the new section below the old one or duplicating the preamble.
 
-The file is listed in `.prettierignore`. It is generated from the release body, so letting the pre-commit hook reformat it (bullets `*` → `-`, blank lines around headings) would make `CHANGELOG.md` and the release page differ by more than the heading the script adds.
+The file is listed under `ignorePatterns` in `.oxfmtrc.json`. It is generated from the release body, so letting the pre-commit hook reformat it (bullets `*` → `-`, blank lines around headings) would make `CHANGELOG.md` and the release page differ by more than the heading the script adds.
 
 ---
 

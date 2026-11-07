@@ -1,7 +1,25 @@
 import { extractRuntimeEnums } from "./extract-openapi-enums";
 import "reflect-metadata";
 import path from "node:path";
+import { format } from "oxfmt";
 process.env["SKIP_ENV_VALIDATION"] = "true";
+
+const formatConfig = (await Bun.file(
+  new URL("../../.oxfmtrc.json", import.meta.url),
+).json()) as Parameters<typeof format>[2];
+
+/** Formats generated output with the same options the pre-commit hook uses. */
+async function formatSource(fileName: string, source: string): Promise<string> {
+  const { code, errors } = await format(fileName, source, formatConfig);
+  if (errors.length > 0) {
+    throw new Error(
+      `oxfmt could not format ${fileName}: ${errors
+        .map((error) => error.message)
+        .join("; ")}`,
+    );
+  }
+  return code;
+}
 
 async function generate() {
   const { NestFactory } = await import("@nestjs/core");
@@ -19,19 +37,11 @@ async function generate() {
   const openapiTSModule = await import("openapi-typescript");
   const openapiTS = openapiTSModule.default;
   const { astToString } = openapiTSModule;
-  const prettierModule = await import("prettier");
-  const prettier = prettierModule.default;
-
-  const prettierConfig = (await prettier.resolveConfig(process.cwd())) ?? {};
 
   // 1. Export raw OpenAPI specification to openapi.json
-  const rawSpec = JSON.stringify(document, null, 2);
-  const formattedSpec = await prettier.format(rawSpec, {
-    ...prettierConfig,
-    parser: "json",
-  });
   const specPath = "openapi.json";
-  await Bun.write(specPath, formattedSpec);
+  const rawSpec = `${JSON.stringify(document, null, 2)}\n`;
+  await Bun.write(specPath, await formatSource("openapi.json", rawSpec));
   console.log(`OpenAPI specification successfully exported to ${specPath}`);
 
   // 2. Generate typed TypeScript definitions from the OpenAPI specification
@@ -39,10 +49,6 @@ async function generate() {
     document as unknown as Parameters<typeof openapiTS>[0],
   );
   const rawContents = astToString(ast);
-  const formattedContents = await prettier.format(rawContents, {
-    ...prettierConfig,
-    parser: "typescript",
-  });
 
   const outputPaths = [
     path.resolve(import.meta.dirname, "../test/generated/api-schema.d.ts"),
@@ -54,7 +60,10 @@ async function generate() {
   ];
 
   for (const outPath of outputPaths) {
-    await Bun.write(outPath, formattedContents);
+    await Bun.write(
+      outPath,
+      await formatSource("api-schema.d.ts", rawContents),
+    );
     console.log(`OpenAPI types successfully generated at ${outPath}`);
   }
 
@@ -62,10 +71,6 @@ async function generate() {
   const rawEnums = extractRuntimeEnums(
     document as unknown as Record<string, unknown>,
   );
-  const formattedEnums = await prettier.format(rawEnums, {
-    ...prettierConfig,
-    parser: "typescript",
-  });
 
   const enumOutputPaths = [
     path.resolve(import.meta.dirname, "../../admin/src/types/api-enums.ts"),
@@ -76,7 +81,7 @@ async function generate() {
   ];
 
   for (const enumPath of enumOutputPaths) {
-    await Bun.write(enumPath, formattedEnums);
+    await Bun.write(enumPath, await formatSource("api-enums.ts", rawEnums));
     console.log(`OpenAPI runtime enums successfully generated at ${enumPath}`);
   }
 }

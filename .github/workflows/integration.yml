@@ -25,6 +25,9 @@ jobs:
       - name: Type-Check Repo Scripts
         run: bun run check-types:scripts
 
+      - name: Format Check
+        run: bun run format:check
+
       - name: Run Test Suite
         working-directory: packages/shared
         run: bun run test

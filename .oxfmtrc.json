@@ -1,0 +1,23 @@
+{
+  "arrowParens": "always",
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 80,
+  "semi": true,
+  "endOfLine": "lf",
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.next/**",
+    ".*/**",
+    "!/.github/**",
+    "CHANGELOG.md",
+    "**/api-schema.d.ts",
+    "**/api-enums.ts",
+    "**/openapi.json",
+    "**/src/generated/**",
+    "**/.engineered-config.json"
+  ]
+}
