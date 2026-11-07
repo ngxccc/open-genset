@@ -17,10 +17,10 @@ export async function ProductsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8 border-b pb-4">
-          <h2 className="font-display text-foreground text-4xl font-extrabold tracking-tighter md:text-5xl">
+          <h2 className="font-display text-4xl font-extrabold tracking-tighter text-foreground md:text-5xl">
             {t("title")}
           </h2>
-          <p className="text-muted-foreground mt-2 font-sans text-sm tracking-widest uppercase">
+          <p className="mt-2 font-sans text-sm tracking-widest text-muted-foreground uppercase">
             {t("subtitle")}
           </p>
         </div>

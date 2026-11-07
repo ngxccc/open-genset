@@ -286,7 +286,7 @@ export const ProductForm = ({
                 clickToSelectLabel={t("fields.orClickToSelect")}
               />
               {form.formState.errors.images && (
-                <p className="text-destructive mt-1.5 px-1 text-sm">
+                <p className="mt-1.5 px-1 text-sm text-destructive">
                   {form.formState.errors.images.message}
                 </p>
               )}

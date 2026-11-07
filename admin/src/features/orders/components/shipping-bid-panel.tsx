@@ -125,7 +125,7 @@ export const ShippingBidPanel = ({ order }: ShippingBidPanelProps) => {
                       {bid.vendorName}
                     </TableCell>
                     <TableCell>{formatCurrency(bid.quotedPrice)}</TableCell>
-                    <TableCell className="text-muted-foreground max-w-50 truncate">
+                    <TableCell className="max-w-50 truncate text-muted-foreground">
                       {bid.internalNote ?? "-"}
                     </TableCell>
                     <TableCell className="text-center">
@@ -158,14 +158,14 @@ export const ShippingBidPanel = ({ order }: ShippingBidPanelProps) => {
             </Table>
           </div>
         ) : (
-          <div className="text-muted-foreground flex h-32 flex-col items-center justify-center rounded-md border border-dashed">
+          <div className="flex h-32 flex-col items-center justify-center rounded-md border border-dashed text-muted-foreground">
             <Truck className="mb-2 h-8 w-8 opacity-20" />
             <p>{t("shippingBidsNoBids")}</p>
           </div>
         )}
 
         {/* Add Bid Form */}
-        <div className="bg-muted/30 rounded-md p-4 pb-0">
+        <div className="rounded-md bg-muted/30 p-4 pb-0">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2">

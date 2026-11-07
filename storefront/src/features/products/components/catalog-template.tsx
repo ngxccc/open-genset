@@ -156,7 +156,7 @@ export async function CatalogTemplate({
   }
 
   return (
-    <div className="bg-background min-h-screen pt-4 pb-16">
+    <div className="min-h-screen bg-background pt-4 pb-16">
       <div className="mx-auto max-w-7xl space-y-5 px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
         <Breadcrumb>
@@ -200,7 +200,7 @@ export async function CatalogTemplate({
 
         {search && (
           <div className="flex items-center justify-between border-b pb-2">
-            <p className="text-muted-foreground text-xs font-medium">
+            <p className="text-xs font-medium text-muted-foreground">
               {t("search_results", {
                 query: search,
                 count: productsData.total.toString(),
@@ -215,7 +215,7 @@ export async function CatalogTemplate({
         />
 
         {/* Top Filter Bar */}
-        <div className="bg-card rounded-xl border p-3 shadow-xs">
+        <div className="rounded-xl border bg-card p-3 shadow-xs">
           <TopProductFilters brands={allBrands} metadata={catalogMetadata} />
         </div>
 
@@ -241,13 +241,13 @@ export async function CatalogTemplate({
         ) : (
           /* Modern Clean Empty State */
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed px-4 py-20 text-center">
-            <div className="bg-muted/50 mb-4 flex size-14 items-center justify-center rounded-full">
-              <PackageSearch className="text-muted-foreground size-7" />
+            <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-muted/50">
+              <PackageSearch className="size-7 text-muted-foreground" />
             </div>
-            <h3 className="font-display text-foreground text-lg font-bold">
+            <h3 className="font-display text-lg font-bold text-foreground">
               {t("no_products")}
             </h3>
-            <p className="text-muted-foreground mt-1 max-w-md text-xs sm:text-sm">
+            <p className="mt-1 max-w-md text-xs text-muted-foreground sm:text-sm">
               Không tìm thấy sản phẩm nào phù hợp với bộ lọc hiện tại. Vui lòng
               thử điều chỉnh hoặc xóa bớt tiêu chí lọc.
             </p>

@@ -29,8 +29,8 @@ export function WarehouseTable({ warehouses }: WarehouseTableProps) {
 
   if (warehouses.length === 0) {
     return (
-      <Card className="border-border/60 flex min-h-[220px] flex-col items-center justify-center rounded-xl p-8 text-center shadow-xs">
-        <p className="text-muted-foreground text-sm">
+      <Card className="flex min-h-[220px] flex-col items-center justify-center rounded-xl border-border/60 p-8 text-center shadow-xs">
+        <p className="text-sm text-muted-foreground">
           {t("header.description")}
         </p>
       </Card>
@@ -68,7 +68,7 @@ export function WarehouseTable({ warehouses }: WarehouseTableProps) {
 
             return (
               <TableRow key={warehouse.id} className="hover:bg-muted/30">
-                <TableCell className="text-foreground font-medium">
+                <TableCell className="font-medium text-foreground">
                   <Link
                     href={`/warehouses/${warehouse.id}/edit`}
                     className="hover:text-primary hover:underline"
@@ -76,16 +76,16 @@ export function WarehouseTable({ warehouses }: WarehouseTableProps) {
                     {warehouse.nameVi}
                   </Link>
                 </TableCell>
-                <TableCell className="text-muted-foreground text-sm">
+                <TableCell className="text-sm text-muted-foreground">
                   <div className="flex items-center gap-1.5">
-                    <MapPin className="text-muted-foreground/70 size-3.5 shrink-0" />
+                    <MapPin className="size-3.5 shrink-0 text-muted-foreground/70" />
                     <span>{warehouse.streetAddress}</span>
                   </div>
                 </TableCell>
-                <TableCell className="text-muted-foreground text-sm">
+                <TableCell className="text-sm text-muted-foreground">
                   {warehouse.district}
                 </TableCell>
-                <TableCell className="text-muted-foreground text-sm">
+                <TableCell className="text-sm text-muted-foreground">
                   {warehouse.city}
                 </TableCell>
                 <TableCell className="text-center">
@@ -93,8 +93,8 @@ export function WarehouseTable({ warehouses }: WarehouseTableProps) {
                     variant="outline"
                     className={
                       warehouse.isActive
-                        ? "border-border text-foreground text-xs"
-                        : "border-destructive/40 text-destructive text-xs"
+                        ? "border-border text-xs text-foreground"
+                        : "border-destructive/40 text-xs text-destructive"
                     }
                   >
                     {cardT(`status.${status}`)}
@@ -106,7 +106,7 @@ export function WarehouseTable({ warehouses }: WarehouseTableProps) {
                       asChild
                       variant="ghost"
                       size="icon"
-                      className="text-muted-foreground hover:text-foreground size-8"
+                      className="size-8 text-muted-foreground hover:text-foreground"
                       title={cardT("actions.edit")}
                     >
                       <Link href={`/warehouses/${warehouse.id}/edit`}>

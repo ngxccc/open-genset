@@ -7,31 +7,31 @@ const NotFoundPage = () => {
   const t = useTranslations("notFound");
 
   return (
-    <div className="bg-background flex min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center p-4 text-center">
+    <div className="flex min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center bg-background p-4 text-center">
       <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center space-y-6">
         {/* Terminal Icon Badge */}
-        <div className="bg-primary/10 flex size-20 items-center justify-center rounded-full">
-          <Terminal className="text-primary size-10" />
+        <div className="flex size-20 items-center justify-center rounded-full bg-primary/10">
+          <Terminal className="size-10 text-primary" />
         </div>
 
         {/* 404 Heading & Status */}
         <div className="flex flex-col items-center justify-center gap-1.5">
-          <h1 className="text-foreground text-5xl font-extrabold tracking-tight sm:text-6xl">
+          <h1 className="text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl">
             404
           </h1>
-          <p className="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
+          <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
             {t("status")}
           </p>
         </div>
 
         {/* Error Code Tag */}
-        <div className="bg-destructive/10 text-destructive inline-flex items-center gap-2 rounded-md px-3 py-1 text-xs font-medium">
+        <div className="inline-flex items-center gap-2 rounded-md bg-destructive/10 px-3 py-1 text-xs font-medium text-destructive">
           <Terminal className="size-3.5" />
           <span>{t("errorCode")}</span>
         </div>
 
         {/* Descriptive Message */}
-        <p className="text-muted-foreground mx-auto max-w-md text-sm leading-relaxed sm:text-base">
+        <p className="mx-auto max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
           {t("errorMessage")}
         </p>
 

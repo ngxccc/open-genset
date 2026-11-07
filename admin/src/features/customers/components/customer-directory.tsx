@@ -51,7 +51,7 @@ export const CustomerDirectory = ({ initialUsers }: CustomerDirectoryProps) => {
       {/* Search & Tabs Header */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="relative max-w-sm flex-1">
-          <Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
+          <Search className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             placeholder={t("searchPlaceholder")}
             value={searchTerm}
@@ -61,7 +61,7 @@ export const CustomerDirectory = ({ initialUsers }: CustomerDirectoryProps) => {
         </div>
 
         {/* Business Type Filter Buttons */}
-        <div className="border-border flex flex-wrap gap-1 border-b pb-2 md:border-b-0 md:pb-0">
+        <div className="flex flex-wrap gap-1 border-b border-border pb-2 md:border-b-0 md:pb-0">
           {types.map((type) => (
             <Button
               key={type.key}
@@ -76,7 +76,7 @@ export const CustomerDirectory = ({ initialUsers }: CustomerDirectoryProps) => {
         </div>
       </div>
 
-      <div className="border-border bg-card overflow-x-auto rounded-lg border">
+      <div className="overflow-x-auto rounded-lg border border-border bg-card">
         <Table>
           <TableHeader>
             <TableRow className="bg-muted/40 hover:bg-muted/40">
@@ -95,7 +95,7 @@ export const CustomerDirectory = ({ initialUsers }: CustomerDirectoryProps) => {
               <TableRow>
                 <TableCell
                   colSpan={4}
-                  className="text-muted-foreground py-12 text-center text-sm"
+                  className="py-12 text-center text-sm text-muted-foreground"
                 >
                   {t("empty")}
                 </TableCell>
@@ -103,14 +103,14 @@ export const CustomerDirectory = ({ initialUsers }: CustomerDirectoryProps) => {
             ) : (
               filteredUsers.map((user) => (
                 <TableRow key={user.id} className="hover:bg-muted/30">
-                  <TableCell className="text-foreground font-medium">
+                  <TableCell className="font-medium text-foreground">
                     <div className="flex items-center gap-2">
-                      <UserCheck className="text-muted-foreground size-4" />
+                      <UserCheck className="size-4 text-muted-foreground" />
                       <span>{user.fullName}</span>
                     </div>
                   </TableCell>
                   <TableCell>
-                    <div className="text-muted-foreground flex flex-col text-xs">
+                    <div className="flex flex-col text-xs text-muted-foreground">
                       <span>{user.email}</span>
                       <span>{user.phoneNumber}</span>
                     </div>
@@ -122,12 +122,12 @@ export const CustomerDirectory = ({ initialUsers }: CustomerDirectoryProps) => {
                   </TableCell>
                   <TableCell>
                     {user.dealerCompany ? (
-                      <div className="text-foreground flex items-center gap-1.5 text-xs">
-                        <Building className="text-primary size-3.5 shrink-0" />
+                      <div className="flex items-center gap-1.5 text-xs text-foreground">
+                        <Building className="size-3.5 shrink-0 text-primary" />
                         <span>{user.dealerCompany.companyName}</span>
                       </div>
                     ) : (
-                      <span className="text-muted-foreground/60 text-xs">
+                      <span className="text-xs text-muted-foreground/60">
                         —
                       </span>
                     )}

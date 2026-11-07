@@ -193,7 +193,7 @@ export function TopProductFilters({
     <div className="flex flex-wrap items-center gap-2">
       {/* Compact Search Input Box */}
       <div className="relative w-36 shrink-0 sm:w-48">
-        <Search className="text-muted-foreground absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2" />
+        <Search className="absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-muted-foreground" />
         <Input
           type="text"
           placeholder={t("search_placeholder")}
@@ -208,7 +208,7 @@ export function TopProductFilters({
               setLocalSearch("");
               updateQueryParams({ q: null });
             }}
-            className="text-muted-foreground hover:text-foreground absolute top-1/2 right-2 -translate-y-1/2 rounded-full p-0.5"
+            className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full p-0.5 text-muted-foreground hover:text-foreground"
           >
             <X className="size-3" />
           </button>
@@ -244,7 +244,7 @@ export function TopProductFilters({
           </PopoverTrigger>
           <PopoverContent className="w-56 p-2" align="start">
             <div className="space-y-1">
-              <div className="text-muted-foreground px-2 py-1 text-xs font-semibold tracking-wider uppercase">
+              <div className="px-2 py-1 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                 {t("sidebar.brands")}
               </div>
               <div className="max-h-56 space-y-1 overflow-y-auto">
@@ -257,8 +257,8 @@ export function TopProductFilters({
                       className={cn(
                         "flex cursor-pointer items-center justify-between rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors select-none",
                         isSelected
-                          ? "bg-primary/10 text-primary font-semibold"
-                          : "hover:bg-muted text-foreground",
+                          ? "bg-primary/10 font-semibold text-primary"
+                          : "text-foreground hover:bg-muted",
                       )}
                     >
                       <div className="flex items-center gap-2">
@@ -276,7 +276,7 @@ export function TopProductFilters({
                     variant="ghost"
                     size="sm"
                     onClick={() => updateQueryParams({ brand: null })}
-                    className="text-muted-foreground hover:text-foreground h-7 w-full text-xs"
+                    className="h-7 w-full text-xs text-muted-foreground hover:text-foreground"
                   >
                     {t("sidebar.clear_all")}
                   </Button>
@@ -315,7 +315,7 @@ export function TopProductFilters({
         </PopoverTrigger>
         <PopoverContent className="w-72 p-3.5" align="start">
           <div className="space-y-3">
-            <div className="text-foreground text-xs font-bold">
+            <div className="text-xs font-bold text-foreground">
               Công suất (kW)
             </div>
             <div className="flex items-center gap-2">
@@ -332,7 +332,7 @@ export function TopProductFilters({
                 className="h-8 text-xs"
                 min={0}
               />
-              <span className="text-muted-foreground text-xs">—</span>
+              <span className="text-xs text-muted-foreground">—</span>
               <Input
                 type="number"
                 placeholder={
@@ -398,8 +398,8 @@ export function TopProductFilters({
                 className={cn(
                   "flex cursor-pointer items-center justify-between rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors select-none",
                   !selectedFuelType
-                    ? "bg-primary/10 text-primary font-semibold"
-                    : "hover:bg-muted text-foreground",
+                    ? "bg-primary/10 font-semibold text-primary"
+                    : "text-foreground hover:bg-muted",
                 )}
               >
                 <span>Tất cả nhiên liệu</span>
@@ -419,8 +419,8 @@ export function TopProductFilters({
                     className={cn(
                       "flex cursor-pointer items-center justify-between rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors select-none",
                       isSelected
-                        ? "bg-primary/10 text-primary font-semibold"
-                        : "hover:bg-muted text-foreground",
+                        ? "bg-primary/10 font-semibold text-primary"
+                        : "text-foreground hover:bg-muted",
                     )}
                   >
                     <span>{getFuelLabel(type)}</span>
@@ -461,8 +461,8 @@ export function TopProductFilters({
                 className={cn(
                   "flex cursor-pointer items-center justify-between rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors select-none",
                   !selectedPhase
-                    ? "bg-primary/10 text-primary font-semibold"
-                    : "hover:bg-muted text-foreground",
+                    ? "bg-primary/10 font-semibold text-primary"
+                    : "text-foreground hover:bg-muted",
                 )}
               >
                 <span>Tất cả số pha</span>
@@ -482,8 +482,8 @@ export function TopProductFilters({
                     className={cn(
                       "flex cursor-pointer items-center justify-between rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors select-none",
                       isSelected
-                        ? "bg-primary/10 text-primary font-semibold"
-                        : "hover:bg-muted text-foreground",
+                        ? "bg-primary/10 font-semibold text-primary"
+                        : "text-foreground hover:bg-muted",
                     )}
                   >
                     <span>{getPhaseLabel(ph)}</span>

@@ -87,7 +87,7 @@ export const ProductCard = ({ product }: { product: ProductGridItem }) => {
         className="group relative justify-between overflow-hidden transition-all duration-200 hover:shadow-md"
       >
         {/* Top Edge-to-Edge Image Container with Link */}
-        <div className="border-border/60 bg-muted/20 relative aspect-4/3 w-full overflow-hidden border-b">
+        <div className="relative aspect-4/3 w-full overflow-hidden border-b border-border/60 bg-muted/20">
           <Link
             href={`/products/${product.id}/edit`}
             className="relative block h-full w-full focus-visible:outline-none"
@@ -118,7 +118,7 @@ export const ProductCard = ({ product }: { product: ProductGridItem }) => {
             <Badge
               variant="outline"
               className={cn(
-                "bg-background/85 pointer-events-auto px-2.5 py-0.5 text-xs font-medium shadow-xs backdrop-blur-md",
+                "pointer-events-auto bg-background/85 px-2.5 py-0.5 text-xs font-medium shadow-xs backdrop-blur-md",
                 isOutOfStock
                   ? "border-destructive/40 text-destructive"
                   : "border-border/80 text-foreground",
@@ -131,7 +131,7 @@ export const ProductCard = ({ product }: { product: ProductGridItem }) => {
                 <Button
                   variant="secondary"
                   size="icon"
-                  className="border-border/40 bg-background/85 text-muted-foreground hover:bg-background hover:text-foreground pointer-events-auto size-7 rounded-full border shadow-xs backdrop-blur-md focus-visible:ring-1"
+                  className="pointer-events-auto size-7 rounded-full border border-border/40 bg-background/85 text-muted-foreground shadow-xs backdrop-blur-md hover:bg-background hover:text-foreground focus-visible:ring-1"
                   aria-label={t("card.actions.edit")}
                 >
                   <MoreHorizontal className="size-4" />
@@ -160,7 +160,7 @@ export const ProductCard = ({ product }: { product: ProductGridItem }) => {
                 <DropdownMenuItem
                   onSelect={() => setIsDeleteDialogOpen(true)}
                   variant="destructive"
-                  className="text-destructive focus:text-destructive cursor-pointer gap-2"
+                  className="cursor-pointer gap-2 text-destructive focus:text-destructive"
                 >
                   <Trash2 className="size-4" />
                   <span>{t("card.actions.delete")}</span>
@@ -172,10 +172,10 @@ export const ProductCard = ({ product }: { product: ProductGridItem }) => {
         {/* Content Body */}
         <CardContent size="compact" className="flex flex-1 flex-col p-3.5 pt-2">
           <div className="mb-2">
-            <p className="text-muted-foreground font-mono text-xs font-medium">
+            <p className="font-mono text-xs font-medium text-muted-foreground">
               {product.slug}
             </p>
-            <h3 className="text-foreground hover:text-primary line-clamp-2 text-sm font-semibold tracking-tight">
+            <h3 className="line-clamp-2 text-sm font-semibold tracking-tight text-foreground hover:text-primary">
               <Link href={`/products/${product.id}/edit`}>{product.name}</Link>
             </h3>
           </div>
@@ -183,20 +183,20 @@ export const ProductCard = ({ product }: { product: ProductGridItem }) => {
           {/* Footer: Price, Stock & Primary Action */}
           <CardFooter
             size="compact"
-            className="border-border/50 mt-auto flex flex-wrap items-end justify-between gap-x-2 gap-y-2 border-t pt-2.5"
+            className="mt-auto flex flex-wrap items-end justify-between gap-x-2 gap-y-2 border-t border-border/50 pt-2.5"
           >
             <div className="min-w-fit">
               <p
                 className={cn(
                   "mb-0.5 text-xs",
                   isOutOfStock
-                    ? "text-destructive font-medium"
+                    ? "font-medium text-destructive"
                     : "text-muted-foreground",
                 )}
               >
                 {t("card.stock", { count: String(product.totalStockCache) })}
               </p>
-              <p className="text-primary text-base font-bold sm:text-lg">
+              <p className="text-base font-bold text-primary sm:text-lg">
                 {product.isQuoteOnly ? t("card.contact") : formattedPrice}
               </p>
             </div>
@@ -206,7 +206,7 @@ export const ProductCard = ({ product }: { product: ProductGridItem }) => {
               variant="outline"
               size="sm"
               onClick={handleAddToQuote}
-              className="hover:bg-primary hover:text-primary-foreground hover:border-primary h-8 gap-1.5 px-2.5 text-xs font-medium shadow-2xs transition-colors"
+              className="h-8 gap-1.5 px-2.5 text-xs font-medium shadow-2xs transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
               title={t("card.actions.addToQuote")}
             >
               <FilePlus className="size-3.5" />
@@ -238,7 +238,7 @@ export const ProductCard = ({ product }: { product: ProductGridItem }) => {
                 handleDelete();
               }}
               disabled={isPending}
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              className="text-destructive-foreground bg-destructive hover:bg-destructive/90"
             >
               {isPending
                 ? t("dialogs.delete.deleting")

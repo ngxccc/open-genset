@@ -87,7 +87,7 @@ export const OffsetPagination = ({
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="border-border/50 flex flex-col items-center justify-center gap-4 border-t pt-5 pb-8">
+    <div className="flex flex-col items-center justify-center gap-4 border-t border-border/50 pt-5 pb-8">
       {/* Centered Numbered Pagination */}
       <Pagination className="mx-auto w-auto">
         <PaginationContent className="flex-wrap items-center justify-center gap-1">
@@ -156,7 +156,7 @@ export const OffsetPagination = ({
       </Pagination>
 
       {/* Centered Summary and Rows-Per-Page Select */}
-      <div className="text-muted-foreground flex flex-wrap items-center justify-center gap-3 text-xs">
+      <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
         {total != null && (
           <span>{t("totalCount", { total: String(total), label })}</span>
         )}

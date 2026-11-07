@@ -23,7 +23,7 @@ export function ProductCardSkeleton() {
         </div>
       </CardContent>
 
-      <CardFooter className="bg-muted/10 mt-auto flex flex-col gap-2.5 border-t p-3.5">
+      <CardFooter className="mt-auto flex flex-col gap-2.5 border-t bg-muted/10 p-3.5">
         <div className="flex w-full items-baseline justify-between gap-2">
           <Skeleton className="h-5 w-28 rounded-sm" />
         </div>

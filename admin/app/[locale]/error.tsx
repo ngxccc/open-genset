@@ -28,32 +28,32 @@ export default function ErrorBoundary({ error, reset }: ErrorProps) {
   }, [error]);
 
   return (
-    <div className="bg-background flex min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center p-4 text-center">
+    <div className="flex min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center bg-background p-4 text-center">
       <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center space-y-6">
         {/* Error Icon Badge with Soft Glow */}
-        <div className="bg-destructive/10 text-destructive ring-destructive/5 flex size-20 items-center justify-center rounded-full ring-8 transition-all">
+        <div className="flex size-20 items-center justify-center rounded-full bg-destructive/10 text-destructive ring-8 ring-destructive/5 transition-all">
           <AlertTriangle className="size-10 stroke-[2.25]" />
         </div>
 
         {/* Error Heading & Status Tag */}
         <div className="flex flex-col items-center justify-center gap-2">
-          <span className="border-destructive/20 bg-destructive/10 text-destructive inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold tracking-wider uppercase">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-destructive/20 bg-destructive/10 px-3 py-1 text-xs font-bold tracking-wider text-destructive uppercase">
             <Terminal className="size-3.5" />
             {t("status")}
           </span>
-          <h1 className="text-foreground text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
             {t("title")}
           </h1>
         </div>
 
         {/* Descriptive Message */}
-        <p className="text-muted-foreground mx-auto max-w-md text-sm leading-relaxed sm:text-base">
+        <p className="mx-auto max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
           {t("description")}
         </p>
 
         {/* Optional Error Digest Badge */}
         {error.digest && (
-          <div className="border-border bg-muted/30 text-muted-foreground inline-flex items-center gap-1 rounded-md border px-2.5 py-1 font-mono text-[11px]">
+          <div className="inline-flex items-center gap-1 rounded-md border border-border bg-muted/30 px-2.5 py-1 font-mono text-[11px] text-muted-foreground">
             <span>{t("digest", { digest: error.digest })}</span>
           </div>
         )}
@@ -91,7 +91,7 @@ export default function ErrorBoundary({ error, reset }: ErrorProps) {
               variant="ghost"
               size="sm"
               onClick={() => setShowDetails((prev) => !prev)}
-              className="text-muted-foreground hover:text-foreground gap-1.5 text-xs font-medium"
+              className="gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground"
             >
               <span>{t("technicalDetails")}</span>
               {showDetails ? (
@@ -102,12 +102,12 @@ export default function ErrorBoundary({ error, reset }: ErrorProps) {
             </Button>
 
             {showDetails && (
-              <div className="bg-muted/60 border-border/80 text-foreground [&::-webkit-scrollbar-thumb]:bg-muted-foreground/30 relative mt-3 max-h-56 w-full [scrollbar-width:thin] [scrollbar-color:var(--color-border)_transparent] overflow-auto rounded-xl border p-4 text-left font-mono text-xs shadow-xs [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent">
-                <p className="text-destructive font-bold">
+              <div className="relative mt-3 max-h-56 w-full [scrollbar-width:thin] [scrollbar-color:var(--color-border)_transparent] overflow-auto rounded-xl border border-border/80 bg-muted/60 p-4 text-left font-mono text-xs text-foreground shadow-xs [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-muted-foreground/30 [&::-webkit-scrollbar-track]:bg-transparent">
+                <p className="font-bold text-destructive">
                   {error.name}: {error.message}
                 </p>
                 {error.stack && (
-                  <pre className="text-muted-foreground mt-2.5 text-[11px] leading-relaxed whitespace-pre-wrap">
+                  <pre className="mt-2.5 text-[11px] leading-relaxed whitespace-pre-wrap text-muted-foreground">
                     {error.stack}
                   </pre>
                 )}

@@ -137,11 +137,11 @@ export const QuoteLineItemsTable = () => {
         <CardContent size="compact" className="overflow-x-auto">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center px-4 py-12 text-center">
-              <div className="bg-muted/60 mb-3 flex h-12 w-12 items-center justify-center rounded-full">
-                <Package className="text-muted-foreground h-6 w-6 stroke-1" />
+              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-muted/60">
+                <Package className="h-6 w-6 stroke-1 text-muted-foreground" />
               </div>
               <h4 className="text-sm font-semibold">{t("emptyTitle")}</h4>
-              <p className="text-muted-foreground mt-1 mb-4 max-w-sm text-xs">
+              <p className="mt-1 mb-4 max-w-sm text-xs text-muted-foreground">
                 {t("emptyDescription")}
               </p>
               <div className="flex gap-2">
@@ -195,13 +195,13 @@ export const QuoteLineItemsTable = () => {
 
                   return (
                     <TableRow key={item.id} className="hover:bg-muted/30">
-                      <TableCell className="text-muted-foreground text-center">
+                      <TableCell className="text-center text-muted-foreground">
                         {index + 1}
                       </TableCell>
 
                       <TableCell>
                         <div className="flex items-center gap-2.5">
-                          <div className="bg-muted relative h-10 w-10 shrink-0 overflow-hidden rounded-md border">
+                          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md border bg-muted">
                             {item.image && canUseCldImage(item.image) ? (
                               <CldImage
                                 src={item.image}
@@ -220,7 +220,7 @@ export const QuoteLineItemsTable = () => {
                                 className="h-full w-full object-cover"
                               />
                             ) : (
-                              <div className="text-muted-foreground flex h-full w-full items-center justify-center">
+                              <div className="flex h-full w-full items-center justify-center text-muted-foreground">
                                 {item.isCustomItem ? (
                                   <Sparkles className="h-4 w-4" />
                                 ) : (
@@ -232,7 +232,7 @@ export const QuoteLineItemsTable = () => {
 
                           <div className="flex min-w-0 flex-col">
                             <div className="flex flex-wrap items-center gap-1.5">
-                              <span className="text-foreground max-w-xs truncate font-semibold">
+                              <span className="max-w-xs truncate font-semibold text-foreground">
                                 {item.itemName}
                               </span>
                               {item.isCustomItem ? (
@@ -301,19 +301,19 @@ export const QuoteLineItemsTable = () => {
                             }
                             className="h-8 w-16 pr-5 text-right text-xs font-medium"
                           />
-                          <span className="text-muted-foreground pointer-events-none absolute right-2 text-[10px]">
+                          <span className="pointer-events-none absolute right-2 text-[10px] text-muted-foreground">
                             %
                           </span>
                         </div>
                       </TableCell>
 
                       {/* Final Unit Price */}
-                      <TableCell className="text-muted-foreground text-right font-medium">
+                      <TableCell className="text-right font-medium text-muted-foreground">
                         {formatCurrency(finalUnit)}
                       </TableCell>
 
                       {/* Total Line Amount */}
-                      <TableCell className="text-foreground text-right font-bold">
+                      <TableCell className="text-right font-bold text-foreground">
                         {formatCurrency(lineTotal)}
                       </TableCell>
 
@@ -324,7 +324,7 @@ export const QuoteLineItemsTable = () => {
                           variant="ghost"
                           size="icon"
                           onClick={() => removeItem(item.id)}
-                          className="text-muted-foreground hover:text-destructive hover:bg-destructive/10 h-7 w-7 transition-colors"
+                          className="h-7 w-7 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
                         >
                           <Trash2 className="h-3.5 w-3.5" />
                         </Button>
@@ -353,7 +353,7 @@ export const QuoteLineItemsTable = () => {
           <form onSubmit={handleAddCustomItem}>
             <DialogHeader className="border-b pb-3">
               <DialogTitle className="flex items-center gap-2 text-base font-semibold">
-                <Wrench className="text-primary h-4 w-4" />
+                <Wrench className="h-4 w-4 text-primary" />
                 {t("customModal.title")}
               </DialogTitle>
               <DialogDescription className="text-xs">

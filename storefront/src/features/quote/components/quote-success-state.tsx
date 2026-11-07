@@ -31,29 +31,29 @@ export function QuoteSuccessState({
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 text-center">
       {/* Brand-consistent success icon */}
-      <div className="bg-primary/10 text-primary mx-auto mb-6 flex size-16 items-center justify-center rounded-full">
+      <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-primary/10 text-primary">
         <CheckCircle2 className="size-10" />
       </div>
 
-      <h1 className="font-display text-foreground text-2xl font-bold sm:text-3xl">
+      <h1 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
         {t("successTitle")}
       </h1>
-      <p className="text-muted-foreground mt-3">
+      <p className="mt-3 text-muted-foreground">
         {t("successDesc", { name: customerName })}
       </p>
 
-      <div className="border-border bg-muted/40 my-8 rounded-xl border p-6 text-left">
-        <div className="border-border flex items-center justify-between border-b pb-3">
-          <span className="text-muted-foreground text-sm">
+      <div className="my-8 rounded-xl border border-border bg-muted/40 p-6 text-left">
+        <div className="flex items-center justify-between border-b border-border pb-3">
+          <span className="text-sm text-muted-foreground">
             {t("quoteNumberLabel")}
           </span>
-          <span className="text-primary font-mono text-base font-bold">
+          <span className="font-mono text-base font-bold text-primary">
             {quoteNumber}
           </span>
         </div>
-        <div className="text-muted-foreground mt-4 flex flex-col gap-2 text-sm">
+        <div className="mt-4 flex flex-col gap-2 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <PhoneCall className="text-primary size-4" />
+            <PhoneCall className="size-4 text-primary" />
             <span>
               {t("hotline")}{" "}
               <strong className="text-foreground">
@@ -62,7 +62,7 @@ export function QuoteSuccessState({
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <Mail className="text-primary size-4" />
+            <Mail className="size-4 text-primary" />
             <span>
               {t("emailSales")}{" "}
               <strong className="text-foreground">

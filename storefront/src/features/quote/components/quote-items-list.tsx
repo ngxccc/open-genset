@@ -38,14 +38,14 @@ export function QuoteItemsList({
             <Button
               variant="ghost"
               size="sm"
-              className="text-destructive hover:bg-destructive/10 hover:text-destructive text-xs"
+              className="text-xs text-destructive hover:bg-destructive/10 hover:text-destructive"
               onClick={onClearAll}
             >
               {t("clearAll")}
             </Button>
           </div>
         </CardHeader>
-        <CardContent size="compact" className="divide-border/60 divide-y">
+        <CardContent size="compact" className="divide-y divide-border/60">
           {items.map((item) => (
             <QuoteItemRow
               key={item.id}

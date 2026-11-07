@@ -47,7 +47,7 @@ export default async function ProductInventoryPage({
       />
       <div className="flex-1 space-y-4 p-2">
         <div className="mx-auto">
-          <div className="bg-background/80 sticky top-15 z-30 mb-2 flex w-full items-center justify-between rounded-none py-2 backdrop-blur-md sm:top-20 sm:pt-1 sm:pb-2">
+          <div className="sticky top-15 z-30 mb-2 flex w-full items-center justify-between rounded-none bg-background/80 py-2 backdrop-blur-md sm:top-20 sm:pt-1 sm:pb-2">
             <div className="hidden flex-1 sm:block">
               <AdminBreadcrumbs
                 items={[

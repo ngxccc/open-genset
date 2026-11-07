@@ -30,8 +30,8 @@ export function BrandTable({ brands }: BrandTableProps) {
 
   if (brands.length === 0) {
     return (
-      <Card className="border-border/60 flex min-h-[220px] flex-col items-center justify-center rounded-xl p-8 text-center shadow-xs">
-        <p className="text-muted-foreground text-sm">{tableT("empty")}</p>
+      <Card className="flex min-h-[220px] flex-col items-center justify-center rounded-xl border-border/60 p-8 text-center shadow-xs">
+        <p className="text-sm text-muted-foreground">{tableT("empty")}</p>
       </Card>
     );
   }
@@ -64,7 +64,7 @@ export function BrandTable({ brands }: BrandTableProps) {
 
             return (
               <TableRow key={brand.id} className="hover:bg-muted/30">
-                <TableCell className="text-foreground font-medium">
+                <TableCell className="font-medium text-foreground">
                   <Link
                     href={`/brands/${brand.id}/edit`}
                     className="hover:text-primary hover:underline"
@@ -72,10 +72,10 @@ export function BrandTable({ brands }: BrandTableProps) {
                     {brand.name}
                   </Link>
                 </TableCell>
-                <TableCell className="text-muted-foreground font-mono text-xs">
+                <TableCell className="font-mono text-xs text-muted-foreground">
                   {brand.slug}
                 </TableCell>
-                <TableCell className="text-muted-foreground max-w-[340px] truncate text-xs">
+                <TableCell className="max-w-[340px] truncate text-xs text-muted-foreground">
                   {brand.description ?? "—"}
                 </TableCell>
                 <TableCell className="text-center">
@@ -83,8 +83,8 @@ export function BrandTable({ brands }: BrandTableProps) {
                     variant="outline"
                     className={
                       brand.isActive
-                        ? "border-border text-foreground text-xs"
-                        : "border-destructive/40 text-destructive text-xs"
+                        ? "border-border text-xs text-foreground"
+                        : "border-destructive/40 text-xs text-destructive"
                     }
                   >
                     {cardT(`status.${status}`)}
@@ -96,7 +96,7 @@ export function BrandTable({ brands }: BrandTableProps) {
                       asChild
                       variant="ghost"
                       size="icon"
-                      className="text-muted-foreground hover:text-foreground size-8"
+                      className="size-8 text-muted-foreground hover:text-foreground"
                       title={cardT("actions.edit")}
                     >
                       <Link href={`/brands/${brand.id}/edit`}>

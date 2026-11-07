@@ -38,9 +38,9 @@ export function QuoteItemRow({
     <div className="flex flex-col gap-3 p-4 sm:p-6">
       <div className="flex items-start gap-4">
         {/* Thumbnail / Custom Icon */}
-        <div className="border-border bg-muted/40 relative flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-md border sm:size-20">
+        <div className="relative flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-muted/40 sm:size-20">
           {item.isCustomItem ? (
-            <PackagePlus className="text-primary size-7 opacity-80" />
+            <PackagePlus className="size-7 text-primary opacity-80" />
           ) : (
             <ProductImage
               src={item.image}
@@ -57,22 +57,22 @@ export function QuoteItemRow({
         <div className="flex grow flex-col">
           <div className="flex items-start justify-between gap-2">
             <div>
-              <h3 className="text-foreground text-sm font-semibold sm:text-base">
+              <h3 className="text-sm font-semibold text-foreground sm:text-base">
                 {item.name}
               </h3>
               {item.isCustomItem && (
-                <span className="bg-primary/10 text-primary mt-1 inline-block rounded-xs px-2 py-0.5 text-[11px] font-semibold">
+                <span className="mt-1 inline-block rounded-xs bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
                   {t("customBadge")}
                 </span>
               )}
               {item.model && (
-                <p className="text-muted-foreground mt-0.5 text-xs">
+                <p className="mt-0.5 text-xs text-muted-foreground">
                   Model:{" "}
                   <strong className="text-foreground">{item.model}</strong>
                 </p>
               )}
               {item.specs && (
-                <p className="text-muted-foreground mt-0.5 line-clamp-2 text-xs italic">
+                <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground italic">
                   {item.specs}
                 </p>
               )}
@@ -82,7 +82,7 @@ export function QuoteItemRow({
               type="button"
               variant="ghost"
               size="icon-xs"
-              className="text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+              className="text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
               onClick={() => onRemoveItem(itemId)}
               title={t("deleteItem")}
               aria-label={t("deleteItem")}
@@ -92,9 +92,9 @@ export function QuoteItemRow({
           </div>
 
           {!item.isCustomItem && (
-            <p className="text-muted-foreground mt-1 text-xs">
+            <p className="mt-1 text-xs text-muted-foreground">
               {t("referencePriceLabel")}{" "}
-              <span className="text-foreground font-medium">
+              <span className="font-medium text-foreground">
                 {hasPrice
                   ? priceFormatter.format(itemPriceNum)
                   : t("contactForPrice")}
@@ -105,18 +105,18 @@ export function QuoteItemRow({
       </div>
 
       {/* Controls: Quantity & Requested Price */}
-      <div className="border-border/60 mt-1 flex flex-wrap items-center justify-between gap-3 border-t pt-3">
+      <div className="mt-1 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3">
         {/* Quantity Controls */}
         <div className="flex items-center gap-2">
-          <span className="text-muted-foreground text-xs">
+          <span className="text-xs text-muted-foreground">
             {t("customItemQuantity")}:
           </span>
-          <div className="border-border flex items-center rounded-md border">
+          <div className="flex items-center rounded-md border border-border">
             <Button
               type="button"
               variant="ghost"
               size="icon-xs"
-              className="text-muted-foreground hover:bg-muted size-7 rounded-none disabled:opacity-40"
+              className="size-7 rounded-none text-muted-foreground hover:bg-muted disabled:opacity-40"
               onClick={() => {
                 onUpdateQuantity(itemId, Math.max(1, item.quantity - 1));
               }}
@@ -133,14 +133,14 @@ export function QuoteItemRow({
                 const val = parseInt(e.target.value, 10);
                 onUpdateQuantity(itemId, isNaN(val) ? 1 : Math.max(1, val));
               }}
-              className="text-foreground w-10 [appearance:textfield] bg-transparent text-center text-xs font-bold outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              className="w-10 [appearance:textfield] bg-transparent text-center text-xs font-bold text-foreground outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               aria-label={t("customItemQuantity")}
             />
             <Button
               type="button"
               variant="ghost"
               size="icon-xs"
-              className="text-muted-foreground hover:bg-muted size-7 rounded-none"
+              className="size-7 rounded-none text-muted-foreground hover:bg-muted"
               onClick={() => {
                 onUpdateQuantity(itemId, item.quantity + 1);
               }}
@@ -155,7 +155,7 @@ export function QuoteItemRow({
         <div className="flex items-center gap-2">
           <label
             htmlFor={inputId}
-            className="text-muted-foreground text-xs whitespace-nowrap select-none"
+            className="text-xs whitespace-nowrap text-muted-foreground select-none"
           >
             {t("requestedPriceLabel")}
           </label>
@@ -174,7 +174,7 @@ export function QuoteItemRow({
               const digits = parseNumberInput(e.target.value);
               onUpdateRequestedPrice(itemId, digits ? digits : null);
             }}
-            className="placeholder:text-muted-foreground/60 h-8 w-36 text-right text-xs sm:w-44"
+            className="h-8 w-36 text-right text-xs placeholder:text-muted-foreground/60 sm:w-44"
           />
         </div>
       </div>

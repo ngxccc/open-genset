@@ -102,11 +102,11 @@ async function ProductDetailsPageContent({
       </div>
 
       <div className="flex w-full flex-col gap-4 lg:w-1/2">
-        <h1 className="text-foreground text-2xl font-bold sm:text-3xl">
+        <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
           {product.name}
         </h1>
         {product.specSheet && (
-          <p className="text-muted-foreground text-lg">
+          <p className="text-lg text-muted-foreground">
             {product.specSheet
               .flatMap((g) => g.items)
               .find((i) => i.key === "model")?.value ?? ""}
@@ -116,13 +116,13 @@ async function ProductDetailsPageContent({
           {formatProductSpecs(product).map((spec) => (
             <span
               key={`${product.id}-${spec}`}
-              className="bg-muted rounded-md px-3 py-1 text-sm font-semibold"
+              className="rounded-md bg-muted px-3 py-1 text-sm font-semibold"
             >
               {spec}
             </span>
           ))}
         </div>
-        <p className="text-primary text-2xl font-bold">
+        <p className="text-2xl font-bold text-primary">
           {product.isQuoteOnly
             ? t("contactForQuote")
             : priceFormatter.format(Number(product.price))}
@@ -139,7 +139,7 @@ async function ProductDetailsPageContent({
         </div>
         {/* Technical specifications table */}
         <div className="mt-6 border-t pt-6">
-          <h2 className="text-foreground mb-4 text-lg font-bold">
+          <h2 className="mb-4 text-lg font-bold text-foreground">
             {t("detailedSpecs")}
           </h2>
           {product.specSheet && product.specSheet.length > 0 ? (
@@ -147,9 +147,9 @@ async function ProductDetailsPageContent({
               {product.specSheet.map((group) => (
                 <div
                   key={group.groupKey || group.titleVi}
-                  className="bg-card rounded-lg border p-4 shadow-2xs"
+                  className="rounded-lg border bg-card p-4 shadow-2xs"
                 >
-                  <h3 className="text-primary mb-3 border-b pb-2 text-sm font-bold">
+                  <h3 className="mb-3 border-b pb-2 text-sm font-bold text-primary">
                     {locale === "en" && group.titleEn
                       ? group.titleEn
                       : group.titleVi}
@@ -170,7 +170,7 @@ async function ProductDetailsPageContent({
                           className="flex justify-between border-b pb-1.5 text-sm"
                         >
                           <span className="text-muted-foreground">{label}</span>
-                          <span className="text-foreground font-semibold">
+                          <span className="font-semibold text-foreground">
                             {displayVal}
                           </span>
                         </div>
@@ -185,7 +185,7 @@ async function ProductDetailsPageContent({
               {product.powerKva && (
                 <div className="flex justify-between border-b pb-2 text-sm">
                   <span className="text-muted-foreground">Công suất (kVA)</span>
-                  <span className="text-foreground font-semibold">
+                  <span className="font-semibold text-foreground">
                     {product.powerKva} kVA
                   </span>
                 </div>
@@ -193,7 +193,7 @@ async function ProductDetailsPageContent({
               {product.voltage && (
                 <div className="flex justify-between border-b pb-2 text-sm">
                   <span className="text-muted-foreground">Điện áp</span>
-                  <span className="text-foreground font-semibold">
+                  <span className="font-semibold text-foreground">
                     {product.voltage}
                   </span>
                 </div>
@@ -201,7 +201,7 @@ async function ProductDetailsPageContent({
               {product.fuelType && (
                 <div className="flex justify-between border-b pb-2 text-sm">
                   <span className="text-muted-foreground">Nhiên liệu</span>
-                  <span className="text-foreground font-semibold">
+                  <span className="font-semibold text-foreground">
                     {product.fuelType}
                   </span>
                 </div>

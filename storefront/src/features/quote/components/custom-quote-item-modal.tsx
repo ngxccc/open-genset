@@ -82,7 +82,7 @@ export function CustomQuoteItemModal() {
         <Button
           type="button"
           variant="outline"
-          className="border-primary/40 text-primary hover:bg-primary/5 hover:border-primary flex w-full items-center justify-center gap-2 border-dashed py-5 text-sm font-semibold transition-all"
+          className="flex w-full items-center justify-center gap-2 border-dashed border-primary/40 py-5 text-sm font-semibold text-primary transition-all hover:border-primary hover:bg-primary/5"
         >
           <PlusCircle className="size-4" />
           {t("addCustomProduct")}
@@ -103,7 +103,7 @@ export function CustomQuoteItemModal() {
           <div className="flex flex-col gap-3.5 py-4">
             {/* Item Name */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("customItemName")}{" "}
                 <span className="text-destructive">*</span>
               </label>
@@ -119,7 +119,7 @@ export function CustomQuoteItemModal() {
 
             {/* Model / Part Code */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("customItemModel")}
               </label>
               <Input
@@ -133,7 +133,7 @@ export function CustomQuoteItemModal() {
 
             {/* Technical Specifications */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("customItemSpecs")}
               </label>
               <Textarea
@@ -149,7 +149,7 @@ export function CustomQuoteItemModal() {
             {/* Quantity & Target Price */}
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div>
-                <label className="text-foreground/80 text-xs font-semibold">
+                <label className="text-xs font-semibold text-foreground/80">
                   {t("customItemQuantity")}{" "}
                   <span className="text-destructive">*</span>
                 </label>
@@ -165,7 +165,7 @@ export function CustomQuoteItemModal() {
               </div>
 
               <div>
-                <label className="text-foreground/80 text-xs font-semibold">
+                <label className="text-xs font-semibold text-foreground/80">
                   {t("customItemRequestedPrice")}
                 </label>
                 <Input
@@ -176,14 +176,14 @@ export function CustomQuoteItemModal() {
                   onChange={handleChange}
                   className="mt-1 text-sm"
                 />
-                <p className="text-muted-foreground/70 mt-1 text-[11px] leading-tight">
+                <p className="mt-1 text-[11px] leading-tight text-muted-foreground/70">
                   {t("customItemRequestedPriceHint")}
                 </p>
               </div>
             </div>
           </div>
 
-          <DialogFooter className="border-border/50 mt-4 flex flex-row items-center justify-end gap-3 border-t pt-4">
+          <DialogFooter className="mt-4 flex flex-row items-center justify-end gap-3 border-t border-border/50 pt-4">
             <Button
               type="button"
               variant="outline"

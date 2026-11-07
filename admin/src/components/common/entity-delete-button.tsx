@@ -70,7 +70,7 @@ export function EntityDeleteButton({
         <Button
           variant="ghost"
           size="icon"
-          className="text-destructive hover:bg-destructive/20 hover:text-destructive h-8 w-8 transition-colors"
+          className="h-8 w-8 text-destructive transition-colors hover:bg-destructive/20 hover:text-destructive"
           title={buttonTooltip}
         >
           <Trash className="h-4 w-4" />
@@ -91,7 +91,7 @@ export function EntityDeleteButton({
               handleDelete();
             }}
             disabled={isPending}
-            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            className="text-destructive-foreground bg-destructive hover:bg-destructive/90"
           >
             {isPending ? deletingLabel : confirmLabel}
           </AlertDialogAction>

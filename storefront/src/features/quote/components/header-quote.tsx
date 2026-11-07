@@ -39,7 +39,7 @@ export function HeaderQuote() {
   if (!isMounted) {
     return (
       <div className="relative p-2" data-testid="quote-skeleton">
-        <FileText className="text-muted-foreground size-6" />
+        <FileText className="size-6 text-muted-foreground" />
       </div>
     );
   }
@@ -54,7 +54,7 @@ export function HeaderQuote() {
       >
         <FileText className="size-6 text-zinc-600" />
         {totalCount > 0 && (
-          <Badge className="bg-primary text-primary-foreground absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full p-0 font-mono text-[9px] font-bold">
+          <Badge className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary p-0 font-mono text-[9px] font-bold text-primary-foreground">
             {totalCount}
           </Badge>
         )}
@@ -76,19 +76,19 @@ export function HeaderQuote() {
             >
               <FileText className="size-6 text-zinc-600 transition-colors hover:text-zinc-900" />
               {totalCount > 0 && (
-                <Badge className="bg-primary text-primary-foreground absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full p-0 font-mono text-[9px] font-bold">
+                <Badge className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary p-0 font-mono text-[9px] font-bold text-primary-foreground">
                   {totalCount}
                 </Badge>
               )}
             </Link>
           </PopoverAnchor>
           <PopoverContent
-            className="bg-background/95 border-border w-80 rounded-lg border p-4 shadow-lg backdrop-blur-md"
+            className="w-80 rounded-lg border border-border bg-background/95 p-4 shadow-lg backdrop-blur-md"
             onMouseEnter={handleOpen}
             onMouseLeave={handleClose}
           >
             {quoteItems.length === 0 ? (
-              <div className="text-muted-foreground py-6 text-center text-sm">
+              <div className="py-6 text-center text-sm text-muted-foreground">
                 {t("emptyTitle")}
               </div>
             ) : (
@@ -99,11 +99,11 @@ export function HeaderQuote() {
                     return (
                       <div
                         key={item.id}
-                        className="border-border/60 flex items-center gap-3 border-b pb-2 last:border-0 last:pb-0"
+                        className="flex items-center gap-3 border-b border-border/60 pb-2 last:border-0 last:pb-0"
                       >
-                        <div className="bg-muted relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded">
+                        <div className="relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded bg-muted">
                           {item.isCustomItem ? (
-                            <PackagePlus className="text-primary size-5 opacity-80" />
+                            <PackagePlus className="size-5 text-primary opacity-80" />
                           ) : (
                             <ProductImage
                               src={item.image}
@@ -117,10 +117,10 @@ export function HeaderQuote() {
                           )}
                         </div>
                         <div className="min-w-0 flex-1">
-                          <h4 className="text-foreground truncate text-xs font-semibold">
+                          <h4 className="truncate text-xs font-semibold text-foreground">
                             {item.name}
                           </h4>
-                          <p className="text-muted-foreground text-[10px]">
+                          <p className="text-[10px] text-muted-foreground">
                             {item.quantity} x{" "}
                             {priceNum > 0
                               ? priceFormatter.format(priceNum)

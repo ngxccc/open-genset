@@ -323,7 +323,7 @@ export const CategoryForm = ({
                 control={form.control}
                 name="isActive"
                 render={({ field }) => (
-                  <FormItem className="border-border/60 flex flex-row items-center space-y-0 space-x-3 rounded-md border p-3">
+                  <FormItem className="flex flex-row items-center space-y-0 space-x-3 rounded-md border border-border/60 p-3">
                     <FormControl>
                       <Checkbox
                         checked={field.value}

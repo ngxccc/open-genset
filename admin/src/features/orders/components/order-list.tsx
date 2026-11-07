@@ -127,7 +127,7 @@ export const OrderList = ({ orders }: OrderListProps) => {
       {/* Search & Filters Row */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="relative max-w-md flex-1">
-          <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+          <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             placeholder={t("searchPlaceholder")}
             value={searchTerm}
@@ -137,7 +137,7 @@ export const OrderList = ({ orders }: OrderListProps) => {
         </div>
 
         {/* Custom tabs logic */}
-        <div className="border-border flex flex-wrap gap-1 border-b pb-2 md:border-b-0 md:pb-0">
+        <div className="flex flex-wrap gap-1 border-b border-border pb-2 md:border-b-0 md:pb-0">
           {statuses.map((status) => (
             <Button
               key={status}
@@ -154,14 +154,14 @@ export const OrderList = ({ orders }: OrderListProps) => {
 
       {orders.length === 0 ? (
         <Card className="flex flex-col items-center justify-center p-12 text-center shadow-sm">
-          <p className="text-muted-foreground text-lg font-medium">
+          <p className="text-lg font-medium text-muted-foreground">
             {t("noOrders")}
           </p>
         </Card>
       ) : (
         <>
           {/* Desktop Table View */}
-          <div className="border-border bg-card hidden overflow-x-auto rounded-lg border md:block">
+          <div className="hidden overflow-x-auto rounded-lg border border-border bg-card md:block">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -188,7 +188,7 @@ export const OrderList = ({ orders }: OrderListProps) => {
               <TableBody>
                 {orders.map((order) => (
                   <TableRow key={order.id}>
-                    <TableCell className="text-primary font-mono text-xs font-semibold">
+                    <TableCell className="font-mono text-xs font-semibold text-primary">
                       {order.orderNumber}
                     </TableCell>
                     <TableCell>
@@ -198,7 +198,7 @@ export const OrderList = ({ orders }: OrderListProps) => {
                             order.user?.fullName ??
                             t("unknown")}
                         </span>
-                        <span className="text-muted-foreground text-xs">
+                        <span className="text-xs text-muted-foreground">
                           {order.user?.email ?? ""}
                         </span>
                       </div>
@@ -233,7 +233,7 @@ export const OrderList = ({ orders }: OrderListProps) => {
             {orders.map((order) => (
               <Card key={order.id} size="dense" className="p-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-primary font-mono text-xs font-bold">
+                  <span className="font-mono text-xs font-bold text-primary">
                     {order.orderNumber}
                   </span>
                   <Badge className={getStatusBadgeClass(order.status)}>
@@ -248,21 +248,21 @@ export const OrderList = ({ orders }: OrderListProps) => {
                         order.user?.fullName ??
                         t("unknown")}
                     </span>
-                    <span className="text-muted-foreground text-xs">
+                    <span className="text-xs text-muted-foreground">
                       {order.user?.email ?? ""}
                     </span>
                   </div>
-                  <span className="text-muted-foreground mt-1 text-xs">
+                  <span className="mt-1 text-xs text-muted-foreground">
                     {formatDate(order.createdAt)}
                   </span>
                 </div>
 
-                <div className="border-border mt-1 flex items-center justify-between border-t pt-3">
+                <div className="mt-1 flex items-center justify-between border-t border-border pt-3">
                   <div className="flex flex-col">
-                    <span className="text-muted-foreground text-xxs font-semibold tracking-wider uppercase">
+                    <span className="text-xxs font-semibold tracking-wider text-muted-foreground uppercase">
                       {t("tableTotal")}
                     </span>
-                    <span className="text-primary text-sm font-bold">
+                    <span className="text-sm font-bold text-primary">
                       {formatCurrency(order.totalAmount)}
                     </span>
                   </div>

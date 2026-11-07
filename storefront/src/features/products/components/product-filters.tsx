@@ -254,7 +254,7 @@ export function ProductFilters({
       {availableBrands.length > 0 && (
         <>
           <div>
-            <div className="text-foreground mb-2 text-sm font-bold">
+            <div className="mb-2 text-sm font-bold text-foreground">
               {t("sidebar.brands")}
             </div>
             <div className="space-y-2.5">
@@ -269,7 +269,7 @@ export function ProductFilters({
                       handleBrandChange(brand.slug, !!checked);
                     }}
                   />
-                  <span className="text-foreground text-sm leading-none font-medium select-none">
+                  <span className="text-sm leading-none font-medium text-foreground select-none">
                     {brand.name}
                   </span>
                 </label>
@@ -282,7 +282,7 @@ export function ProductFilters({
 
       {/* Power Range Filter (kW) */}
       <div>
-        <div className="text-foreground mb-2 text-sm font-bold">
+        <div className="mb-2 text-sm font-bold text-foreground">
           {t("sidebar.power_range")} (kW)
         </div>
         <div className="flex items-center space-x-2">
@@ -300,7 +300,7 @@ export function ProductFilters({
             className="h-9 w-full"
             min={0}
           />
-          <span className="text-muted-foreground text-xs">—</span>
+          <span className="text-xs text-muted-foreground">—</span>
           <Input
             type="number"
             placeholder={
@@ -323,7 +323,7 @@ export function ProductFilters({
         <>
           <Separator />
           <div>
-            <div className="text-foreground mb-2 text-sm font-bold">
+            <div className="mb-2 text-sm font-bold text-foreground">
               {t("sidebar.fuel_type")}
             </div>
             <div className="flex flex-wrap gap-2">
@@ -363,7 +363,7 @@ export function ProductFilters({
         <>
           <Separator />
           <div>
-            <div className="text-foreground mb-2 text-sm font-bold">
+            <div className="mb-2 text-sm font-bold text-foreground">
               {t("sidebar.phase")}
             </div>
             <div className="flex gap-2">
@@ -394,7 +394,7 @@ export function ProductFilters({
 
       {/* Voltage */}
       <div>
-        <div className="text-foreground mb-2 text-sm font-bold">
+        <div className="mb-2 text-sm font-bold text-foreground">
           {t("sidebar.voltage")} (V)
         </div>
         <Input
@@ -413,7 +413,7 @@ export function ProductFilters({
 
       {/* Engine Brand */}
       <div>
-        <div className="text-foreground mb-2 text-sm font-bold">
+        <div className="mb-2 text-sm font-bold text-foreground">
           {t("sidebar.engine_brand")}
         </div>
         <Input
@@ -431,7 +431,7 @@ export function ProductFilters({
 
       {/* Alternator Brand */}
       <div>
-        <div className="text-foreground mb-2 text-sm font-bold">
+        <div className="mb-2 text-sm font-bold text-foreground">
           {t("sidebar.alternator_brand")}
         </div>
         <Input

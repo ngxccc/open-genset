@@ -14,11 +14,11 @@ export function QuoteEmptyState() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-20 text-center">
-      <div className="bg-muted text-muted-foreground mx-auto mb-4 flex size-14 items-center justify-center rounded-full">
+      <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
         <FileText className="size-7" />
       </div>
-      <h2 className="text-foreground text-xl font-bold">{t("emptyTitle")}</h2>
-      <p className="text-muted-foreground mt-2 text-sm">
+      <h2 className="text-xl font-bold text-foreground">{t("emptyTitle")}</h2>
+      <p className="mt-2 text-sm text-muted-foreground">
         {t("emptyDescription")}
       </p>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">

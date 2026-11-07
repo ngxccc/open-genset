@@ -48,7 +48,7 @@ export function CompanyBankSection({
           <CreditCard className="size-4" />
           {t("sections.bank")}
         </CardTitle>
-        <CardDescription className="text-muted-foreground text-xs">
+        <CardDescription className="text-xs text-muted-foreground">
           {t("sections.bankDesc")}
         </CardDescription>
       </CardHeader>

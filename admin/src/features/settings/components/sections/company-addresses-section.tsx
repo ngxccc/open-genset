@@ -38,7 +38,7 @@ export function CompanyAddressesSection({
           <MapPin className="size-4" />
           {t("sections.addresses")}
         </CardTitle>
-        <CardDescription className="text-muted-foreground text-xs">
+        <CardDescription className="text-xs text-muted-foreground">
           {t("sections.addressesDesc")}
         </CardDescription>
       </CardHeader>

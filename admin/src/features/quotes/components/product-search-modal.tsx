@@ -117,34 +117,34 @@ export const ProductSearchModal = ({
       <DialogContent className="max-w-2xl gap-0 overflow-hidden p-0 sm:max-w-2xl">
         <DialogHeader className="border-b p-4 pb-3">
           <DialogTitle className="flex items-center gap-2 text-lg font-semibold">
-            <Search className="text-primary h-5 w-5" />
+            <Search className="h-5 w-5 text-primary" />
             {t("title")}
           </DialogTitle>
-          <DialogDescription className="text-muted-foreground text-xs">
+          <DialogDescription className="text-xs text-muted-foreground">
             {t("description")}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="bg-muted/30 border-b p-4">
+        <div className="border-b bg-muted/30 p-4">
           <div className="relative flex items-center">
-            <Search className="text-muted-foreground absolute left-3 h-4 w-4" />
+            <Search className="absolute left-3 h-4 w-4 text-muted-foreground" />
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("inputPlaceholder")}
-              className="bg-background focus-visible:ring-primary h-11 pr-9 pl-9 text-sm font-medium shadow-xs"
+              className="h-11 bg-background pr-9 pl-9 text-sm font-medium shadow-xs focus-visible:ring-primary"
               autoFocus
             />
             {isSearching && (
-              <Loader2 className="text-muted-foreground absolute right-3 h-4 w-4 animate-spin" />
+              <Loader2 className="absolute right-3 h-4 w-4 animate-spin text-muted-foreground" />
             )}
           </div>
         </div>
 
-        <div className="divide-border/60 max-h-[380px] min-h-[160px] divide-y overflow-y-auto p-2">
+        <div className="max-h-[380px] min-h-[160px] divide-y divide-border/60 overflow-y-auto p-2">
           {isSearching && results.length === 0 ? (
-            <div className="text-muted-foreground flex flex-col items-center justify-center gap-2 py-12">
-              <Loader2 className="text-primary h-6 w-6 animate-spin" />
+            <div className="flex flex-col items-center justify-center gap-2 py-12 text-muted-foreground">
+              <Loader2 className="h-6 w-6 animate-spin text-primary" />
               <p className="text-xs">{t("searching")}</p>
             </div>
           ) : results.length > 0 ? (
@@ -157,10 +157,10 @@ export const ProductSearchModal = ({
               return (
                 <div
                   key={product.id}
-                  className="hover:bg-muted/50 group flex items-center justify-between gap-3 rounded-lg p-3 transition-colors"
+                  className="group flex items-center justify-between gap-3 rounded-lg p-3 transition-colors hover:bg-muted/50"
                 >
                   <div className="flex min-w-0 items-center gap-3">
-                    <div className="bg-muted relative h-14 w-14 shrink-0 overflow-hidden rounded-md border">
+                    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md border bg-muted">
                       {image && canUseCldImage(image) ? (
                         <CldImage
                           src={image}
@@ -179,7 +179,7 @@ export const ProductSearchModal = ({
                           className="h-full w-full object-cover"
                         />
                       ) : (
-                        <div className="text-muted-foreground flex h-full w-full items-center justify-center">
+                        <div className="flex h-full w-full items-center justify-center text-muted-foreground">
                           <Package className="h-6 w-6 stroke-1" />
                         </div>
                       )}
@@ -187,7 +187,7 @@ export const ProductSearchModal = ({
 
                     <div className="flex min-w-0 flex-col gap-0.5">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-foreground max-w-xs truncate text-sm font-semibold">
+                        <span className="max-w-xs truncate text-sm font-semibold text-foreground">
                           {product.name}
                         </span>
                         {model && (
@@ -200,7 +200,7 @@ export const ProductSearchModal = ({
                         )}
                       </div>
 
-                      <div className="text-muted-foreground flex items-center gap-2 text-xs">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         {power && (
                           <span className="flex items-center gap-0.5 font-medium text-orange-600 dark:text-orange-400">
                             <Zap className="h-3 w-3" />
@@ -224,7 +224,7 @@ export const ProductSearchModal = ({
                         </span>
                       </div>
 
-                      <div className="text-primary mt-0.5 text-sm font-bold">
+                      <div className="mt-0.5 text-sm font-bold text-primary">
                         {formatCurrency(product.price)}
                       </div>
                     </div>
@@ -253,13 +253,13 @@ export const ProductSearchModal = ({
               );
             })
           ) : query.trim() ? (
-            <div className="text-muted-foreground flex flex-col items-center justify-center gap-1 py-10">
+            <div className="flex flex-col items-center justify-center gap-1 py-10 text-muted-foreground">
               <p className="text-sm font-medium">{t("noResults")}</p>
               <p className="text-xs">{t("noResultsHint")}</p>
             </div>
           ) : (
-            <div className="text-muted-foreground flex flex-col items-center justify-center gap-1 py-10">
-              <Search className="text-muted-foreground/40 h-8 w-8 stroke-1" />
+            <div className="flex flex-col items-center justify-center gap-1 py-10 text-muted-foreground">
+              <Search className="h-8 w-8 stroke-1 text-muted-foreground/40" />
               <p className="mt-1 text-xs">{t("emptyPrompt")}</p>
             </div>
           )}

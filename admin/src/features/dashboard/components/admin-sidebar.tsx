@@ -72,7 +72,7 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
     <>
       <Sidebar collapsible="icon">
         {/* Header: Brand Logo Only */}
-        <SidebarHeader className="border-sidebar-border/60 h-12 justify-center border-b p-2 group-data-[collapsible=icon]:p-0">
+        <SidebarHeader className="h-12 justify-center border-b border-sidebar-border/60 p-2 group-data-[collapsible=icon]:p-0">
           <div className="flex h-8 items-center gap-2.5 overflow-hidden px-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:px-0">
             <div className="relative flex size-8 shrink-0 items-center justify-center">
               <Image
@@ -94,10 +94,10 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
             </div>
             {!isCollapsed && (
               <div className="flex flex-col overflow-hidden text-left">
-                <span className="text-foreground truncate text-sm font-bold tracking-tight">
+                <span className="truncate text-sm font-bold tracking-tight text-foreground">
                   {t("title").toUpperCase()}
                 </span>
-                <span className="text-muted-foreground truncate text-[10px] font-medium tracking-wider uppercase">
+                <span className="truncate text-[10px] font-medium tracking-wider text-muted-foreground uppercase">
                   {t("subtitle")}
                 </span>
               </div>
@@ -112,7 +112,7 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
               <SidebarMenuButton
                 tooltip={t("quickSearch")}
                 onClick={() => setCommandOpen(true)}
-                className="text-muted-foreground hover:bg-sidebar-accent hover:text-foreground mx-auto"
+                className="mx-auto text-muted-foreground hover:bg-sidebar-accent hover:text-foreground"
               >
                 <Search className="size-4 shrink-0" />
                 <span className="sr-only">{t("quickSearch")}</span>
@@ -121,13 +121,13 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
               <button
                 type="button"
                 onClick={() => setCommandOpen(true)}
-                className="border-sidebar-border bg-sidebar-accent/50 text-muted-foreground hover:bg-sidebar-accent hover:text-foreground flex h-8 w-full cursor-pointer items-center justify-between rounded-md border px-2.5 text-xs transition-colors"
+                className="flex h-8 w-full cursor-pointer items-center justify-between rounded-md border border-sidebar-border bg-sidebar-accent/50 px-2.5 text-xs text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-foreground"
               >
                 <div className="flex min-w-0 items-center gap-2">
                   <Search className="size-3.5 shrink-0" />
                   <span className="truncate">{t("quickSearch")}</span>
                 </div>
-                <kbd className="border-border bg-background text-muted-foreground pointer-events-none inline-flex h-4.5 shrink-0 items-center gap-0.5 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 select-none">
+                <kbd className="pointer-events-none inline-flex h-4.5 shrink-0 items-center gap-0.5 rounded border border-border bg-background px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100 select-none">
                   <span className="text-xs">⌘</span>K
                 </kbd>
               </button>
@@ -135,7 +135,7 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
           </div>
           {navGroups.map((group) => (
             <SidebarGroup key={group.id} className="py-1">
-              <SidebarGroupLabel className="text-muted-foreground/70 px-2 text-[11px] font-semibold tracking-wider uppercase">
+              <SidebarGroupLabel className="px-2 text-[11px] font-semibold tracking-wider text-muted-foreground/70 uppercase">
                 {group.title}
               </SidebarGroupLabel>
               <SidebarGroupContent>
@@ -154,8 +154,8 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
                           tooltip={item.label}
                           className={
                             isActive
-                              ? "bg-sidebar-accent text-sidebar-primary border-primary font-semibold shadow-xs"
-                              : "text-muted-foreground hover:bg-sidebar-accent hover:text-foreground font-medium"
+                              ? "border-primary bg-sidebar-accent font-semibold text-sidebar-primary shadow-xs"
+                              : "font-medium text-muted-foreground hover:bg-sidebar-accent hover:text-foreground"
                           }
                         >
                           <Link
@@ -181,7 +181,7 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
         </SidebarContent>
 
         {/* Footer: User Profile Dock & Popover Menu */}
-        <SidebarFooter className="border-sidebar-border/60 border-t p-2 group-data-[collapsible=icon]:p-2">
+        <SidebarFooter className="border-t border-sidebar-border/60 p-2 group-data-[collapsible=icon]:p-2">
           <SidebarMenu>
             <SidebarMenuItem>
               <DropdownMenu>
@@ -189,22 +189,22 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
                   <SidebarMenuButton
                     size="lg"
                     tooltip={user.fullName}
-                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:mx-auto group-data-[collapsible=icon]:size-9! group-data-[collapsible=icon]:justify-center! group-data-[collapsible=icon]:p-0!"
+                    className="group-data-[collapsible=icon]:mx-auto group-data-[collapsible=icon]:size-9! group-data-[collapsible=icon]:justify-center! group-data-[collapsible=icon]:p-0! data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                   >
-                    <div className="bg-primary/10 text-primary flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-bold uppercase">
+                    <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary uppercase">
                       {user.fullName.charAt(0)}
                     </div>
                     {!isCollapsed && (
                       <>
                         <div className="grid flex-1 text-left text-xs leading-tight">
-                          <span className="text-foreground truncate font-semibold">
+                          <span className="truncate font-semibold text-foreground">
                             {user.fullName}
                           </span>
-                          <span className="text-muted-foreground truncate text-[11px]">
+                          <span className="truncate text-[11px] text-muted-foreground">
                             {user.email}
                           </span>
                         </div>
-                        <ChevronsUpDown className="text-muted-foreground ml-auto size-4" />
+                        <ChevronsUpDown className="ml-auto size-4 text-muted-foreground" />
                       </>
                     )}
                   </SidebarMenuButton>
@@ -228,7 +228,7 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
                           {user.role}
                         </Badge>
                       </div>
-                      <p className="text-muted-foreground text-xs leading-none">
+                      <p className="text-xs leading-none text-muted-foreground">
                         {user.email}
                       </p>
                     </div>
@@ -244,7 +244,7 @@ export const AdminSidebar = ({ user }: AdminSidebarProps) => {
 
                   <DropdownMenuItem
                     onClick={handleLogout}
-                    className="text-destructive focus:bg-destructive/10 focus:text-destructive cursor-pointer"
+                    className="cursor-pointer text-destructive focus:bg-destructive/10 focus:text-destructive"
                   >
                     <LogOut className="mr-2 size-4" />
                     <span>{t("userMenu.logout")}</span>

@@ -24,10 +24,10 @@ export async function NewsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col items-start justify-between gap-4 border-b pb-6 sm:flex-row sm:items-end">
           <div>
-            <h2 className="font-display text-foreground text-4xl font-extrabold tracking-tighter uppercase">
+            <h2 className="font-display text-4xl font-extrabold tracking-tighter text-foreground uppercase">
               {t("title")}
             </h2>
-            <p className="text-muted-foreground mt-2 font-sans text-sm tracking-widest uppercase">
+            <p className="mt-2 font-sans text-sm tracking-widest text-muted-foreground uppercase">
               {t("subtitle")}
             </p>
           </div>
@@ -45,7 +45,7 @@ export async function NewsSection() {
             <Card
               key={article.id}
               size="dense"
-              className="group hover:border-primary/40 overflow-hidden transition-all hover:shadow-lg"
+              className="group overflow-hidden transition-all hover:border-primary/40 hover:shadow-lg"
             >
               <article className="flex h-full flex-col sm:flex-row">
                 <CardHeader className="relative aspect-4/3 shrink-0 p-0 sm:aspect-auto sm:w-2/5">
@@ -60,7 +60,7 @@ export async function NewsSection() {
                   ) : (
                     <ProductImagePlaceholder />
                   )}
-                  <Badge className="bg-background/80 text-foreground hover:bg-background/90 absolute top-4 left-4 text-xs backdrop-blur-sm">
+                  <Badge className="absolute top-4 left-4 bg-background/80 text-xs text-foreground backdrop-blur-sm hover:bg-background/90">
                     {article.category}
                   </Badge>
                 </CardHeader>
@@ -69,18 +69,18 @@ export async function NewsSection() {
                 <div className="flex flex-1 flex-col">
                   <CardContent className="grow p-6 pb-2">
                     <Link href={`/news/${article.slug}`}>
-                      <h3 className="font-display text-foreground group-hover:text-primary mb-2 line-clamp-2 text-xl leading-tight font-bold transition-colors">
+                      <h3 className="font-display mb-2 line-clamp-2 text-xl leading-tight font-bold text-foreground transition-colors group-hover:text-primary">
                         {article.title}
                       </h3>
                     </Link>
-                    <p className="text-muted-foreground line-clamp-3 text-sm">
+                    <p className="line-clamp-3 text-sm text-muted-foreground">
                       {article.description}
                     </p>
                   </CardContent>
 
                   {/* Footer Section */}
                   <CardFooter className="mt-auto px-6 pt-0 pb-6">
-                    <div className="text-muted-foreground flex items-center text-xs font-medium">
+                    <div className="flex items-center text-xs font-medium text-muted-foreground">
                       <CalendarDays className="mr-2 h-3.5 w-3.5" />
                       {article.date}
                     </div>

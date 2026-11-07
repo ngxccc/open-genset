@@ -38,14 +38,14 @@ export function CompanyHotlinesSection({
           <Phone className="size-4" />
           {t("sections.hotlines")}
         </CardTitle>
-        <CardDescription className="text-muted-foreground text-xs">
+        <CardDescription className="text-xs text-muted-foreground">
           {t("sections.hotlinesDesc")}
         </CardDescription>
       </CardHeader>
       <CardContent size="dense" className="space-y-4">
         {/* Project Hotline */}
-        <div className="bg-muted/20 rounded-lg border p-4">
-          <h4 className="text-foreground mb-3 text-xs font-semibold tracking-wider uppercase">
+        <div className="rounded-lg border bg-muted/20 p-4">
+          <h4 className="mb-3 text-xs font-semibold tracking-wider text-foreground uppercase">
             {t("subsections.projectHotline")}
           </h4>
           <div className="grid gap-3 sm:grid-cols-3">
@@ -111,8 +111,8 @@ export function CompanyHotlinesSection({
         </div>
 
         {/* Technical Hotline */}
-        <div className="bg-muted/20 rounded-lg border p-4">
-          <h4 className="text-foreground mb-3 text-xs font-semibold tracking-wider uppercase">
+        <div className="rounded-lg border bg-muted/20 p-4">
+          <h4 className="mb-3 text-xs font-semibold tracking-wider text-foreground uppercase">
             {t("subsections.technicalHotline")}
           </h4>
           <div className="grid gap-3 sm:grid-cols-3">

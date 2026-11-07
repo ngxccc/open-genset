@@ -38,7 +38,7 @@ export function CompanyLegalSection({
           <Building2 className="size-4" />
           {t("sections.legal")}
         </CardTitle>
-        <CardDescription className="text-muted-foreground text-xs">
+        <CardDescription className="text-xs text-muted-foreground">
           {t("sections.legalDesc")}
         </CardDescription>
       </CardHeader>

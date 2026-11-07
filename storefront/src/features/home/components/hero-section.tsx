@@ -8,7 +8,7 @@ export async function HeroSection() {
   const t = await getTranslations("HomePage");
 
   return (
-    <section className="bg-background relative flex min-h-[94vh] items-center overflow-hidden pt-32 pb-20">
+    <section className="relative flex min-h-[94vh] items-center overflow-hidden bg-background pt-32 pb-20">
       {/* Background Image Area */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -28,7 +28,7 @@ export async function HeroSection() {
           <div className="relative isolate p-0 md:p-2">
             <h1 className="font-display mb-6 text-6xl leading-[1.05] font-black tracking-tighter text-white md:text-7xl">
               {t("hero.titleLine1")} <br />
-              <span className="text-primary font-light italic">
+              <span className="font-light text-primary italic">
                 {t("hero.titleLine2")}
               </span>
             </h1>
@@ -41,7 +41,7 @@ export async function HeroSection() {
               <Link href={"/products"}>
                 <Button
                   size="lg"
-                  className="font-display hover:bg-primary/80 font-semi-bold rounded-full text-sm tracking-widest uppercase"
+                  className="font-display font-semi-bold rounded-full text-sm tracking-widest uppercase hover:bg-primary/80"
                 >
                   {t("hero.primaryCta")}
                   <ArrowRight className="ml-2 size-4" />

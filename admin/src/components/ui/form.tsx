@@ -102,7 +102,7 @@ function FormLabel({ className, required, ...props }: FormLabelProps) {
       data-error={!!error}
       className={cn(
         "data-[error=true]:text-destructive",
-        required && 'after:text-destructive after:ml-0.5 after:content-["*"]',
+        required && 'after:ml-0.5 after:text-destructive after:content-["*"]',
         className,
       )}
       htmlFor={formItemId}
@@ -137,7 +137,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot="form-description"
       id={formDescriptionId}
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("text-sm text-muted-foreground", className)}
       {...props}
     />
   );
@@ -155,7 +155,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot="form-message"
       id={formMessageId}
-      className={cn("text-destructive text-sm", className)}
+      className={cn("text-sm text-destructive", className)}
       {...props}
     >
       {body}

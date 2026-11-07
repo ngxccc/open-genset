@@ -40,7 +40,7 @@ const OrderStatusBadge = ({ label }: OrderStatusBadgeProps) => {
   return (
     <Badge
       variant="outline"
-      className="border-border/80 bg-muted/40 text-foreground rounded px-2 py-0.5 text-[11px] font-medium shadow-none"
+      className="rounded border-border/80 bg-muted/40 px-2 py-0.5 text-[11px] font-medium text-foreground shadow-none"
     >
       {label}
     </Badge>
@@ -51,15 +51,15 @@ export async function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
   const t = await getTranslations("adminDashboard.recentOrders");
   return (
     <Card className="gap-0 overflow-hidden py-0 shadow-sm">
-      <div className="border-border/50 bg-card flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3.5">
-        <h3 className="text-foreground text-base font-semibold">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/50 bg-card px-4 py-3.5">
+        <h3 className="text-base font-semibold text-foreground">
           {t("title")}
         </h3>
         <div className="flex items-center gap-2">
           <Button
             variant="outline"
             size="sm"
-            className="text-muted-foreground hover:text-foreground h-8 text-xs font-medium"
+            className="h-8 text-xs font-medium text-muted-foreground hover:text-foreground"
           >
             <Filter className="mr-1.5 size-3.5" />
             {t("filter")}
@@ -67,7 +67,7 @@ export async function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
           <Button
             variant="outline"
             size="sm"
-            className="text-muted-foreground hover:text-foreground h-8 text-xs font-medium"
+            className="h-8 text-xs font-medium text-muted-foreground hover:text-foreground"
           >
             <Download className="mr-1.5 size-3.5" />
             {t("export")}
@@ -90,7 +90,7 @@ export async function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
             <TableRow>
               <TableCell
                 colSpan={6}
-                className="text-muted-foreground h-24 text-center text-xs"
+                className="h-24 text-center text-xs text-muted-foreground"
               >
                 {t("noOrders")}
               </TableCell>
@@ -115,32 +115,35 @@ export async function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
               );
 
               const uiStatus = (statusMap[order.status] ?? "processing") as
-                "completed" | "processing" | "shipping" | "cancelled";
+                | "completed"
+                | "processing"
+                | "shipping"
+                | "cancelled";
 
               return (
                 <TableRow key={order.id}>
-                  <TableCell className="text-foreground font-mono text-xs font-medium">
+                  <TableCell className="font-mono text-xs font-medium text-foreground">
                     <Link
                       href={`/orders/${order.id}`}
-                      className="hover:text-primary transition-colors"
+                      className="transition-colors hover:text-primary"
                     >
                       {order.orderNumber}
                     </Link>
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2">
-                      <span className="text-foreground text-xs font-medium">
+                      <span className="text-xs font-medium text-foreground">
                         {customerName}
                       </span>
                     </div>
                   </TableCell>
-                  <TableCell className="text-muted-foreground max-w-60 truncate text-xs">
+                  <TableCell className="max-w-60 truncate text-xs text-muted-foreground">
                     {productText}
                   </TableCell>
-                  <TableCell className="text-muted-foreground text-xs">
+                  <TableCell className="text-xs text-muted-foreground">
                     {formattedDate}
                   </TableCell>
-                  <TableCell className="text-foreground text-right text-xs font-medium">
+                  <TableCell className="text-right text-xs font-medium text-foreground">
                     {formatCurrency(order.totalAmount)}
                   </TableCell>
                   <TableCell className="text-center">
@@ -152,11 +155,11 @@ export async function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
           )}
         </TableBody>
       </Table>
-      <div className="border-border/50 border-t py-2.5 text-center">
+      <div className="border-t border-border/50 py-2.5 text-center">
         <Button
           variant="link"
           asChild
-          className="text-primary text-xs font-medium"
+          className="text-xs font-medium text-primary"
         >
           <Link href="/orders">{t("viewAll")}</Link>
         </Button>

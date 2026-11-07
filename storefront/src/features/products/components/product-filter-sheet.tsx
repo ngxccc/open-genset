@@ -113,7 +113,7 @@ export function ProductFilterSheet({
             variant="ghost"
             size="sm"
             onClick={handleClearAll}
-            className="text-muted-foreground hover:text-foreground h-8 px-2.5 text-xs font-semibold"
+            className="h-8 px-2.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
           >
             {t("clear_all")}
             <X className="ml-1.5 h-3.5 w-3.5" />
@@ -130,7 +130,7 @@ export function ProductFilterSheet({
           />
         </div>
         {/* Sticky Footer */}
-        <SheetFooter className="bg-background shrink-0 border-t p-6">
+        <SheetFooter className="shrink-0 border-t bg-background p-6">
           <Button className="w-full" onClick={handleApply}>
             {t("apply")}
           </Button>

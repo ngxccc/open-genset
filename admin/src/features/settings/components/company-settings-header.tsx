@@ -9,11 +9,11 @@ export function CompanySettingsHeader({
 }: CompanySettingsHeaderProps) {
   return (
     <div className="flex flex-col gap-1">
-      <h1 className="text-foreground text-2xl font-bold tracking-tight">
+      <h1 className="text-2xl font-bold tracking-tight text-foreground">
         {title}
       </h1>
       {description ? (
-        <p className="text-muted-foreground text-sm">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       ) : null}
     </div>
   );

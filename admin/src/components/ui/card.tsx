@@ -211,7 +211,7 @@ function CardHeader({
           <CollapsibleTrigger asChild>
             <button
               type="button"
-              className="text-muted-foreground hover:text-foreground hover:bg-muted/60 flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-md transition-colors"
+              className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
               aria-label="Toggle card content"
             >
               <ChevronDown className="size-4.5 transition-transform duration-200 group-data-[state=closed]/card:rotate-0 group-data-[state=open]/card:rotate-180" />
@@ -242,7 +242,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("text-sm text-muted-foreground", className)}
       {...props}
     />
   );

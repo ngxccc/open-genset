@@ -212,35 +212,35 @@ export const AdminImageUploadSection = ({
           <div
             {...getRootProps()}
             aria-disabled={isAtLimit}
-            className={`border-border flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-8 text-center transition-colors ${
+            className={`flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-border p-8 text-center transition-colors ${
               isAtLimit
-                ? "bg-muted/10 cursor-not-allowed opacity-70"
+                ? "cursor-not-allowed bg-muted/10 opacity-70"
                 : isDragActive
-                  ? "bg-primary/10 border-primary cursor-pointer"
-                  : "bg-muted/20 hover:bg-muted/50 cursor-pointer"
+                  ? "cursor-pointer border-primary bg-primary/10"
+                  : "cursor-pointer bg-muted/20 hover:bg-muted/50"
             }`}
           >
             <input {...getInputProps()} disabled={isAtLimit} />
-            <ImageIcon className="text-muted-foreground mb-2 h-10 w-10 opacity-50" />
-            <p className="text-foreground font-medium">
+            <ImageIcon className="mb-2 h-10 w-10 text-muted-foreground opacity-50" />
+            <p className="font-medium text-foreground">
               {isDragActive ? "Drop the files here" : dragDropLabel}
             </p>
-            <p className="text-muted-foreground mt-1 text-sm">
+            <p className="mt-1 text-sm text-muted-foreground">
               {clickToSelectLabel}
             </p>
             {showLimitMessage && isAtLimit ? (
-              <p className="text-muted-foreground mt-3 text-sm">
+              <p className="mt-3 text-sm text-muted-foreground">
                 {limitReachedMessage}
               </p>
             ) : null}
           </div>
         ) : showLimitMessage && isAtLimit ? (
-          <p className="text-muted-foreground text-sm">{limitReachedMessage}</p>
+          <p className="text-sm text-muted-foreground">{limitReachedMessage}</p>
         ) : null}
 
         <div className="flex items-center gap-2">
           <div className="relative flex-1">
-            <LinkIcon className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+            <LinkIcon className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={externalUrl}
               onChange={(event) => setExternalUrl(event.target.value)}
@@ -275,7 +275,7 @@ export const AdminImageUploadSection = ({
               return (
                 <div
                   key={`${index}-${keyStr}`}
-                  className="group border-border relative aspect-square overflow-hidden rounded-md border"
+                  className="group relative aspect-square overflow-hidden rounded-md border border-border"
                 >
                   <PreviewImage item={image} />
                   <Button

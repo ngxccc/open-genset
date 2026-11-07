@@ -52,7 +52,7 @@ export function QuoteContactForm({
           <form onSubmit={onSubmit} className="flex flex-col gap-4">
             {/* Customer Name */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("fullName")} <span className="text-destructive">*</span>
               </label>
               <Input
@@ -67,7 +67,7 @@ export function QuoteContactForm({
 
             {/* Customer Phone */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("phone")} <span className="text-destructive">*</span>
               </label>
               <Input
@@ -83,7 +83,7 @@ export function QuoteContactForm({
 
             {/* Customer Email */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("email")}
               </label>
               <Input
@@ -98,7 +98,7 @@ export function QuoteContactForm({
 
             {/* Company / Organization Name */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("company")}
               </label>
               <Input
@@ -112,7 +112,7 @@ export function QuoteContactForm({
 
             {/* Tax Identification Number */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("taxId")}
               </label>
               <Input
@@ -129,7 +129,7 @@ export function QuoteContactForm({
 
             {/* Technical Notes / Requirements */}
             <div>
-              <label className="text-foreground/80 text-xs font-semibold">
+              <label className="text-xs font-semibold text-foreground/80">
                 {t("notes")}
               </label>
               <Textarea
@@ -152,7 +152,7 @@ export function QuoteContactForm({
               {isPending ? t("submitting") : t("submitButton")}
             </Button>
 
-            <p className="text-muted-foreground/80 text-center text-xs">
+            <p className="text-center text-xs text-muted-foreground/80">
               {t("privacyNote")}
             </p>
           </form>

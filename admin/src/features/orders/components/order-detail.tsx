@@ -153,15 +153,15 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
       <div className="flex flex-col gap-6 lg:col-span-2">
         {/* Stepper Card */}
         <Card className="p-4">
-          <div className="border-border flex items-center justify-between border-b pb-4">
+          <div className="flex items-center justify-between border-b border-border pb-4">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <Clock className="text-muted-foreground h-5 w-5" />
+                <Clock className="h-5 w-5 text-muted-foreground" />
                 <h3 className="text-lg font-bold">
                   {t("timelineFulfillment")}
                 </h3>
               </div>
-              <span className="text-muted-foreground text-xs">
+              <span className="text-xs text-muted-foreground">
                 {t("orderedOn", {
                   date: formatDate(order.createdAt),
                 })}
@@ -192,10 +192,10 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
                         className="relative flex-1 group-data-[orientation=vertical]/stepper-nav:items-start group-data-[orientation=vertical]/stepper-nav:justify-start sm:min-w-0 sm:flex-col! sm:items-center! sm:justify-start! sm:last:flex-1"
                       >
                         <StepperTrigger className="pointer-events-none flex cursor-default flex-row items-center gap-3 select-none sm:flex-col sm:items-center sm:gap-2">
-                          <StepperIndicator className="data-[state=active]:bg-primary data-[state=active]:border-primary data-[state=active]:text-primary-foreground data-[state=active]:ring-primary/20 size-8 text-sm font-bold data-[state=active]:ring-4 data-[state=completed]:border-green-500 data-[state=completed]:bg-green-500 data-[state=completed]:text-white">
+                          <StepperIndicator className="size-8 text-sm font-bold data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:ring-4 data-[state=active]:ring-primary/20 data-[state=completed]:border-green-500 data-[state=completed]:bg-green-500 data-[state=completed]:text-white">
                             {idx + 1}
                           </StepperIndicator>
-                          <StepperTitle className="data-[state=active]:text-primary data-[state=inactive]:text-muted-foreground text-sm font-semibold data-[state=completed]:text-slate-800 sm:text-center dark:data-[state=completed]:text-slate-200">
+                          <StepperTitle className="text-sm font-semibold data-[state=active]:text-primary data-[state=completed]:text-slate-800 data-[state=inactive]:text-muted-foreground sm:text-center dark:data-[state=completed]:text-slate-200">
                             {getStatusLabel(step)}
                           </StepperTitle>
                         </StepperTrigger>
@@ -226,7 +226,7 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
                 <span className="text-sm font-bold">
                   {getStatusLabel(order.status)}
                 </span>
-                <span className="text-muted-foreground text-xs">
+                <span className="text-xs text-muted-foreground">
                   {t("orderFinalizedStatus", {
                     status: getStatusLabel(order.status),
                   })}
@@ -237,7 +237,7 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
 
           {/* Stepper Transition Action buttons */}
           {!isEndState && order.status !== "DELIVERED" && (
-            <div className="border-border mt-2 flex flex-wrap items-center justify-end gap-3 border-t pt-4">
+            <div className="mt-2 flex flex-wrap items-center justify-end gap-3 border-t border-border pt-4">
               {order.status === "PENDING" && (
                 <>
                   <Button
@@ -313,7 +313,7 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
           )}
 
           {order.status === "DELIVERED" && (
-            <div className="border-border mt-2 flex items-center justify-end border-t pt-4">
+            <div className="mt-2 flex items-center justify-end border-t border-border pt-4">
               <Button
                 variant="outline"
                 size="sm"
@@ -330,7 +330,7 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
 
         {/* Order Items Table Card */}
         <Card size="compact" className="overflow-hidden p-0">
-          <div className="border-border bg-card/50 border-b px-6 py-4">
+          <div className="border-b border-border bg-card/50 px-6 py-4">
             <h3 className="text-lg font-bold">{t("orderItems")}</h3>
           </div>
           <div className="overflow-x-auto">
@@ -361,10 +361,10 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
                     <TableRow key={item.id}>
                       <TableCell className="max-w-75">
                         <div className="flex flex-col">
-                          <span className="text-primary text-sm font-medium">
+                          <span className="text-sm font-medium text-primary">
                             {productName}
                           </span>
-                          <span className="text-muted-foreground font-mono text-xs">
+                          <span className="font-mono text-xs text-muted-foreground">
                             SKU: {productSku}
                           </span>
                         </div>
@@ -393,11 +393,11 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
                     {formatCurrency(order.shippingFee)}
                   </TableCell>
                 </TableRow>
-                <TableRow className="bg-muted/20 hover:bg-muted/20 border-border border-t font-bold">
+                <TableRow className="border-t border-border bg-muted/20 font-bold hover:bg-muted/20">
                   <TableCell colSpan={3} className="text-right text-base">
                     {t("invoiceTotalPayment")}
                   </TableCell>
-                  <TableCell className="text-primary text-right text-base">
+                  <TableCell className="text-right text-base text-primary">
                     {formatCurrency(order.totalAmount)}
                   </TableCell>
                 </TableRow>
@@ -419,7 +419,7 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
                   <Clock className="h-5 w-5 text-amber-600 dark:text-amber-400" />
                   {t("cashPaymentVerificationTitle")}
                 </h4>
-                <p className="text-muted-foreground text-xs leading-relaxed">
+                <p className="text-xs leading-relaxed text-muted-foreground">
                   {t("cashPaymentVerificationDesc")}
                 </p>
               </div>
@@ -445,38 +445,38 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
           )}
         {/* Buyer Portfolio Card */}
         <Card className="p-4">
-          <div className="border-border flex items-center gap-2 border-b pb-4">
-            <User className="text-muted-foreground h-5 w-5" />
+          <div className="flex items-center gap-2 border-b border-border pb-4">
+            <User className="h-5 w-5 text-muted-foreground" />
             <h3 className="text-lg font-bold">{t("buyerInfo")}</h3>
           </div>
 
           <div className="flex flex-col gap-4 text-sm">
             <div className="flex flex-col">
-              <span className="text-muted-foreground text-xxs font-semibold tracking-wider uppercase">
+              <span className="text-xxs font-semibold tracking-wider text-muted-foreground uppercase">
                 {t("accountOwner")}
               </span>
-              <span className="text-foreground mt-0.5 text-base font-semibold">
+              <span className="mt-0.5 text-base font-semibold text-foreground">
                 {order.customerName ?? order.user?.fullName ?? t("unknown")}
               </span>
-              <span className="text-muted-foreground font-mono text-xs">
+              <span className="font-mono text-xs text-muted-foreground">
                 {order.customerEmail ?? order.user?.email ?? ""}
               </span>
             </div>
 
             {order.companyName && (
-              <div className="border-border/50 flex flex-col border-t pt-3">
-                <span className="text-muted-foreground text-xxs font-semibold tracking-wider uppercase">
+              <div className="flex flex-col border-t border-border/50 pt-3">
+                <span className="text-xxs font-semibold tracking-wider text-muted-foreground uppercase">
                   {t("corporateEntity")}
                 </span>
-                <span className="text-primary mt-0.5 font-bold">
+                <span className="mt-0.5 font-bold text-primary">
                   {order.companyName}
                 </span>
               </div>
             )}
 
             {(order.customerPhone ?? order.user?.phoneNumber) && (
-              <div className="border-border/50 flex flex-col border-t pt-3">
-                <span className="text-muted-foreground text-xxs font-semibold tracking-wider uppercase">
+              <div className="flex flex-col border-t border-border/50 pt-3">
+                <span className="text-xxs font-semibold tracking-wider text-muted-foreground uppercase">
                   {t("contactPhone")}
                 </span>
                 <span className="mt-0.5 font-mono text-sm">
@@ -485,11 +485,11 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
               </div>
             )}
 
-            <div className="border-border/50 flex flex-col border-t pt-3">
-              <span className="text-muted-foreground text-xxs font-semibold tracking-wider uppercase">
+            <div className="flex flex-col border-t border-border/50 pt-3">
+              <span className="text-xxs font-semibold tracking-wider text-muted-foreground uppercase">
                 {t("businessType")}
               </span>
-              <Badge className="bg-secondary text-secondary-foreground mt-1 w-fit border-transparent text-xs capitalize">
+              <Badge className="mt-1 w-fit border-transparent bg-secondary text-xs text-secondary-foreground capitalize">
                 {order.user?.role ?? t("endUser")}
               </Badge>
             </div>
@@ -498,12 +498,12 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
 
         {/* Shipping Address Card */}
         <Card className="p-4">
-          <div className="border-border flex items-center gap-2 border-b pb-4">
-            <MapPin className="text-muted-foreground h-5 w-5" />
+          <div className="flex items-center gap-2 border-b border-border pb-4">
+            <MapPin className="h-5 w-5 text-muted-foreground" />
             <h3 className="text-lg font-bold">{t("shippingAddress")}</h3>
           </div>
           <div className="text-sm">
-            <p className="text-foreground leading-relaxed font-medium whitespace-pre-wrap">
+            <p className="leading-relaxed font-medium whitespace-pre-wrap text-foreground">
               {order.shippingAddress}
             </p>
           </div>
@@ -513,7 +513,7 @@ export const OrderDetail = ({ order, currentUser }: OrderDetailProps) => {
         <Card size="dense" className="p-4">
           <div className="flex flex-col gap-1">
             <h4 className="text-base font-bold">{t("invoiceCardTitle")}</h4>
-            <p className="text-muted-foreground text-xs">
+            <p className="text-xs text-muted-foreground">
               {t("invoiceCardDescription")}
             </p>
           </div>

@@ -35,10 +35,10 @@ const ForbiddenPage = async ({
   const storefrontUrl = env.NEXT_PUBLIC_STOREFRONT_URL;
 
   return (
-    <div className="bg-background flex min-h-screen flex-col items-center justify-center p-4 text-center">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4 text-center">
       <div className="flex max-w-md flex-col items-center space-y-6">
-        <div className="bg-destructive/10 rounded-full p-6">
-          <ShieldAlert className="text-destructive h-12 w-12" />
+        <div className="rounded-full bg-destructive/10 p-6">
+          <ShieldAlert className="h-12 w-12 text-destructive" />
         </div>
 
         <div className="space-y-2">

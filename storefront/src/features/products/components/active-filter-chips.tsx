@@ -100,7 +100,7 @@ export function ActiveFilterChips() {
 
   return (
     <div className="flex flex-wrap items-center gap-1.5 pt-1">
-      <span className="text-muted-foreground mr-1 text-xs font-semibold tracking-wider uppercase select-none">
+      <span className="mr-1 text-xs font-semibold tracking-wider text-muted-foreground uppercase select-none">
         {t("active_filters")}:
       </span>
       {activeFilters.map((filter, index) => (
@@ -112,17 +112,17 @@ export function ActiveFilterChips() {
               filter.key === "brand" ? filter.value : undefined,
             );
           }}
-          className="bg-muted/60 text-foreground hover:bg-muted hover:text-destructive focus-visible:ring-ring flex h-7 items-center gap-1 rounded-full border px-2.5 text-xs font-medium transition-colors select-none"
+          className="flex h-7 items-center gap-1 rounded-full border bg-muted/60 px-2.5 text-xs font-medium text-foreground transition-colors select-none hover:bg-muted hover:text-destructive focus-visible:ring-ring"
         >
           <span>{filter.label}</span>
-          <X className="text-muted-foreground hover:text-destructive size-3" />
+          <X className="size-3 text-muted-foreground hover:text-destructive" />
         </button>
       ))}
       {activeFilters.length > 1 && (
         <Button
           variant="ghost"
           size="sm"
-          className="text-muted-foreground hover:text-foreground h-7 gap-1 px-2 text-xs font-semibold"
+          className="h-7 gap-1 px-2 text-xs font-semibold text-muted-foreground hover:text-foreground"
           onClick={() => {
             router.push(pathname, { scroll: false });
           }}

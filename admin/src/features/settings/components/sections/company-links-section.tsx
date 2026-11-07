@@ -34,7 +34,7 @@ export function CompanyLinksSection({ control }: CompanyLinksSectionProps) {
           <Globe className="size-4" />
           {t("sections.workingHours")}
         </CardTitle>
-        <CardDescription className="text-muted-foreground text-xs">
+        <CardDescription className="text-xs text-muted-foreground">
           {t("sections.workingHoursDesc")}
         </CardDescription>
       </CardHeader>
