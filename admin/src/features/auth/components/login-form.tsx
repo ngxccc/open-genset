@@ -146,10 +146,10 @@ export const LoginForm = ({
         </div>
 
         <div className="flex flex-col items-center justify-center space-y-1 text-center">
-          <CardTitle className="text-foreground justify-center text-center text-base font-semibold tracking-normal sm:text-lg">
+          <CardTitle className="justify-center text-center text-base font-semibold tracking-normal text-foreground sm:text-lg">
             {t("heading")}
           </CardTitle>
-          <CardDescription className="text-muted-foreground mx-auto max-w-xs text-xs font-normal">
+          <CardDescription className="mx-auto max-w-xs text-xs font-normal text-muted-foreground">
             {t("description")}
           </CardDescription>
         </div>
@@ -162,7 +162,7 @@ export const LoginForm = ({
             {formError ? (
               <div
                 role="alert"
-                className="border-destructive/30 bg-destructive/10 text-destructive flex items-start gap-2.5 rounded-lg border p-3 text-xs"
+                className="flex items-start gap-2.5 rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-xs text-destructive"
               >
                 <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0" />
                 <span className="leading-relaxed font-medium">{formError}</span>
@@ -174,12 +174,12 @@ export const LoginForm = ({
               name="email"
               render={({ field }) => (
                 <FormItem className="gap-1 text-left">
-                  <FormLabel className="text-foreground text-xs font-semibold">
+                  <FormLabel className="text-xs font-semibold text-foreground">
                     {t("emailLabel")}
                   </FormLabel>
                   <FormControl>
                     <div className="relative flex items-center">
-                      <Mail className="text-muted-foreground pointer-events-none absolute left-3 size-4" />
+                      <Mail className="pointer-events-none absolute left-3 size-4 text-muted-foreground" />
                       <Input
                         placeholder="you@gmail.com"
                         type="email"
@@ -201,12 +201,12 @@ export const LoginForm = ({
               name="password"
               render={({ field }) => (
                 <FormItem className="gap-1 text-left">
-                  <FormLabel className="text-foreground text-xs font-semibold">
+                  <FormLabel className="text-xs font-semibold text-foreground">
                     {t("passwordLabel")}
                   </FormLabel>
                   <FormControl>
                     <div className="relative flex items-center">
-                      <Lock className="text-muted-foreground pointer-events-none absolute left-3 size-4" />
+                      <Lock className="pointer-events-none absolute left-3 size-4 text-muted-foreground" />
                       <Input
                         placeholder={t("passwordPlaceholder")}
                         type={showPassword ? "text" : "password"}
@@ -218,7 +218,7 @@ export const LoginForm = ({
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="text-muted-foreground hover:text-foreground absolute right-3 flex items-center justify-center p-0.5 transition-colors focus:outline-none"
+                        className="absolute right-3 flex items-center justify-center p-0.5 text-muted-foreground transition-colors hover:text-foreground focus:outline-none"
                         aria-label={t(
                           showPassword ? "hidePassword" : "showPassword",
                         )}
@@ -250,7 +250,7 @@ export const LoginForm = ({
                         disabled={isPending}
                       />
                     </FormControl>
-                    <FormLabel className="text-muted-foreground hover:text-foreground m-0 cursor-pointer text-xs leading-none font-normal select-none">
+                    <FormLabel className="m-0 cursor-pointer text-xs leading-none font-normal text-muted-foreground select-none hover:text-foreground">
                       {t("rememberMe")}
                     </FormLabel>
                   </FormItem>
@@ -263,35 +263,35 @@ export const LoginForm = ({
                   <Button
                     type="button"
                     variant="link"
-                    className="text-primary hover:text-primary/80 h-auto p-0 text-xs font-medium"
+                    className="h-auto p-0 text-xs font-medium text-primary hover:text-primary/80"
                   >
                     {t("forgotPassword")}
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="max-w-md">
                   <DialogHeader className="space-y-2">
-                    <div className="text-primary flex items-center gap-2">
+                    <div className="flex items-center gap-2 text-primary">
                       <Headphones className="size-5" />
                       <DialogTitle className="text-base font-bold">
                         {t("helpdeskTitle")}
                       </DialogTitle>
                     </div>
-                    <DialogDescription className="text-muted-foreground text-xs leading-relaxed">
+                    <DialogDescription className="text-xs leading-relaxed text-muted-foreground">
                       {t("helpdeskDesc")}
                     </DialogDescription>
                   </DialogHeader>
 
-                  <div className="border-border bg-muted/40 space-y-2 rounded-lg border p-3.5 text-xs">
-                    <div className="text-foreground flex items-center gap-2 font-medium">
-                      <Mail className="text-muted-foreground size-3.5" />
+                  <div className="space-y-2 rounded-lg border border-border bg-muted/40 p-3.5 text-xs">
+                    <div className="flex items-center gap-2 font-medium text-foreground">
+                      <Mail className="size-3.5 text-muted-foreground" />
                       <span>
                         {t("helpdeskEmail", {
                           email: supportEmail,
                         })}
                       </span>
                     </div>
-                    <div className="text-foreground flex items-center gap-2 font-medium">
-                      <ShieldAlert className="text-muted-foreground size-3.5" />
+                    <div className="flex items-center gap-2 font-medium text-foreground">
+                      <ShieldAlert className="size-3.5 text-muted-foreground" />
                       <span>
                         {t("helpdeskHotline", {
                           hotline: supportHotline,

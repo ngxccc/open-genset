@@ -142,7 +142,7 @@ export const QuoteHeader = ({ quote }: QuoteHeaderProps) => {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            <h1 className="text-primary text-2xl font-bold tracking-tight md:text-3xl">
+            <h1 className="text-2xl font-bold tracking-tight text-primary md:text-3xl">
               {t("quoteId")}:{" "}
               {quote.quoteNumber ?? `#${quote.id.substring(0, 8)}`}
             </h1>
@@ -150,7 +150,7 @@ export const QuoteHeader = ({ quote }: QuoteHeaderProps) => {
               {getStatusLabel(quote.status)}
             </Badge>
           </div>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-sm text-muted-foreground">
             {t("created")}:{" "}
             {new Date(quote.createdAt).toLocaleDateString("vi-VN")}
           </p>
@@ -174,7 +174,7 @@ export const QuoteHeader = ({ quote }: QuoteHeaderProps) => {
             {isExportingExcel ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              <FileSpreadsheet className="text-primary h-4 w-4" />
+              <FileSpreadsheet className="h-4 w-4 text-primary" />
             )}
             {t("exportExcelButton")}
           </Button>
@@ -243,48 +243,48 @@ export const QuoteHeader = ({ quote }: QuoteHeaderProps) => {
           className="grid grid-cols-1 gap-6 space-y-0 sm:grid-cols-2 lg:grid-cols-4"
         >
           <div className="flex items-start gap-3">
-            <User className="text-muted-foreground mt-0.5 h-4 w-4 shrink-0" />
+            <User className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
             <div>
-              <p className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
+              <p className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
                 {t("buyer")}
               </p>
-              <p className="text-foreground text-sm font-semibold">
+              <p className="text-sm font-semibold text-foreground">
                 {quote.user?.fullName ?? quote.customerName}
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <Building2 className="text-muted-foreground mt-0.5 h-4 w-4 shrink-0" />
+            <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
             <div>
-              <p className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
+              <p className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
                 {t("buyerCompany")}
               </p>
-              <p className="text-foreground text-sm font-semibold">
+              <p className="text-sm font-semibold text-foreground">
                 {quote.companyName ?? "N/A"}
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <Mail className="text-muted-foreground mt-0.5 h-4 w-4 shrink-0" />
+            <Mail className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
             <div>
-              <p className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
+              <p className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
                 {t("buyerEmail")}
               </p>
-              <p className="text-foreground text-sm font-semibold break-all">
+              <p className="text-sm font-semibold break-all text-foreground">
                 {quote.user?.email ?? quote.customerEmail ?? "N/A"}
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <MapPin className="text-muted-foreground mt-0.5 h-4 w-4 shrink-0" />
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
             <div>
-              <p className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
+              <p className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
                 {t("buyerLocation")}
               </p>
-              <p className="text-foreground text-sm font-semibold">
+              <p className="text-sm font-semibold text-foreground">
                 {quote.shippingAddress ?? "N/A"}
               </p>
             </div>

@@ -21,7 +21,7 @@ export async function TrustSignalsSection() {
   const t = await getTranslations("HomePage.trust");
 
   return (
-    <section className="bg-muted/30 mt-12 py-12">
+    <section className="mt-12 bg-muted/30 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {SIGNALS.map((signal) => (
@@ -31,9 +31,9 @@ export async function TrustSignalsSection() {
               className="group border-none bg-transparent shadow-none transition-all duration-300"
             >
               <CardHeader className="flex flex-col items-center text-center">
-                <div className="bg-primary/10 mb-4 flex h-20 w-20 items-center justify-center rounded-full">
+                <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                   <signal.icon
-                    className="text-primary h-10 w-10"
+                    className="h-10 w-10 text-primary"
                     aria-hidden="true"
                   />
                 </div>
@@ -44,7 +44,7 @@ export async function TrustSignalsSection() {
               </CardHeader>
 
               <CardContent className="text-center">
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {t(`${signal.key}.desc`)}
                 </p>
               </CardContent>

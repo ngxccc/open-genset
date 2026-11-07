@@ -12,10 +12,10 @@ export async function AdminHeader() {
   return (
     <div className="flex flex-col gap-4 pb-1 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h1 className="text-foreground text-2xl font-bold tracking-tight">
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
           {t("header.title")}
         </h1>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           {t("header.description")}
         </p>
       </div>

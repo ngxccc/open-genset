@@ -83,7 +83,7 @@ export function ProductPagination({
       </Button>
 
       {totalPages > 1 && (
-        <span className="text-muted-foreground text-xs font-medium">
+        <span className="text-xs font-medium text-muted-foreground">
           {currentPage} / {totalPages}
         </span>
       )}

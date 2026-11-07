@@ -57,14 +57,14 @@ export function AdminSettingsDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton={false}
-        className="bg-background flex max-h-[85vh] w-[94vw] flex-col gap-0 overflow-hidden border p-0 shadow-2xl sm:h-120 sm:max-w-2xl sm:flex-row sm:rounded-2xl lg:max-w-3xl"
+        className="flex max-h-[85vh] w-[94vw] flex-col gap-0 overflow-hidden border bg-background p-0 shadow-2xl sm:h-120 sm:max-w-2xl sm:flex-row sm:rounded-2xl lg:max-w-3xl"
       >
         <DialogTitle className="sr-only">{t("title")}</DialogTitle>
 
         {/* Navigation Menu: Horizontal tabs on mobile, vertical sidebar on desktop */}
-        <aside className="bg-muted/15 flex w-full shrink-0 flex-col border-b p-2 sm:w-45 sm:border-r sm:border-b-0 sm:p-3.5">
+        <aside className="flex w-full shrink-0 flex-col border-b bg-muted/15 p-2 sm:w-45 sm:border-r sm:border-b-0 sm:p-3.5">
           <div className="space-y-2 sm:space-y-3">
-            <span className="text-muted-foreground/70 hidden px-2.5 text-[10px] font-semibold tracking-wider uppercase sm:block">
+            <span className="hidden px-2.5 text-[10px] font-semibold tracking-wider text-muted-foreground/70 uppercase sm:block">
               {t("generalGroup")}
             </span>
             <nav className="flex items-center gap-1 overflow-x-auto px-1 py-0.5 sm:flex-col sm:items-stretch sm:gap-0.5 sm:overflow-x-visible sm:px-0 sm:py-0">
@@ -81,7 +81,7 @@ export function AdminSettingsDialog({
                     className={cn(
                       "h-8 shrink-0 cursor-pointer justify-start gap-1.5 rounded-lg px-2.5 text-xs font-medium sm:w-full sm:gap-2",
                       isActive
-                        ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                        ? "bg-accent font-semibold text-accent-foreground shadow-2xs"
                         : "text-muted-foreground hover:bg-muted/50 hover:text-foreground",
                     )}
                   >
@@ -95,10 +95,10 @@ export function AdminSettingsDialog({
         </aside>
 
         {/* Right Main Content Pane */}
-        <section className="bg-background flex h-full flex-1 flex-col overflow-hidden">
+        <section className="flex h-full flex-1 flex-col overflow-hidden bg-background">
           {/* Header Row */}
-          <div className="border-border/40 flex items-center justify-between border-b px-5 py-3">
-            <h2 className="text-foreground text-sm font-bold capitalize">
+          <div className="flex items-center justify-between border-b border-border/40 px-5 py-3">
+            <h2 className="text-sm font-bold text-foreground capitalize">
               {t(`tabs.${activeTab === "account" ? "profile" : activeTab}`)}
             </h2>
             <Button
@@ -106,7 +106,7 @@ export function AdminSettingsDialog({
               variant="ghost"
               size="icon-xs"
               onClick={() => onOpenChange(false)}
-              className="text-muted-foreground hover:bg-muted hover:text-foreground size-6 cursor-pointer rounded-md"
+              className="size-6 cursor-pointer rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"
               aria-label={t("close")}
             >
               <X className="size-3.5" />
@@ -135,18 +135,18 @@ function AccountTabPanel({
   const t = useTranslations("adminDashboard.settingsDialog.profile");
 
   return (
-    <div className="divide-border/40 space-y-3 divide-y">
+    <div className="space-y-3 divide-y divide-border/40">
       {/* User Info Row */}
       <div className="flex items-center justify-between pb-3">
         <div className="flex items-center gap-3">
-          <div className="bg-primary/10 text-primary flex size-9 items-center justify-center rounded-full text-xs font-bold uppercase">
+          <div className="flex size-9 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary uppercase">
             {user.fullName.charAt(0)}
           </div>
           <div>
-            <p className="text-foreground text-xs leading-snug font-semibold">
+            <p className="text-xs leading-snug font-semibold text-foreground">
               {user.fullName}
             </p>
-            <p className="text-muted-foreground mt-0.5 flex items-center gap-1 text-[11px]">
+            <p className="mt-0.5 flex items-center gap-1 text-[11px] text-muted-foreground">
               <Mail className="size-2.5" />
               {user.email}
             </p>
@@ -163,8 +163,8 @@ function AccountTabPanel({
       {/* Role Row */}
       <div className="flex items-center justify-between pt-3">
         <div className="space-y-0.5">
-          <p className="text-foreground text-xs font-medium">{t("role")}</p>
-          <p className="text-muted-foreground text-[11px]">
+          <p className="text-xs font-medium text-foreground">{t("role")}</p>
+          <p className="text-[11px] text-muted-foreground">
             {user.role === "ADMIN" ? t("badgeAdmin") : user.role}
           </p>
         </div>
@@ -185,21 +185,21 @@ function AppearanceTabPanel() {
         type="button"
         onClick={() => setTheme("light")}
         className={cn(
-          "hover:border-primary/50 relative flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 text-center transition-all",
+          "relative flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 text-center transition-all hover:border-primary/50",
           theme === "light"
             ? "border-primary bg-primary/5 shadow-xs"
             : "border-border/70 bg-card hover:bg-muted/30",
         )}
       >
         {theme === "light" && (
-          <span className="bg-primary text-primary-foreground absolute top-2 right-2 flex size-3.5 items-center justify-center rounded-full">
+          <span className="absolute top-2 right-2 flex size-3.5 items-center justify-center rounded-full bg-primary text-primary-foreground">
             <Check className="size-2" />
           </span>
         )}
         <div className="flex size-8 items-center justify-center rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">
           <Sun className="size-4" />
         </div>
-        <p className="text-foreground text-xs font-semibold">{t("light")}</p>
+        <p className="text-xs font-semibold text-foreground">{t("light")}</p>
       </button>
 
       {/* Dark Option */}
@@ -207,21 +207,21 @@ function AppearanceTabPanel() {
         type="button"
         onClick={() => setTheme("dark")}
         className={cn(
-          "hover:border-primary/50 relative flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 text-center transition-all",
+          "relative flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 text-center transition-all hover:border-primary/50",
           theme === "dark"
             ? "border-primary bg-primary/5 shadow-xs"
             : "border-border/70 bg-card hover:bg-muted/30",
         )}
       >
         {theme === "dark" && (
-          <span className="bg-primary text-primary-foreground absolute top-2 right-2 flex size-3.5 items-center justify-center rounded-full">
+          <span className="absolute top-2 right-2 flex size-3.5 items-center justify-center rounded-full bg-primary text-primary-foreground">
             <Check className="size-2" />
           </span>
         )}
         <div className="flex size-8 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
           <Moon className="size-4" />
         </div>
-        <p className="text-foreground text-xs font-semibold">{t("dark")}</p>
+        <p className="text-xs font-semibold text-foreground">{t("dark")}</p>
       </button>
 
       {/* System Option */}
@@ -229,21 +229,21 @@ function AppearanceTabPanel() {
         type="button"
         onClick={() => setTheme("system")}
         className={cn(
-          "hover:border-primary/50 relative flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 text-center transition-all",
+          "relative flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 text-center transition-all hover:border-primary/50",
           theme === "system"
             ? "border-primary bg-primary/5 shadow-xs"
             : "border-border/70 bg-card hover:bg-muted/30",
         )}
       >
         {theme === "system" && (
-          <span className="bg-primary text-primary-foreground absolute top-2 right-2 flex size-3.5 items-center justify-center rounded-full">
+          <span className="absolute top-2 right-2 flex size-3.5 items-center justify-center rounded-full bg-primary text-primary-foreground">
             <Check className="size-2" />
           </span>
         )}
         <div className="flex size-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
           <Laptop className="size-4" />
         </div>
-        <p className="text-foreground text-xs font-semibold">{t("system")}</p>
+        <p className="text-xs font-semibold text-foreground">{t("system")}</p>
       </button>
     </div>
   );
@@ -263,10 +263,10 @@ function LanguageTabPanel() {
   return (
     <div className="space-y-2.5">
       {/* Vietnamese Row */}
-      <div className="border-border/60 bg-card/60 flex items-center justify-between rounded-xl border px-3.5 py-2.5">
+      <div className="flex items-center justify-between rounded-xl border border-border/60 bg-card/60 px-3.5 py-2.5">
         <div className="flex items-center gap-2.5">
           <span className="text-xl">🇻🇳</span>
-          <p className="text-foreground text-xs font-semibold">{t("vi")}</p>
+          <p className="text-xs font-semibold text-foreground">{t("vi")}</p>
         </div>
         <Button
           type="button"
@@ -280,10 +280,10 @@ function LanguageTabPanel() {
       </div>
 
       {/* English Row */}
-      <div className="border-border/60 bg-card/60 flex items-center justify-between rounded-xl border px-3.5 py-2.5">
+      <div className="flex items-center justify-between rounded-xl border border-border/60 bg-card/60 px-3.5 py-2.5">
         <div className="flex items-center gap-2.5">
           <span className="text-xl">🇬🇧</span>
-          <p className="text-foreground text-xs font-semibold">{t("en")}</p>
+          <p className="text-xs font-semibold text-foreground">{t("en")}</p>
         </div>
         <Button
           type="button"

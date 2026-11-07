@@ -66,7 +66,7 @@ export const ProductCategorySection = ({
                     </SelectItem>
                   ))}
                   {categories.length === 0 && (
-                    <div className="text-muted-foreground p-2 text-sm">
+                    <div className="p-2 text-sm text-muted-foreground">
                       {t("fields.noCategoriesFound")}
                     </div>
                   )}
@@ -99,7 +99,7 @@ export const ProductCategorySection = ({
                     </SelectItem>
                   ))}
                   {brands.length === 0 && (
-                    <div className="text-muted-foreground p-2 text-sm">
+                    <div className="p-2 text-sm text-muted-foreground">
                       {t("fields.noBrandsFound")}
                     </div>
                   )}

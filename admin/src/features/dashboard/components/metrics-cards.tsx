@@ -26,13 +26,13 @@ const GrowthBadge = ({ value }: { value: number }) => {
   }
   if (value < 0) {
     return (
-      <span className="border-destructive/20 bg-destructive/10 text-destructive inline-flex items-center gap-0.5 rounded border px-1.5 py-0.5 text-[11px] font-medium">
+      <span className="inline-flex items-center gap-0.5 rounded border border-destructive/20 bg-destructive/10 px-1.5 py-0.5 text-[11px] font-medium text-destructive">
         <TrendingDown className="size-3" /> {value}%
       </span>
     );
   }
   return (
-    <span className="border-border bg-muted/40 text-muted-foreground inline-flex items-center gap-0.5 rounded border px-1.5 py-0.5 text-[11px] font-medium">
+    <span className="inline-flex items-center gap-0.5 rounded border border-border bg-muted/40 px-1.5 py-0.5 text-[11px] font-medium text-muted-foreground">
       <Minus className="size-3" /> 0%
     </span>
   );
@@ -79,19 +79,19 @@ export const MetricsCards = async ({ metrics }: MetricsCardsProps) => {
         return (
           <Card
             key={idx}
-            className="border-border/80 bg-card flex flex-col justify-between gap-2.5 rounded-lg border p-3.5 shadow-none transition-colors"
+            className="flex flex-col justify-between gap-2.5 rounded-lg border border-border/80 bg-card p-3.5 shadow-none transition-colors"
           >
             <div className="flex items-center justify-between">
-              <span className="text-muted-foreground text-xs font-medium">
+              <span className="text-xs font-medium text-muted-foreground">
                 {card.title}
               </span>
-              <div className="border-border/60 bg-muted/30 text-muted-foreground flex size-7 items-center justify-center rounded-md border">
+              <div className="flex size-7 items-center justify-center rounded-md border border-border/60 bg-muted/30 text-muted-foreground">
                 <Icon className="size-3.5" />
               </div>
             </div>
 
             <div className="flex items-baseline justify-between gap-2">
-              <span className="text-foreground text-xl font-bold tracking-tight">
+              <span className="text-xl font-bold tracking-tight text-foreground">
                 {card.value}
               </span>
               <GrowthBadge value={card.growth} />

@@ -37,10 +37,10 @@ export default async function NewQuotePage() {
       />
 
       <div>
-        <h1 className="text-foreground text-2xl font-bold tracking-tight">
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
           {tQuotes("composer.headerTitle")}
         </h1>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           {tQuotes("composer.headerDescription")}
         </p>
       </div>

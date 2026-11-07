@@ -31,13 +31,13 @@ export function LocaleTabs({
         <TabsTrigger value="vi" className="h-7 px-2.5 text-xs">
           🇻🇳 {t("tabs.vi")}
           {hasErrors?.vi && (
-            <span className="bg-destructive ml-1.5 size-1.5 rounded-full" />
+            <span className="ml-1.5 size-1.5 rounded-full bg-destructive" />
           )}
         </TabsTrigger>
         <TabsTrigger value="en" className="h-7 px-2.5 text-xs">
           🇬🇧 {t("tabs.en")}
           {hasErrors?.en && (
-            <span className="bg-destructive ml-1.5 size-1.5 rounded-full" />
+            <span className="ml-1.5 size-1.5 rounded-full bg-destructive" />
           )}
         </TabsTrigger>
       </TabsList>

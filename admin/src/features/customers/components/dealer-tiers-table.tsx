@@ -24,9 +24,9 @@ export function DealerTiersTable({ tiers }: DealerTiersTableProps) {
 
   if (tiers.length === 0) {
     return (
-      <Card className="border-border/60 flex min-h-[220px] flex-col items-center justify-center rounded-xl p-8 text-center shadow-xs">
-        <Award className="text-muted-foreground/50 mb-2 size-8" />
-        <p className="text-muted-foreground text-sm">{t("empty")}</p>
+      <Card className="flex min-h-[220px] flex-col items-center justify-center rounded-xl border-border/60 p-8 text-center shadow-xs">
+        <Award className="mb-2 size-8 text-muted-foreground/50" />
+        <p className="text-sm text-muted-foreground">{t("empty")}</p>
       </Card>
     );
   }
@@ -48,12 +48,12 @@ export function DealerTiersTable({ tiers }: DealerTiersTableProps) {
         <TableBody>
           {tiers.map((tier) => (
             <TableRow key={tier.id} className="hover:bg-muted/30">
-              <TableCell className="text-foreground font-medium">
+              <TableCell className="font-medium text-foreground">
                 <div className="flex items-center gap-2">
-                  <Award className="text-primary size-4 shrink-0" />
+                  <Award className="size-4 shrink-0 text-primary" />
                   <span>{tier.nameVi}</span>
                   {tier.nameEn && (
-                    <span className="text-muted-foreground text-xs font-normal">
+                    <span className="text-xs font-normal text-muted-foreground">
                       ({tier.nameEn})
                     </span>
                   )}
@@ -62,15 +62,15 @@ export function DealerTiersTable({ tiers }: DealerTiersTableProps) {
               <TableCell>
                 <Badge
                   variant="secondary"
-                  className="text-primary gap-1 font-mono text-xs font-semibold"
+                  className="gap-1 font-mono text-xs font-semibold text-primary"
                 >
                   <Percent className="size-3" />
                   <span>{tier.discountPercentage}%</span>
                 </Badge>
               </TableCell>
-              <TableCell className="text-muted-foreground font-mono text-xs font-medium">
+              <TableCell className="font-mono text-xs font-medium text-muted-foreground">
                 <div className="flex items-center gap-1">
-                  <DollarSign className="text-muted-foreground/70 size-3.5" />
+                  <DollarSign className="size-3.5 text-muted-foreground/70" />
                   <span>{formatCurrency(Number(tier.minimumSpend))}</span>
                 </div>
               </TableCell>

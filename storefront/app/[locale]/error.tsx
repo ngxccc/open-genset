@@ -27,21 +27,21 @@ export default function ErrorBoundary({ error, reset }: ErrorProps) {
 
   return (
     <div className="flex min-h-112.5 w-full items-center justify-center p-4">
-      <Card className="border-destructive/30 w-full max-w-md shadow-lg">
+      <Card className="w-full max-w-md border-destructive/30 shadow-lg">
         <CardHeader className="flex flex-col items-center gap-2 pb-2 text-center">
-          <div className="bg-destructive/10 flex h-12 w-12 items-center justify-center rounded-full">
-            <AlertCircle className="text-destructive h-6 w-6" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10">
+            <AlertCircle className="h-6 w-6 text-destructive" />
           </div>
-          <CardTitle size="xl" className="text-destructive mt-2 tracking-tight">
+          <CardTitle size="xl" className="mt-2 tracking-tight text-destructive">
             {t("title")}
           </CardTitle>
         </CardHeader>
         <CardContent className="text-center">
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             {t("description")}
           </p>
           {process.env.NODE_ENV !== "production" && (
-            <div className="border-destructive/20 bg-destructive/10 text-destructive mt-4 max-h-40 overflow-auto rounded border p-3 text-left font-mono text-xs">
+            <div className="mt-4 max-h-40 overflow-auto rounded border border-destructive/20 bg-destructive/10 p-3 text-left font-mono text-xs text-destructive">
               <p className="font-semibold">
                 {error.name}: {error.message}
               </p>
@@ -57,7 +57,7 @@ export default function ErrorBoundary({ error, reset }: ErrorProps) {
               reset();
             }}
             variant="outline"
-            className="border-destructive/30 hover:bg-destructive/10 hover:text-destructive flex items-center gap-2"
+            className="flex items-center gap-2 border-destructive/30 hover:bg-destructive/10 hover:text-destructive"
           >
             <RotateCcw className="h-4 w-4" />
             {t("retryButton")}

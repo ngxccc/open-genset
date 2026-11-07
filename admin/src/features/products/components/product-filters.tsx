@@ -199,7 +199,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         defaultValue={searchParams.get("categoryId") ?? "all"}
         onValueChange={(value) => handleFilterChange("categoryId", value)}
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("allCategories")} />
         </SelectTrigger>
         <SelectContent>
@@ -216,7 +216,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         defaultValue={searchParams.get("brandId") ?? "all"}
         onValueChange={(value) => handleFilterChange("brandId", value)}
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("allBrands")} />
         </SelectTrigger>
         <SelectContent>
@@ -233,7 +233,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         defaultValue={searchParams.get("fuelType") ?? "all"}
         onValueChange={(value) => handleFilterChange("fuelType", value)}
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("allFuels")} />
         </SelectTrigger>
         <SelectContent>
@@ -248,7 +248,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         defaultValue={searchParams.get("phase") ?? "all"}
         onValueChange={(value) => handleFilterChange("phase", value)}
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("allPhases")} />
         </SelectTrigger>
         <SelectContent>
@@ -262,7 +262,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         defaultValue={searchParams.get("status") ?? "all"}
         onValueChange={(value) => handleFilterChange("status", value)}
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("status")} />
         </SelectTrigger>
         <SelectContent>
@@ -277,7 +277,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
       <div className="relative w-full">
         <Input
           placeholder={t("engineBrand")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           defaultValue={searchParams.get("engineBrand") ?? ""}
           onBlur={(e) => handleFilterChange("engineBrand", e.target.value)}
           onKeyDown={(e) => {
@@ -290,7 +290,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
       <div className="relative w-full">
         <Input
           placeholder={t("alternatorBrand")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           defaultValue={searchParams.get("alternatorBrand") ?? ""}
           onBlur={(e) => handleFilterChange("alternatorBrand", e.target.value)}
           onKeyDown={(e) => {
@@ -305,7 +305,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         <Input
           type="number"
           placeholder={t("minPower")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           defaultValue={searchParams.get("minPower") ?? ""}
           onBlur={(e) => handleFilterChange("minPower", e.target.value)}
           onKeyDown={(e) => {
@@ -319,7 +319,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         <Input
           type="number"
           placeholder={t("maxPower")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           defaultValue={searchParams.get("maxPower") ?? ""}
           onBlur={(e) => handleFilterChange("maxPower", e.target.value)}
           onKeyDown={(e) => {
@@ -333,7 +333,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         <Input
           type="number"
           placeholder={t("voltage")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           defaultValue={searchParams.get("voltage") ?? ""}
           onBlur={(e) => handleFilterChange("voltage", e.target.value)}
           onKeyDown={(e) => {
@@ -346,7 +346,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
 
       <Label
         htmlFor="quote-only"
-        className="border-border bg-card hover:bg-accent/40 text-muted-foreground flex w-full cursor-pointer items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium shadow-sm transition-colors select-none"
+        className="flex w-full cursor-pointer items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors select-none hover:bg-accent/40"
       >
         <Checkbox
           id="quote-only"
@@ -371,7 +371,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
           setDraftFilters((prev) => ({ ...prev, categoryId: val }))
         }
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("allCategories")} />
         </SelectTrigger>
         <SelectContent>
@@ -390,7 +390,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
           setDraftFilters((prev) => ({ ...prev, brandId: val }))
         }
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("allBrands")} />
         </SelectTrigger>
         <SelectContent>
@@ -409,7 +409,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
           setDraftFilters((prev) => ({ ...prev, fuelType: val }))
         }
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("allFuels")} />
         </SelectTrigger>
         <SelectContent>
@@ -426,7 +426,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
           setDraftFilters((prev) => ({ ...prev, phase: val }))
         }
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("allPhases")} />
         </SelectTrigger>
         <SelectContent>
@@ -442,7 +442,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
           setDraftFilters((prev) => ({ ...prev, status: val }))
         }
       >
-        <SelectTrigger className="bg-card w-full shadow-sm">
+        <SelectTrigger className="w-full bg-card shadow-sm">
           <SelectValue placeholder={t("status")} />
         </SelectTrigger>
         <SelectContent>
@@ -457,7 +457,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
       <div className="relative w-full">
         <Input
           placeholder={t("engineBrand")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           value={draftFilters.engineBrand}
           onChange={(e) =>
             setDraftFilters((prev) => ({
@@ -470,7 +470,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
       <div className="relative w-full">
         <Input
           placeholder={t("alternatorBrand")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           value={draftFilters.alternatorBrand}
           onChange={(e) =>
             setDraftFilters((prev) => ({
@@ -485,7 +485,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         <Input
           type="number"
           placeholder={t("minPower")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           value={draftFilters.minPower}
           onChange={(e) =>
             setDraftFilters((prev) => ({
@@ -499,7 +499,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         <Input
           type="number"
           placeholder={t("maxPower")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           value={draftFilters.maxPower}
           onChange={(e) =>
             setDraftFilters((prev) => ({
@@ -513,7 +513,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
         <Input
           type="number"
           placeholder={t("voltage")}
-          className="bg-card w-full shadow-sm"
+          className="w-full bg-card shadow-sm"
           value={draftFilters.voltage}
           onChange={(e) =>
             setDraftFilters((prev) => ({
@@ -526,7 +526,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
 
       <Label
         htmlFor="quote-only-mobile"
-        className="border-border bg-card hover:bg-accent/40 text-muted-foreground col-span-full flex w-full cursor-pointer items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium shadow-sm transition-colors select-none"
+        className="col-span-full flex w-full cursor-pointer items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors select-none hover:bg-accent/40"
       >
         <Checkbox
           id="quote-only-mobile"
@@ -548,10 +548,10 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
       {/* Search Bar + Mobile Drawer Trigger + Reset */}
       <div className="flex w-full items-center gap-2">
         <div className="relative flex-1">
-          <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+          <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             placeholder={t("searchPlaceholder")}
-            className="bg-card w-full pl-9 shadow-sm"
+            className="w-full bg-card pl-9 shadow-sm"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -570,7 +570,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
                 {activeFilterCount > 0 && (
                   <Badge
                     variant="secondary"
-                    className="bg-primary text-primary-foreground ml-0.5 px-1.5 py-0 text-[10px] font-bold"
+                    className="ml-0.5 bg-primary px-1.5 py-0 text-[10px] font-bold text-primary-foreground"
                   >
                     {activeFilterCount}
                   </Badge>
@@ -581,7 +581,7 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
               side="bottom"
               className="max-h-[85vh] gap-0 rounded-t-2xl p-0"
             >
-              <SheetHeader className="border-border/60 border-b p-4 text-left">
+              <SheetHeader className="border-b border-border/60 p-4 text-left">
                 <div className="flex items-center justify-between pr-6">
                   <div>
                     <SheetTitle className="text-base font-semibold">
@@ -596,13 +596,13 @@ export const ProductFilters = ({ categories, brands }: ProductFiltersProps) => {
               <div className="grid max-h-[calc(85vh-140px)] grid-cols-1 gap-2.5 overflow-y-auto p-4 sm:grid-cols-2">
                 {renderMobileDraftFilters()}
               </div>
-              <SheetFooter className="border-border/60 bg-muted/20 border-t p-3">
+              <SheetFooter className="border-t border-border/60 bg-muted/20 p-3">
                 <div className="flex w-full items-center justify-between gap-3">
                   <Button
                     type="button"
                     variant="ghost"
                     onClick={handleResetFilters}
-                    className="text-muted-foreground hover:text-foreground text-xs font-medium"
+                    className="text-xs font-medium text-muted-foreground hover:text-foreground"
                   >
                     {t("resetFilters")}
                   </Button>

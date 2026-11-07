@@ -143,7 +143,7 @@ export const SpecSheetEditor = ({ form }: SpecSheetEditorProps) => {
               onValueChange={handleApplyTemplate}
             >
               <SelectTrigger className="h-9 w-65 text-xs">
-                <Sparkles className="text-muted-foreground mr-1.5 size-3.5" />
+                <Sparkles className="mr-1.5 size-3.5 text-muted-foreground" />
                 <SelectValue placeholder={t("fields.selectTemplate")} />
               </SelectTrigger>
               <SelectContent>
@@ -172,11 +172,11 @@ export const SpecSheetEditor = ({ form }: SpecSheetEditorProps) => {
       <CardContent size="dense" className="space-y-6">
         {specSheet.length === 0 ? (
           <div className="flex flex-col items-center justify-center rounded-lg border border-dashed py-10 text-center">
-            <Layers className="text-muted-foreground/60 mb-2 h-10 w-10" />
-            <p className="text-muted-foreground text-sm font-medium">
+            <Layers className="mb-2 h-10 w-10 text-muted-foreground/60" />
+            <p className="text-sm font-medium text-muted-foreground">
               {t("fields.emptySpecSheetTitle")}
             </p>
-            <p className="text-muted-foreground/80 mt-1 max-w-sm text-xs">
+            <p className="mt-1 max-w-sm text-xs text-muted-foreground/80">
               {t("fields.emptySpecSheetDescription")}
             </p>
             <Button
@@ -194,11 +194,11 @@ export const SpecSheetEditor = ({ form }: SpecSheetEditorProps) => {
           specSheet.map((group, groupIdx) => (
             <div
               key={group.groupKey || groupIdx}
-              className="bg-card rounded-lg border p-4 shadow-2xs"
+              className="rounded-lg border bg-card p-4 shadow-2xs"
             >
               <div className="mb-3 flex items-center justify-between gap-3 border-b pb-2.5">
                 <div className="flex flex-1 items-center gap-2">
-                  <span className="bg-primary/10 text-primary flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
                     {groupIdx + 1}
                   </span>
                   <Input
@@ -215,7 +215,7 @@ export const SpecSheetEditor = ({ form }: SpecSheetEditorProps) => {
                   variant="ghost"
                   size="sm"
                   onClick={() => handleRemoveGroup(groupIdx)}
-                  className="text-destructive hover:bg-destructive/10 h-8 gap-1 px-2 text-xs"
+                  className="h-8 gap-1 px-2 text-xs text-destructive hover:bg-destructive/10"
                 >
                   <Trash2 className="h-3.5 w-3.5" />
                   {t("fields.deleteGroup")}
@@ -223,7 +223,7 @@ export const SpecSheetEditor = ({ form }: SpecSheetEditorProps) => {
               </div>
 
               <div className="space-y-2">
-                <div className="text-muted-foreground hidden grid-cols-12 gap-2 px-1 text-xs font-semibold sm:grid">
+                <div className="hidden grid-cols-12 gap-2 px-1 text-xs font-semibold text-muted-foreground sm:grid">
                   <div className="col-span-5">{t("fields.colParamName")}</div>
                   <div className="col-span-4">{t("fields.colParamValue")}</div>
                   <div className="col-span-2">{t("fields.colParamUnit")}</div>
@@ -288,7 +288,7 @@ export const SpecSheetEditor = ({ form }: SpecSheetEditorProps) => {
                         variant="ghost"
                         size="icon"
                         onClick={() => handleRemoveItem(groupIdx, itemIdx)}
-                        className="text-muted-foreground hover:text-destructive h-8 w-8"
+                        className="h-8 w-8 text-muted-foreground hover:text-destructive"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
                       </Button>
@@ -301,7 +301,7 @@ export const SpecSheetEditor = ({ form }: SpecSheetEditorProps) => {
                   variant="ghost"
                   size="sm"
                   onClick={() => handleAddItem(groupIdx)}
-                  className="text-primary hover:bg-primary/10 mt-1 h-8 gap-1.5 px-2 text-xs font-medium"
+                  className="mt-1 h-8 gap-1.5 px-2 text-xs font-medium text-primary hover:bg-primary/10"
                 >
                   <Plus className="h-3.5 w-3.5" />
                   {t("fields.addItem")}

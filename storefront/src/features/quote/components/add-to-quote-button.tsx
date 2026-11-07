@@ -48,7 +48,7 @@ export function AddToQuoteButton({
       <Button
         variant="outline"
         size="lg"
-        className="border-border text-foreground hover:bg-muted w-full gap-2 font-bold tracking-wider uppercase"
+        className="w-full gap-2 border-border font-bold tracking-wider text-foreground uppercase hover:bg-muted"
         onClick={handleAddToList}
       >
         <FileText className="size-4" />

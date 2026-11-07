@@ -6,6 +6,21 @@
   "semi": true,
   "endOfLine": "lf",
   "sortPackageJson": false,
+  "sortTailwindcss": {
+    "stylesheet": "admin/src/styles/globals.css",
+    "functions": ["cn", "clsx"]
+  },
+  "overrides": [
+    {
+      "files": ["storefront/**"],
+      "options": {
+        "sortTailwindcss": {
+          "stylesheet": "storefront/src/styles/globals.css",
+          "functions": ["cn", "clsx"]
+        }
+      }
+    }
+  ],
   "ignorePatterns": [
     "**/node_modules/**",
     "**/dist/**",

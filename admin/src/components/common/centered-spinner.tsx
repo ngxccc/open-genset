@@ -32,7 +32,7 @@ export function CenteredSpinner({
       )}
     >
       <Loader2
-        className={cn("text-muted-foreground animate-spin", sizeClasses[size])}
+        className={cn("animate-spin text-muted-foreground", sizeClasses[size])}
       />
     </div>
   );

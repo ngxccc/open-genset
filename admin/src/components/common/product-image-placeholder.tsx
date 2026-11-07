@@ -15,13 +15,13 @@ export function ProductImagePlaceholder({
   return (
     <div
       className={cn(
-        "bg-muted text-muted-foreground/60 flex size-full flex-col items-center justify-center select-none",
+        "flex size-full flex-col items-center justify-center bg-muted text-muted-foreground/60 select-none",
         className,
       )}
     >
       <ImageOff className={cn("size-4 stroke-[1.5]", iconClassName)} />
       {showText && (
-        <span className="text-muted-foreground mt-1 text-[10px] font-medium tracking-wider uppercase">
+        <span className="mt-1 text-[10px] font-medium tracking-wider text-muted-foreground uppercase">
           No Image
         </span>
       )}

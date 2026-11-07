@@ -152,7 +152,7 @@ export const RevenueChart = ({
 
       <CardContent>
         <div className="mb-4 flex items-baseline gap-2">
-          <span className="text-foreground text-2xl font-bold tracking-tight">
+          <span className="text-2xl font-bold tracking-tight text-foreground">
             {formatCurrency(totalRevenue)}
           </span>
         </div>
@@ -197,7 +197,7 @@ export const RevenueChart = ({
                       <span className="text-muted-foreground">
                         {name === "revenue" ? t("revenue") : t("orders")}
                       </span>
-                      <span className="text-foreground font-semibold">
+                      <span className="font-semibold text-foreground">
                         {name === "revenue"
                           ? formatCurrency(Number(value))
                           : value}

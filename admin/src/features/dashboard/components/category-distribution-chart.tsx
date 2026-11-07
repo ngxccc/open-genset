@@ -60,7 +60,7 @@ export const CategoryDistributionChart = ({
 
       <CardContent className="flex flex-1 flex-col justify-center p-4">
         {chartData.length === 0 ? (
-          <div className="text-muted-foreground flex h-65 w-full items-center justify-center text-center text-xs">
+          <div className="flex h-65 w-full items-center justify-center text-center text-xs text-muted-foreground">
             {t("noCategoryData")}
           </div>
         ) : (
@@ -93,7 +93,7 @@ export const CategoryDistributionChart = ({
                         <span className="text-muted-foreground">
                           {t("revenue")}
                         </span>
-                        <span className="text-foreground font-semibold">
+                        <span className="font-semibold text-foreground">
                           {formatCurrency(Number(value))}
                         </span>
                       </div>

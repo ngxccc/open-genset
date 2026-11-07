@@ -3,7 +3,7 @@ import { ProductCardSkeleton } from "./product-card-skeleton";
 
 export function CatalogTemplateSkeleton() {
   return (
-    <div className="bg-background min-h-screen pt-4 pb-16">
+    <div className="min-h-screen bg-background pt-4 pb-16">
       <div className="mx-auto max-w-7xl space-y-5 px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Skeleton */}
         <div className="flex items-center gap-2">
@@ -23,7 +23,7 @@ export function CatalogTemplateSkeleton() {
         </div>
 
         {/* Top Filter Bar Skeleton */}
-        <div className="bg-card rounded-xl border p-3 shadow-xs">
+        <div className="rounded-xl border bg-card p-3 shadow-xs">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-1 flex-wrap items-center gap-2">
               <Skeleton className="h-9 w-48 rounded-md sm:w-64" />

@@ -175,14 +175,14 @@ export function CompanySettingsForm({ initialData }: CompanySettingsFormProps) {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         {/* Top Sticky Control Bar */}
-        <div className="bg-card flex flex-wrap items-center justify-between gap-4 rounded-xl border p-4 shadow-xs">
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border bg-card p-4 shadow-xs">
           <div className="flex items-center gap-4">
             <LocaleTabs
               activeLocale={langTab}
               onLocaleChange={setLangTab}
               hasErrors={{ vi: hasViErrors, en: hasEnErrors }}
             />
-            <span className="text-muted-foreground hidden text-xs sm:inline">
+            <span className="hidden text-xs text-muted-foreground sm:inline">
               {t("lastUpdated")}{" "}
               <strong className="text-foreground">
                 {new Date(initialData.updatedAt).toLocaleString()}

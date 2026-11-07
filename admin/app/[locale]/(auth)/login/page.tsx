@@ -35,7 +35,7 @@ export default async function AdminLoginPage({
   });
 
   return (
-    <div className="bg-muted/30 flex min-h-screen w-full flex-col justify-between p-4 sm:p-6 lg:p-8">
+    <div className="flex min-h-screen w-full flex-col justify-between bg-muted/30 p-4 sm:p-6 lg:p-8">
       {/* Top Header Controls (Locale / Theme) */}
       <header className="flex w-full items-center justify-end">
         <AuthHeaderControls />
@@ -49,7 +49,7 @@ export default async function AdminLoginPage({
       </main>
 
       {/* Bottom: Console Footnote & Copyright */}
-      <footer className="text-muted-foreground flex w-full flex-col items-center justify-center gap-1.5 text-center text-xs font-medium sm:flex-row sm:justify-between">
+      <footer className="flex w-full flex-col items-center justify-center gap-1.5 text-center text-xs font-medium text-muted-foreground sm:flex-row sm:justify-between">
         <Suspense
           fallback={
             <p>
@@ -62,7 +62,7 @@ export default async function AdminLoginPage({
         >
           <LoginFooterCopyright locale={locale} />
         </Suspense>
-        <p className="text-muted-foreground/80 text-[11px]">
+        <p className="text-[11px] text-muted-foreground/80">
           {t("consoleFootnote", {
             version: COMPANY_CONFIG.CONSOLE_VERSION,
           })}

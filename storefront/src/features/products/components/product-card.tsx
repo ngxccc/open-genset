@@ -90,7 +90,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
   return (
     <Card
       size="dense"
-      className="group hover:border-primary/50 flex h-full flex-col overflow-hidden transition-all hover:shadow-xl"
+      className="group flex h-full flex-col overflow-hidden transition-all hover:border-primary/50 hover:shadow-xl"
     >
       <Link href={`/products/${product.slug}`} className="block">
         <CardHeader className="relative aspect-4/3 w-full p-0">
@@ -114,7 +114,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
 
       <CardContent className="flex grow flex-col p-4">
         <Link href={`/products/${product.slug}`} className="block">
-          <h3 className="font-display text-foreground group-hover:text-primary line-clamp-2 text-base leading-snug font-bold transition-colors">
+          <h3 className="font-display line-clamp-2 text-base leading-snug font-bold text-foreground transition-colors group-hover:text-primary">
             {product.name}
           </h3>
         </Link>
@@ -136,10 +136,10 @@ export function ProductCard({ product, index }: ProductCardProps) {
 
       <CardFooter
         size="dense"
-        className="bg-muted/10 mt-auto flex flex-col gap-2.5 border-t p-3"
+        className="mt-auto flex flex-col gap-2.5 border-t bg-muted/10 p-3"
       >
         <div className="flex w-full items-baseline justify-between gap-2">
-          <span className="text-primary text-base font-bold tracking-tight">
+          <span className="text-base font-bold tracking-tight text-primary">
             {product.isQuoteOnly
               ? tHome("contactPrice")
               : priceFormatter.format(Number(product.price))}
@@ -161,7 +161,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
               variant="outline"
               size="icon"
               title={tQuote("addToList")}
-              className="text-muted-foreground hover:text-primary hover:border-primary/50 size-8 shrink-0"
+              className="size-8 shrink-0 text-muted-foreground hover:border-primary/50 hover:text-primary"
               onClick={handleAddToList}
             >
               <FilePlus className="size-3.5" />

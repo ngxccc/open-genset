@@ -137,7 +137,7 @@ const InventoryRow = ({
       <TableCell className="font-medium">
         {warehouse.nameVi}
         {!warehouse.isActive && (
-          <span className="text-muted-foreground ml-2 text-xs">
+          <span className="ml-2 text-xs text-muted-foreground">
             ({t("status.inactive")})
           </span>
         )}

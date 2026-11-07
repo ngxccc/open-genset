@@ -59,7 +59,7 @@ const FormInputField = ({
       {label} {required && <span className="text-destructive">*</span>}
     </Label>
     <div className="relative">
-      <Icon className="text-muted-foreground absolute top-2.5 left-2.5 h-4 w-4" />
+      <Icon className="absolute top-2.5 left-2.5 h-4 w-4 text-muted-foreground" />
       <Input
         id={id}
         type={type}
@@ -75,7 +75,7 @@ const FormInputField = ({
       />
     </div>
     {error && (
-      <p className="text-destructive text-[11px] font-medium">{error}</p>
+      <p className="text-[11px] font-medium text-destructive">{error}</p>
     )}
   </div>
 );

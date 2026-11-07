@@ -35,7 +35,7 @@ export function MobileMenu() {
           className="md:hidden"
           aria-label="Toggle mobile menu"
         >
-          <Menu className="text-foreground size-6" />
+          <Menu className="size-6 text-foreground" />
         </Button>
       </SheetTrigger>
       <SheetContent
@@ -43,7 +43,7 @@ export function MobileMenu() {
         className="w-full max-w-xs border-l border-zinc-200 bg-white p-6"
       >
         <SheetHeader className="text-left">
-          <SheetTitle className="font-display text-primary text-xl font-bold tracking-tight">
+          <SheetTitle className="font-display text-xl font-bold tracking-tight text-primary">
             {t("brand")}
           </SheetTitle>
           <SheetDescription className="text-xs text-zinc-500">
@@ -56,7 +56,7 @@ export function MobileMenu() {
           {navItems.map((item) => (
             <Link
               key={item}
-              className="font-display hover:text-primary text-sm font-semibold tracking-wider text-zinc-600 uppercase transition-colors"
+              className="font-display text-sm font-semibold tracking-wider text-zinc-600 uppercase transition-colors hover:text-primary"
               href={`/${item}`}
               onClick={(e) => {
                 close();
@@ -74,7 +74,7 @@ export function MobileMenu() {
         <div className="mt-auto flex flex-col gap-3 border-t border-zinc-100 pt-6">
           <Button
             asChild
-            className={`${ctaClasses} bg-primary text-primary-foreground hover:bg-primary/90 w-full shadow-sm`}
+            className={`${ctaClasses} w-full bg-primary text-primary-foreground shadow-sm hover:bg-primary/90`}
             onClick={close}
           >
             <Link href="/products">{t("nav.products")}</Link>

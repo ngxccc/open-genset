@@ -132,7 +132,7 @@ export const QuoteList = ({ quotes }: QuoteListProps) => {
       {/* Search & Filters Row */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="relative max-w-md flex-1">
-          <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+          <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             placeholder={t("searchPlaceholder")}
             value={searchTerm}
@@ -141,7 +141,7 @@ export const QuoteList = ({ quotes }: QuoteListProps) => {
           />
         </div>
 
-        <div className="border-border flex flex-wrap gap-1 border-b pb-2 md:border-b-0 md:pb-0">
+        <div className="flex flex-wrap gap-1 border-b border-border pb-2 md:border-b-0 md:pb-0">
           {statuses.map((status) => (
             <Button
               key={status}
@@ -162,7 +162,7 @@ export const QuoteList = ({ quotes }: QuoteListProps) => {
             size="dense"
             className="flex flex-col items-center justify-center py-12 text-center"
           >
-            <p className="text-muted-foreground text-sm font-medium">
+            <p className="text-sm font-medium text-muted-foreground">
               {t("noQuotesFound")}
             </p>
           </CardContent>
@@ -170,7 +170,7 @@ export const QuoteList = ({ quotes }: QuoteListProps) => {
       ) : (
         <>
           {/* Desktop Table View */}
-          <div className="border-border bg-card hidden overflow-x-auto rounded-lg border md:block">
+          <div className="hidden overflow-x-auto rounded-lg border border-border bg-card md:block">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -193,7 +193,7 @@ export const QuoteList = ({ quotes }: QuoteListProps) => {
               <TableBody>
                 {quotes.map((quote) => (
                   <TableRow key={quote.id}>
-                    <TableCell className="text-primary text-xs font-semibold">
+                    <TableCell className="text-xs font-semibold text-primary">
                       {quote.quoteNumber ?? `#${quote.id.slice(0, 8)}`}
                     </TableCell>
                     <TableCell>
@@ -201,7 +201,7 @@ export const QuoteList = ({ quotes }: QuoteListProps) => {
                         <span className="text-sm font-medium">
                           {quote.user?.fullName ?? quote.customerName}
                         </span>
-                        <span className="text-muted-foreground text-xs">
+                        <span className="text-xs text-muted-foreground">
                           {quote.companyName ?? t("noCompany")}
                         </span>
                       </div>
@@ -236,7 +236,7 @@ export const QuoteList = ({ quotes }: QuoteListProps) => {
             {quotes.map((quote) => (
               <Card key={quote.id} size="dense" className="gap-3 p-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-primary text-xs font-bold">
+                  <span className="text-xs font-bold text-primary">
                     {quote.quoteNumber ?? `#${quote.id.slice(0, 8)}`}
                   </span>
                   <Badge className={getStatusBadgeClass(quote.status)}>
@@ -249,21 +249,21 @@ export const QuoteList = ({ quotes }: QuoteListProps) => {
                     <span className="text-sm font-bold">
                       {quote.user?.fullName ?? quote.customerName}
                     </span>
-                    <span className="text-muted-foreground text-xs">
+                    <span className="text-xs text-muted-foreground">
                       {quote.companyName ?? t("noCompany")}
                     </span>
                   </div>
-                  <span className="text-muted-foreground mt-1 text-xs">
+                  <span className="mt-1 text-xs text-muted-foreground">
                     {formatDate(new Date(quote.createdAt))}
                   </span>
                 </div>
 
-                <div className="border-border mt-1 flex items-center justify-between border-t pt-3">
+                <div className="mt-1 flex items-center justify-between border-t border-border pt-3">
                   <div className="flex flex-col">
-                    <span className="text-muted-foreground text-xxs font-semibold tracking-wider uppercase">
+                    <span className="text-xxs font-semibold tracking-wider text-muted-foreground uppercase">
                       {t("totalAmount")}
                     </span>
-                    <span className="text-primary text-sm font-bold">
+                    <span className="text-sm font-bold text-primary">
                       {formatCurrency(calculateTotal(quote))}
                     </span>
                   </div>

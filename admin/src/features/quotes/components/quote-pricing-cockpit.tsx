@@ -163,19 +163,19 @@ export const QuotePricingCockpit = ({ quote }: QuotePricingCockpitProps) => {
                   <TableCell className="text-right font-medium">
                     {item.quantity}
                   </TableCell>
-                  <TableCell className="text-muted-foreground text-right font-semibold">
+                  <TableCell className="text-right font-semibold text-muted-foreground">
                     {item.product?.price || item.unitPrice
                       ? formatCurrency(item.product?.price ?? item.unitPrice)
                       : "—"}
                   </TableCell>
-                  <TableCell className="text-foreground text-right font-semibold">
+                  <TableCell className="text-right font-semibold text-foreground">
                     {item.requestedPrice
                       ? formatCurrency(item.requestedPrice)
                       : "—"}
                   </TableCell>
                   <TableCell className="text-right">
                     {!isNegotiating ? (
-                      <span className="text-primary font-bold">
+                      <span className="font-bold text-primary">
                         {item.agreedPrice
                           ? formatCurrency(item.agreedPrice)
                           : "—"}
@@ -206,11 +206,11 @@ export const QuotePricingCockpit = ({ quote }: QuotePricingCockpitProps) => {
                           }}
                           className="h-9 pr-7 text-right font-semibold"
                         />
-                        <span className="text-muted-foreground pointer-events-none absolute right-2.5 text-xs font-semibold">
+                        <span className="pointer-events-none absolute right-2.5 text-xs font-semibold text-muted-foreground">
                           ₫
                         </span>
                         {isPending && (
-                          <div className="text-muted-foreground absolute right-7">
+                          <div className="absolute right-7 text-muted-foreground">
                             <Loader2 className="h-4 w-4 animate-spin" />
                           </div>
                         )}
@@ -224,8 +224,8 @@ export const QuotePricingCockpit = ({ quote }: QuotePricingCockpitProps) => {
         </div>
 
         {/* Summary Box */}
-        <div className="bg-muted/40 flex flex-col gap-2 rounded-lg border p-4">
-          <div className="text-muted-foreground flex items-center justify-between text-sm">
+        <div className="flex flex-col gap-2 rounded-lg border bg-muted/40 p-4">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <span>{t("totalRequested")}:</span>
             <span className="font-semibold">
               {formatCurrency(totalRequestedAmount)}

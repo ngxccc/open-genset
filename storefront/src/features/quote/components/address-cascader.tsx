@@ -68,7 +68,8 @@ export function AddressCascader({
       const normalizedQuery = removeVietnameseTones(trimmed);
       const normalizedValue = removeVietnameseTones(itemValue);
       const alias = VIETNAM_LOCATION_ALIASES[normalizedQuery] as
-        string | undefined;
+        | string
+        | undefined;
 
       const isMatch =
         normalizedValue.includes(normalizedQuery) ||
@@ -108,7 +109,7 @@ export function AddressCascader({
       {/* 2 Searchable Cascading Comboboxes: City / Province & Ward / Sub-unit */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>
-          <label className="text-foreground/80 text-xs font-semibold">
+          <label className="text-xs font-semibold text-foreground/80">
             {t("city")}
           </label>
           <div className="mt-1">
@@ -125,7 +126,7 @@ export function AddressCascader({
         </div>
 
         <div>
-          <label className="text-foreground/80 text-xs font-semibold">
+          <label className="text-xs font-semibold text-foreground/80">
             {t("district")}
           </label>
           <div className="mt-1">
@@ -147,7 +148,7 @@ export function AddressCascader({
 
       {/* Street Address / Project Site */}
       <div>
-        <label className="text-foreground/80 text-xs font-semibold">
+        <label className="text-xs font-semibold text-foreground/80">
           {t("streetAddress")}
         </label>
         <Input

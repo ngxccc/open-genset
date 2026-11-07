@@ -130,7 +130,7 @@ export function SubcategoryPills({
             "inline-flex shrink-0 items-center justify-center rounded-full px-4 py-1.5 text-xs font-semibold transition-all select-none",
             pill.isActive
               ? "bg-primary text-primary-foreground shadow-xs"
-              : "bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent",
+              : "border border-transparent bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground",
           )}
         >
           {pill.name}

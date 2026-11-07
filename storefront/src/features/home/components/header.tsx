@@ -8,16 +8,16 @@ export async function Header() {
   const navItems = ["products", "solutions", "services"] as const;
 
   return (
-    <header className="bg-background/90 supports-backdrop-blur:bg-background/60 border-border fixed top-0 z-50 w-full border-b backdrop-blur-xl transition-all">
+    <header className="fixed top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-xl transition-all supports-backdrop-blur:bg-background/60">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Logo & Brand */}
         <div className="flex items-center gap-10">
           <Link
-            className="font-display text-primary focus-visible:ring-ring flex items-center gap-2 text-2xl font-black tracking-tighter transition-colors outline-none focus-visible:ring-2"
+            className="font-display flex items-center gap-2 text-2xl font-black tracking-tighter text-primary transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring"
             href="/"
           >
             {t("brand")}
-            <span className="text-muted-foreground hidden text-sm font-light tracking-widest sm:inline-block">
+            <span className="hidden text-sm font-light tracking-widest text-muted-foreground sm:inline-block">
               {t("branchName")}
             </span>
           </Link>
@@ -27,7 +27,7 @@ export async function Header() {
             {navItems.map((item) => (
               <Link
                 key={item}
-                className="font-display text-muted-foreground hover:text-primary focus-visible:ring-ring text-xs font-bold tracking-widest uppercase transition-all duration-300 outline-none hover:scale-105 focus-visible:ring-2"
+                className="font-display text-xs font-bold tracking-widest text-muted-foreground uppercase transition-all duration-300 outline-none hover:scale-105 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring"
                 href={`/${item}`}
               >
                 {t(`nav.${item}`)}

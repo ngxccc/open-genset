@@ -62,7 +62,7 @@ export function Combobox({
             type="button"
             disabled={disabled}
             className={cn(
-              "border-input focus-visible:border-ring focus-visible:ring-ring/50 data-[placeholder]:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50 flex h-auto min-h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-left text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+              "flex h-auto min-h-9 w-full items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-left text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50",
               !selectedOption && "text-muted-foreground",
               triggerClassName,
             )}
@@ -71,7 +71,7 @@ export function Combobox({
             <span className="flex-1 text-left text-sm leading-snug break-words">
               {selectedOption ? selectedOption.label : placeholder}
             </span>
-            <ChevronsUpDown className="text-muted-foreground ml-2 size-4 shrink-0 opacity-50" />
+            <ChevronsUpDown className="ml-2 size-4 shrink-0 text-muted-foreground opacity-50" />
           </button>
         </PopoverTrigger>
 

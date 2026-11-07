@@ -34,7 +34,7 @@ export function CompanyEmailsSection({ control }: CompanyEmailsSectionProps) {
           <Mail className="size-4" />
           {t("sections.emails")}
         </CardTitle>
-        <CardDescription className="text-muted-foreground text-xs">
+        <CardDescription className="text-xs text-muted-foreground">
           {t("sections.emailsDesc")}
         </CardDescription>
       </CardHeader>

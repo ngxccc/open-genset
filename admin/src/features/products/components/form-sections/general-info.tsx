@@ -159,7 +159,7 @@ export const ProductGeneralInfo = ({ form }: ProductGeneralInfoProps) => {
                 <FormLabel required>{t("fields.price")}</FormLabel>
                 <FormControl>
                   <div className="relative">
-                    <span className="text-muted-foreground absolute top-1/2 left-3 -translate-y-1/2 font-medium">
+                    <span className="absolute top-1/2 left-3 -translate-y-1/2 font-medium text-muted-foreground">
                       ₫
                     </span>
                     <Input

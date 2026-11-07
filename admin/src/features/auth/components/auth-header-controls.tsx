@@ -31,7 +31,7 @@ export const AuthHeaderControls = () => {
           <Button
             variant="ghost"
             size="sm"
-            className="text-muted-foreground hover:text-foreground h-8 gap-1.5 px-2.5 text-xs font-medium"
+            className="h-8 gap-1.5 px-2.5 text-xs font-medium text-muted-foreground hover:text-foreground"
           >
             <Globe className="size-3.5" />
             <span className="uppercase">{locale}</span>
@@ -40,13 +40,13 @@ export const AuthHeaderControls = () => {
         <DropdownMenuContent align="end" className="min-w-[120px]">
           <DropdownMenuItem
             onClick={() => handleLanguageChange("vi")}
-            className={locale === "vi" ? "text-primary font-bold" : ""}
+            className={locale === "vi" ? "font-bold text-primary" : ""}
           >
             Tiếng Việt (VI)
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => handleLanguageChange("en")}
-            className={locale === "en" ? "text-primary font-bold" : ""}
+            className={locale === "en" ? "font-bold text-primary" : ""}
           >
             English (EN)
           </DropdownMenuItem>
@@ -57,7 +57,7 @@ export const AuthHeaderControls = () => {
       <Button
         variant="ghost"
         size="icon"
-        className="text-muted-foreground hover:text-foreground size-8"
+        className="size-8 text-muted-foreground hover:text-foreground"
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         aria-label="Toggle theme"
       >

@@ -20,16 +20,16 @@ export const CustomerHeader = ({ title, description }: CustomerHeaderProps) => {
   return (
     <div className="flex flex-col gap-4 pb-1">
       <div className="flex flex-col gap-1">
-        <h1 className="text-foreground text-2xl font-bold tracking-tight">
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
           {title}
         </h1>
         {description && (
-          <p className="text-muted-foreground text-sm">{description}</p>
+          <p className="text-sm text-muted-foreground">{description}</p>
         )}
       </div>
 
       {/* Segmented active page navigations */}
-      <div className="border-border/60 flex items-center gap-2 border-b pb-3">
+      <div className="flex items-center gap-2 border-b border-border/60 pb-3">
         <Button
           asChild
           variant={isDirectoryActive ? "default" : "outline"}

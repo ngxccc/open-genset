@@ -53,9 +53,9 @@ export const QuoteFinancialSummary = ({
 
       <CardContent size="dense" className="space-y-3 text-xs">
         {/* Total Items & Units */}
-        <div className="text-muted-foreground flex items-center justify-between">
+        <div className="flex items-center justify-between text-muted-foreground">
           <span>{t("totalItems")}</span>
-          <span className="text-foreground font-semibold">
+          <span className="font-semibold text-foreground">
             {items.length} {t("lineItemsUnit")} ({totalUnits} {t("unitsCount")})
           </span>
         </div>
@@ -63,7 +63,7 @@ export const QuoteFinancialSummary = ({
         {/* Subtotal */}
         <div className="flex items-center justify-between">
           <span className="text-muted-foreground">{t("subtotal")}</span>
-          <span className="text-foreground text-sm font-semibold">
+          <span className="text-sm font-semibold text-foreground">
             {formatCurrency(subtotal)}
           </span>
         </div>
@@ -73,7 +73,7 @@ export const QuoteFinancialSummary = ({
           <span className="text-muted-foreground">
             {t("vat")} ({vatRate}%)
           </span>
-          <span className="text-foreground font-semibold">
+          <span className="font-semibold text-foreground">
             {formatCurrency(vatAmount)}
           </span>
         </div>
@@ -82,14 +82,14 @@ export const QuoteFinancialSummary = ({
 
         {/* Grand Total */}
         <div className="flex items-baseline justify-between pt-1">
-          <span className="text-foreground text-sm font-bold">
+          <span className="text-sm font-bold text-foreground">
             {t("grandTotal")}
           </span>
           <div className="text-right">
-            <span className="text-primary block text-lg font-bold">
+            <span className="block text-lg font-bold text-primary">
               {formatCurrency(grandTotal)}
             </span>
-            <span className="text-muted-foreground text-[10px]">
+            <span className="text-[10px] text-muted-foreground">
               {t("vatInclusiveNotice")}
             </span>
           </div>
@@ -126,7 +126,7 @@ export const QuoteFinancialSummary = ({
               resetDraft();
             }
           }}
-          className="text-muted-foreground hover:text-destructive w-full gap-1.5 text-xs"
+          className="w-full gap-1.5 text-xs text-muted-foreground hover:text-destructive"
         >
           <RotateCcw className="h-3.5 w-3.5" />
           {t("resetDraftButton")}

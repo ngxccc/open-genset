@@ -49,7 +49,7 @@ export const CommercialTermsEditor = () => {
               htmlFor="validityDays"
               className="flex items-center gap-1.5 text-xs font-semibold"
             >
-              <Calendar className="text-muted-foreground h-3.5 w-3.5" />
+              <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
               {t("composer.terms.validityLabel")}
             </Label>
             <div className="flex items-center gap-2">
@@ -69,7 +69,7 @@ export const CommercialTermsEditor = () => {
                 }
                 className="h-9 w-24 text-center font-medium"
               />
-              <span className="text-muted-foreground text-xs">
+              <span className="text-xs text-muted-foreground">
                 {t("composer.terms.daysUnit")}
               </span>
             </div>
@@ -81,7 +81,7 @@ export const CommercialTermsEditor = () => {
               htmlFor="vatRate"
               className="flex items-center gap-1.5 text-xs font-semibold"
             >
-              <CreditCard className="text-muted-foreground h-3.5 w-3.5" />
+              <CreditCard className="h-3.5 w-3.5 text-muted-foreground" />
               {t("composer.terms.vatLabel")}
             </Label>
             <div className="flex items-center gap-2">
@@ -98,7 +98,7 @@ export const CommercialTermsEditor = () => {
                 }
                 className="h-9 w-24 text-center font-medium"
               />
-              <span className="text-muted-foreground text-xs">%</span>
+              <span className="text-xs text-muted-foreground">%</span>
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@ export const CommercialTermsEditor = () => {
             htmlFor="paymentSchedule"
             className="flex items-center gap-1.5 text-xs font-semibold"
           >
-            <CreditCard className="text-muted-foreground h-3.5 w-3.5" />
+            <CreditCard className="h-3.5 w-3.5 text-muted-foreground" />
             {t("composer.terms.paymentLabel")}
           </Label>
           <Input
@@ -129,7 +129,7 @@ export const CommercialTermsEditor = () => {
             htmlFor="warrantyTerms"
             className="flex items-center gap-1.5 text-xs font-semibold"
           >
-            <ShieldCheck className="text-muted-foreground h-3.5 w-3.5" />
+            <ShieldCheck className="h-3.5 w-3.5 text-muted-foreground" />
             {t("composer.terms.warrantyLabel")}
           </Label>
           <Input
@@ -150,7 +150,7 @@ export const CommercialTermsEditor = () => {
               htmlFor="deliveryTime"
               className="flex items-center gap-1.5 text-xs font-semibold"
             >
-              <Truck className="text-muted-foreground h-3.5 w-3.5" />
+              <Truck className="h-3.5 w-3.5 text-muted-foreground" />
               {t("composer.terms.deliveryTimeLabel")}
             </Label>
             <Input
@@ -169,7 +169,7 @@ export const CommercialTermsEditor = () => {
               htmlFor="deliveryLocation"
               className="flex items-center gap-1.5 text-xs font-semibold"
             >
-              <Truck className="text-muted-foreground h-3.5 w-3.5" />
+              <Truck className="h-3.5 w-3.5 text-muted-foreground" />
               {t("composer.terms.deliveryLocationLabel")}
             </Label>
             <Input
@@ -190,7 +190,7 @@ export const CommercialTermsEditor = () => {
             htmlFor="note"
             className="flex items-center gap-1.5 text-xs font-semibold"
           >
-            <FileSignature className="text-muted-foreground h-3.5 w-3.5" />
+            <FileSignature className="h-3.5 w-3.5 text-muted-foreground" />
             {t("composer.terms.notesLabel")}
           </Label>
           <Textarea
