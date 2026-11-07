@@ -1,0 +1,107 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.next/**",
+    ".*/**",
+    "!/.github/**",
+    "backend/src/generated/**",
+    "backend/test/generated/**",
+    "admin/src/components/ui/**",
+    "storefront/src/components/ui/**",
+    "**/api-schema.d.ts",
+    "**/api-enums.ts",
+    "scripts/**",
+    "packages/shared/**"
+  ],
+  "plugins": ["typescript", "import", "unicorn"],
+  "env": {
+    "node": true,
+    "builtin": true
+  },
+  "options": {
+    "typeAware": true
+  },
+  "extends": [
+    "./node_modules/oxlint-config-presets/@typescript-eslint/recommended-type-checked.json",
+    "./node_modules/oxlint-config-presets/@typescript-eslint/stylistic-type-checked.json"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "typescript/no-explicit-any": "error",
+    "typescript/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "typescript/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": {
+          "attributes": false
+        }
+      }
+    ],
+    "typescript/no-extraneous-class": [
+      "error",
+      {
+        "allowWithDecorator": true
+      }
+    ],
+    "typescript/no-empty-object-type": "error",
+    "typescript/no-deprecated": "error",
+    "typescript/no-unnecessary-condition": "error",
+    "typescript/no-unsafe-type-assertion": "off",
+    "typescript/consistent-type-definitions": "off",
+    "typescript/consistent-return": "off",
+    "typescript/prefer-regexp-exec": "off",
+    "typescript/no-useless-default-assignment": "off",
+    "typescript/no-misused-spread": "off",
+    "typescript/no-unnecessary-type-arguments": "off",
+    "typescript/no-unnecessary-type-conversion": "off",
+    "typescript/unbound-method": "off",
+    "unicorn/consistent-function-scoping": "off",
+    "unicorn/no-thenable": "off",
+    "unicorn/no-array-sort": "off",
+    "unicorn/require-module-specifiers": "off",
+    "import/no-unassigned-import": "off",
+    "import/no-cycle": "off",
+    "eslint/no-shadow": "off",
+    "eslint/no-underscore-dangle": "off",
+    "eslint/no-new": "off",
+    "eslint/no-unsafe-optional-chaining": "off"
+  },
+  "overrides": [
+    {
+      "files": ["admin/**", "storefront/**"],
+      "env": {
+        "browser": true,
+        "node": true
+      }
+    },
+    {
+      "files": [
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "backend/test/**"
+      ],
+      "rules": {
+        "typescript/no-explicit-any": "off",
+        "typescript/no-unsafe-assignment": "off",
+        "typescript/no-unsafe-member-access": "off",
+        "typescript/no-unsafe-call": "off",
+        "typescript/no-unsafe-argument": "off",
+        "typescript/no-unsafe-return": "off",
+        "typescript/no-unsafe-type-assertion": "off"
+      }
+    }
+  ]
+}

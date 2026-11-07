@@ -3,6 +3,7 @@ import { configs as tseslint } from "typescript-eslint";
 import { importX } from "eslint-plugin-import-x";
 import globals from "globals";
 import eslintConfigPrettier from "eslint-config-prettier";
+import oxlint from "eslint-plugin-oxlint";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig(
@@ -94,4 +95,5 @@ export default defineConfig(
   },
 
   eslintConfigPrettier,
+  ...oxlint.configs["flat/recommended"],
 );
